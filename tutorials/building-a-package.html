@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+
+<html lange="en">
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <title>CoApp - How to Build a Package</title>
+    <meta name="description" content="">
+    <meta name="author" content="CoApp Project">
+
+    <meta property="og:title" content="CoApp - How to Build a Package"/>
+    
+        <meta property="og:type" content="article"/>
+    
+    <meta property="og:image" content="http://coapp.org/images/logo-small.png"/>
+    <meta property="og:url" content="http://coapp.org/tutorials/building-a-package.html"/>
+    <meta property="og:site_name" content="CoApp"/>
+    <meta property="og:admins" content="CoApp - fearthecowboy"/>
+
+    <meta name="docid" content="undefined" />
+    <meta name="srclocation" content="https://github.com/coapp/coapp.org/blob/master/src/dynamic/tutorials/building-a-package.html.md" />
+
+    <!-- Icons -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+    <!-- Shims: IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script async src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Styles -->
+    <link href="/styles/style.css" rel="stylesheet"/>
+    <link href="/styles/prettify.css" rel="stylesheet"/>
+    <link href="/styles/mediaelementplayer.min.css" rel="stylesheet"  />
+    
+</head>
+<body >
+    
+    <!-- Scripts -->
+    <script src="/scripts/jquery-1.6.4.min.js"></script>
+    <script src="/scripts/prettify.js"></script>
+    <script src="/scripts/jquery.tweet.js"></script>
+    <script src="/scripts/mediaelement-and-player.js"></script>
+    <script src="/scripts/bootstrap/bootstrap-dropdown.js"></script>
+    <div id="fb-root"></div>
+      <script type="text/javascript">
+      (function() {
+        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+        po.src = 'https://apis.google.com/js/plusone.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+      })();
+      </script>
+      <script type="text/javascript">
+      (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-15630590-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    <script>
+        // $('#topbar').dropdown();
+    </script>
+    <!-- Markup -->
+    <div class="topbar" data-dropdown="dropdown">
+        <div class="fill">
+            <div class="container-fluid">
+                <h3><a href="/index.html"><image style="margin:0; padding:0; position:absolute; top:2px; left:-2px;" src="/images/logo-small_32x32.png"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CoApp</a></h3>
+                <ul>
+                      
+                        
+                        <li typeof="sioc:Page" about="/pages/news.html" class="">
+                            <a href="/pages/news.html" property="dc:title">News</a>
+                        </li>
+
+                        
+                      
+                        
+                        <li typeof="sioc:Page" about="/pages/releases.html" class="">
+                            <a href="/pages/releases.html" property="dc:title">Releases</a>
+                        </li>
+
+                        
+                      
+                        
+                        <li typeof="sioc:Page" about="/pages/tutorials.html" class="">
+                            <a href="/pages/tutorials.html" property="dc:title">Tutorials</a>
+                        </li>
+
+                        
+                      
+                        
+                        <li typeof="sioc:Page" about="/pages/reference.html" class="">
+                            <a href="/pages/reference.html" property="dc:title">Reference</a>
+                        </li>
+
+                        
+                      
+                        
+                        <li typeof="sioc:Page" about="/pages/about.html" class="">
+                            <a href="/pages/about.html" property="dc:title">About</a>
+                        </li>
+
+                        
+                    
+                </ul>
+                
+                
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+    <div class="container-fluid pushdown">
+        <div class="sidebar">
+            
+        </div> 
+        <section id="content" class="content">
+        <div class="spanonethird rightsidebox" > <!-- float:right; display: inline; veritical-align:top; -->
+            
+                
+                    <h2>Documentation Sprint</h2>
+
+<p>We're starting a documentation phase right now, since there's so much that people <em>can</em> do, but there's little documentation. </p>
+
+<p>Keep checking back daily to see what's new! </p>
+                
+                    <h4><u>In the twittersphere...</u></h4> 
+
+<p><div class="tweet"></div></p> 
+
+<div style="text-align: right;    "> 
+    <br> 
+    <a class="btn info" href="http://search.twitter.com/search?q=&ands=CoAppCommits&phrase=&ors=&nots=&tag=&lang=all&from=&to=&ref=&near=&within=15&units=mi&since=&until=&rpp=15" > 
+    Read more</a> <br><br><br></div> 
+
+<script type="text/javascript">  
+$(document).ready(function(){ 
+        $(".tweet").tweet({ 
+            query: "CoAppCommits", 
+
+            avatar_size: 48, 
+            count: 5, 
+
+            loading_text: "loading tweets...", 
+            refresh_interval: 60 
+        }); 
+    }); 
+</script>
+                
+            
+        </div> 
+            <div class="spantwothirds">
+            
+
+
+<span style="display:inline-block;">
+    <h1>How to Build a Package</h1>
+    <h4>Version:1.0</h4>
+</span>
+<span style="display:inline-block; float:right;">
+    <br><br>
+    <span style="margin-top:8px; height;100%; display:inline-block; "><g:plusone href="http://coapp.org/tutorials/building-a-package.html"></g:plusone></span>
+    <div class="fb-like" style="top:-5px;" data-href="http://coapp.org/tutorials/building-a-package.html" data-layout="button_count" data-show-faces="true" data-colorscheme="dark" data-font="tahoma"></div>
+</span>  
+
+<div id="post" class="post">
+    <h2>Overview</h2>
+
+<p>This tutorial tells you how to set up a CoApp build environment and how to create NuGet packages for your libraries and other software components.</p>
+
+<h3 id="Requirements">Requirements</h3>
+
+<p>The requirements to produce native NuGet packages using CoApp are as follows:</p>
+
+<ul>
+<li>Windows Vista, Windows 7, or Windows 8
+<ul><li>You need these or later versions of Windows because you need Visual Studio 2012 and PowerShell 3.0</li></ul></li>
+<li>Visual Studio 2012 or 2010 </li>
+<li>PowerShell 3.0 
+<ul><li>Windows 8 - Installed by default</li>
+<li>Windows 7 or Windows Vista - Install from <a href='http://www.microsoft.com/en-us/download/details.aspx?id=34595'>http://www.microsoft.com/en-us/download/details.aspx?id=34595</a></li></ul></li>
+<li>NuGet 2.5 or later <br />
+<ul><li>2.5 Release Candidate : <a href='https://nuget.codeplex.com/releases/view/104451'>https://nuget.codeplex.com/releases/view/104451</a></li>
+<li>Install the Visual Studio Integration component (V6)</li></ul></li>
+<li>CoApp PowerShell Tools
+<ul><li>Beta : <a href='http://downloads.coapp.org/files/CoApp.Tools.Powershell.msi'>http://downloads.coapp.org/files/CoApp.Tools.Powershell.msi</a></li></ul></li>
+<li>Optional:
+<ul><li>Notepad++ : <a href='http://notepad-plus-plus.org/download/v6.3.2.html'>http://notepad-plus-plus.org/download/v6.3.2.html</a></li>
+<li>Language File : <a href='http://downloads.coapp.org/files/autopackage.xml'>http://downloads.coapp.org/files/autopackage.xml</a></li></ul></li>
+</ul>
+
+<h3>AutoPackage</h3>
+
+<p>AutoPackage is the CoApp tool you use to create native NuGet packages.  You get AutoPackage when you install the "CoApp PowerShell Tools" described above in <a href="#Requirements">Requirements</a>.  AutoPackage is a PowerShell module.  It contains Powershell cmdlets that you can use from either the command line or batch files.  The primary cmdlet used in this tutorial is:</p>
+
+
+<p>
+<div class="highlight"><pre>    <span class="nb">Write-NuGetPackage</span>
+</pre></div>
+
+<p>
+
+<h3>Installing the package</h3>
+
+<p>Installation is simple -- as long as you have PowerShell 3.0 installed, just download and run the <a href="/web/20141228081145/http://downloads.coapp.org/files/CoApp.Tools.Powershell.msi">CoApp PowerShell tools MSI installer</a>.</p>
+
+<div class="alert-message block-message success">
+    <p><b>First Time Installation Issue</b><br/>
+    One quick issue: When the installer runs the first time, Windows Installer doesn't always refresh the environment variables like it should.
+
+    To make sure that the <code>PSMODULEPATH</code> environment variable is correctly set for new PowerShell console Windows, you either have to: reboot,<br><br>
+
+    <b>Or,</b> force Explorer.EXE to reload the environment, (and thereby avoiding a reboot) by opening a PowerShell console and running the following:
+
+    <div style="white-space: pre; line-height: 1; background: #FFFFFF; "><span style="font-family: Consolas;font-size: 10pt;color: #008000;"># Forces Explorer.exe to realize the environment has changed.</span><span style="font-family: Consolas;font-size: 10pt;color: #000000;">
+</span><span style="font-family: Consolas;font-size: 10pt;color: #000000; font-weight: bold;color: #000080;">[</span><span style="font-family: Consolas;font-size: 10pt;color: #000000;">System</span><span style="font-family: Consolas;font-size: 10pt;color: #000000; font-weight: bold;color: #000080;">.</span><span style="font-family: Consolas;font-size: 10pt;color: #000000;">Environment</span><span style="font-family: Consolas;font-size: 10pt;color: #000000; font-weight: bold;color: #000080;">]::</span><span style="font-family: Consolas;font-size: 10pt;color: #000000;">SetEnvironmentVariable</span><span style="font-family: Consolas;font-size: 10pt;color: #000000; font-weight: bold;color: #000080;">(</span><span style="font-family: Consolas;font-size: 10pt;color: #808080;">"PSMODULEPATH"</span><span style="font-family: Consolas;font-size: 10pt;color: #000000; font-weight: bold;color: #000080;">,</span><span style="font-family: Consolas;font-size: 10pt;color: #000000;"> </span><span style="font-family: Consolas;font-size: 10pt;color: #000000; font-weight: bold;color: #000080;">[</span><span style="font-family: Consolas;font-size: 10pt;color: #000000;">System</span><span style="font-family: Consolas;font-size: 10pt;color: #000000; font-weight: bold;color: #000080;">.</span><span style="font-family: Consolas;font-size: 10pt;color: #000000;">Environment</span><span style="font-family: Consolas;font-size: 10pt;color: #000000; font-weight: bold;color: #000080;">]::</span><span style="font-family: Consolas;font-size: 10pt;color: #000000;">GetEnvironmentVariable</span><span style="font-family: Consolas;font-size: 10pt;color: #000000; font-weight: bold;color: #000080;">(</span><span style="font-family: Consolas;font-size: 10pt;color: #808080;">"PSMODULEPATH"</span><span style="font-family: Consolas;font-size: 10pt;color: #000000; font-weight: bold;color: #000080;">,</span><span style="font-family: Consolas;font-size: 10pt;color: #000000;"> </span><span style="font-family: Consolas;font-size: 10pt;color: #808080;">"User"</span><span style="font-family: Consolas;font-size: 10pt;color: #000000; font-weight: bold;color: #000080;">)</span><span style="font-family: Consolas;font-size: 10pt;color: #000000;"> </span><span style="font-family: Consolas;font-size: 10pt;color: #000000; font-weight: bold;color: #000080;">,</span><span style="font-family: Consolas;font-size: 10pt;color: #000000;"> </span><span style="font-family: Consolas;font-size: 10pt;color: #808080;">"User"</span><span style="font-family: Consolas;font-size: 10pt;color: #000000; font-weight: bold;color: #000080;">)</span></div>
+    <br>Then, close that PowerShell Window, and open a new one. 
+    <br>This step is not needed on updates.
+
+    <br><br>Once we switch to using the CoApp package manager to ship the tools, this issue will go away.
+    </p>
+</div>
+
+<h3>Updating the tools to the latest version</h3>
+
+<p>Once you have the CoApp PowerShell tools installed, you can update to the latest stable version:</p>
+
+
+<p>
+<div class="highlight"><pre><span class="nb">Update-CoAppTools</span> <span class="n">-KillPowershells</span>
+</pre></div>
+
+<p>
+
+<p>Or update to the latest beta version:</p>
+
+
+<p>
+<div class="highlight"><pre><span class="nb">Update-CoAppTools</span> <span class="n">-KillPowershells</span> <span class="n">-Beta</span>
+</pre></div>
+
+<p>
+
+<h3>AutoPackage Scripts (.autopkg)</h3>
+
+<p>Input to Write-NuGetPackage is an AutoPackage script that you must provide.  AutoPackage scripts are written in a 'PropertySheet' domain-specific language similar to <a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets">Cascading Style Sheets</a>.  Refer to the <a href="http://www.coapp.org/reference/packagescript.html">AutoPackage Script Format</a> in the Reference tab of <a href="http://www.coapp.org/pages/reference.html">CoApp.org</a> for a complete description of AutoPackage scripts.</p>
+
+<p>Together, AutoPackage and AutoPackage scripts greatly simplify the package creation process by handling most of the complexity involved.  The package creation process using AutoPackage is developer friendly and requires <em>no</em> XML file editing.</p>
+
+<h2>A Tutorial - Packaging the C++ REST SDK</h2>
+
+<p>The C++ REST SDK provides a good example to demonstate the packaging process using CoApp.  First step is to download and unpack the source code for the SDK, which you can find at </p>
+
+<pre><code><a href='http://downloads.coapp.org/files/CPP_Rest_SDK_Example.zip'>http://downloads.coapp.org/files/CPP_Rest_SDK_Example.zip</a> </code></pre>
+
+<p>When you've finished the unpacking process, you'll see that the SDK comes in three variants one each for Visual Studio 2010, Visual Studio 2012 and the Windows Store Apps.</p>
+
+
+<p>
+<div class="highlight"><pre>C:\project&gt; dir
+
+    Directory of C:\project
+
+04/22/2013  02:05 PM    &lt;DIR&gt;          CppRESTWindowsSDK
+04/22/2013  02:05 PM    &lt;DIR&gt;          Microsoft Cpp REST SDK for VS 2010
+04/22/2013  02:05 PM    &lt;DIR&gt;          Microsoft Cpp REST SDK for VS 2012
+</pre></div>
+
+<p>
+
+<p>Traverse down any of the variants and you'll find large numbers of header and library files.  AutoPackage's reason for being is to manage all of these components for you during the packaging process.</p>
+
+<h3>Creating the AutoPackage Script</h3>
+
+<p>The first thing we need to do is create the AutoPackage script.  Use your editor and begin with two simple nodes.  First the <em>nuget</em> node.  This is our high-level node that defines everything we put into our NuGet package.  The second is the <em>nuspec</em> node.  <em>Nuspec</em> is the designation that the NuGet project uses to specify all of the metadata needed to build and manage a package.</p>
+
+
+<p>
+<div class="highlight"><pre><span class="nt">nuget</span><span class="p">{</span>
+    <span class="n">nuspec</span>{
+
+    <span class="p">}</span>
+}
+</pre></div>
+
+<p>
+
+<h4>Nuspec Metadata</h4>
+
+<p>Now, let's begin filling in the metadata we need to define for the project. First we need to include basic information including identification (name, version), links (project, license, etc), description, summary, icon, and so on.</p>
+
+
+<p>
+<div class="highlight"><pre>    <span class="nt">nuspec</span> <span class="p">{</span>
+        <span class="n">id</span> <span class="o">=</span> <span class="n">cpprestsdk</span><span class="p">;</span>
+        <span class="n">version</span> <span class="o">:</span> <span class="m">0</span><span class="o">.</span><span class="m">6</span><span class="o">.</span><span class="m">0</span><span class="o">.</span><span class="m">7</span><span class="p">;</span>
+        <span class="n">title</span><span class="o">:</span> C<span class="o">++</span> <span class="n">REST</span> <span class="n">SDK</span><span class="p">;</span>
+        <span class="n">authors</span><span class="o">:</span> {<span class="n">Microsoft</span> <span class="n">Corporation</span><span class="p">}</span><span class="o">;</span>
+        <span class="nt">owners</span><span class="o">:</span> <span class="p">{</span><span class="n">CoApp</span> <span class="n">Project</span><span class="o">,</span> <span class="n">Garrett</span> <span class="n">Serack</span><span class="p">}</span><span class="o">;</span>
+        <span class="nt">licenseUrl</span><span class="o">:</span> <span class="s2">&quot;http://www.apache.org/licenses/LICENSE-2.0&quot;</span><span class="o">;</span>
+        <span class="nt">projectUrl</span><span class="o">:</span> <span class="s2">&quot;https://casablanca.codeplex.com/&quot;</span><span class="o">;</span>
+        <span class="nt">iconUrl</span><span class="o">:</span> <span class="s2">&quot;https://download-codeplex.sec.s-msft.com/Download?ProjectName=casablanca&amp;DownloadId=630102&amp;Build=20425&quot;</span><span class="o">;</span>
+        <span class="nt">requireLicenseAcceptance</span><span class="nd">:false</span><span class="o">;</span>
+        <span class="nt">summary</span><span class="nd">:Casablanca</span> <span class="nt">is</span> <span class="nt">your</span> <span class="nt">toolbox</span> <span class="nt">for</span> <span class="nt">accessing</span> <span class="nt">and</span> <span class="nt">authoring</span> <span class="nt">connected</span> <span class="nt">applications</span> <span class="nt">using</span> <span class="nt">modern</span> <span class="nt">C</span><span class="o">++</span> <span class="nt">features</span> <span class="nt">and</span> <span class="nt">best</span> <span class="nt">practices</span><span class="o">.</span> <span class="o">;</span>
+
+        <span class="c">/* if you need to span several lines you can prefix a string with </span>
+<span class="c">         an @ symbol (exactly like c# does). */</span>
+
+        <span class="nt">description</span><span class="o">:</span> <span class="o">@</span><span class="s2">&quot;This library is a Microsoft effort to support cloud-</span>
+<span class="s2">        based client-server communication in native code using a modern </span>
+<span class="s2">        asynchronous C++ API design.</span>
+
+<span class="s2">        The C++ REST SDK (codename &quot;&quot;Casablanca&quot;&quot;) is a project to start </span>
+<span class="s2">        exploring how to best support C++ developers who want to take </span>
+<span class="s2">        advantage of the radical shift in software architecture that cloud </span>
+<span class="s2">        computing represents.</span>
+
+<span class="s2">        This library also gives you a convenient model for composing </span>
+<span class="s2">        asynchronous operations. Whether your application is compute-</span>
+<span class="s2">        intensive or I/O-driven, its scalability is likely to require </span>
+<span class="s2">        careful resource utilization. Asynchronous APIs are great for </span>
+<span class="s2">        scalability, but can be very hard to use when all you have is </span>
+<span class="s2">        C-level functionality. Fortunately, C++ 11 offers a whole new </span>
+<span class="s2">        set of capabilities that can make dealing with asynchronous </span>
+<span class="s2">        operations easy, and the library takes advantage of that throughout.</span>
+<span class="s2">        &quot;</span><span class="o">;</span>
+        <span class="nt">releaseNotes</span><span class="o">:</span> <span class="s2">&quot;Release of C++ Rest SDK 0.6 libraries.&quot;</span><span class="o">;</span>
+        <span class="nt">copyright</span><span class="o">:</span> <span class="nt">Copyright</span> <span class="nt">2013</span><span class="o">;</span>
+        <span class="nt">tags</span><span class="o">:</span> <span class="p">{</span> <span class="n">REST</span><span class="o">,</span> <span class="n">Casablanca</span><span class="o">,</span> <span class="n">native</span><span class="o">,</span> <span class="n">CoApp</span> <span class="p">}</span><span class="o">;</span>
+    }<span class="o">;</span>
+</pre></div>
+
+<p>
+
+<p>A few things are worth noting in this early version of the AutoPackage script.  First, quotes around strings are not necessary unless the string contains a comma or a semicolon. So, the following assignment is a valid alternative to the one in the example:</p>
+
+
+<p>
+<div class="highlight"><pre>    <span class="nt">licenseUrl</span><span class="o">:</span> <span class="nt">http</span><span class="o">://</span><span class="nt">www</span><span class="nc">.apache.org</span><span class="o">/</span><span class="nt">licenses</span><span class="o">/</span><span class="nt">LICENSE-2</span><span class="nc">.0</span><span class="o">;</span>
+</pre></div>
+
+<p>
+
+<p>Second If you need to write a string the extends more than a single line, use the @" .... "; string literal.  And finally, make sure you identify your package as <em>native</em> code as opposed to <em>managed</em> code. You do this by including "native" in the <em>tag</em> node definition as shown in the example.  Making this designation helps users find your libraries more easily.</p>
+
+<h4>Pivots - How to Handle Variations in Packages</h4>
+
+<p>Now that we've defined all of the basic metadata needed for the project, let's look at the complexity that is inherent in creating native packages.  Almost all C/C++ libraries have many flavors depending on a large set of factors, such as the platforms you intend to target, whether you're building a debug or production release, what toolset you're targeting and so on.  The following list shows some of the variables, that we refer to as <em>pivots</em>.</p>
+
+<pre><code>* Platform : x86, x64, Arm ...
+* Configuration : Debug, Release
+* Toolset: VC11, VC10, VC9, ... VC6
+* Linkage: dynamic, static, LTCG, SxS
+* Calling Convention: cdecl, stdcall
+* Application Type: Win8, Win8 phone, Desktop ...
+* Character Set : UTF8, UTF16, Unicode ...  </code></pre>
+
+<p>Let's look at a few of these pivots more closely.  Linkage, for example: you can specify whether you want your output library to be a dynamic link type, which is a popular format, static, which is useful for some things, Link-Time Compiler Generated (LTCG), which is useful for improving performance using Profile-Guided Optimization, or Side-by-Side (SxS).  Calling conventions are used less commonly now, but sometimes libraries are packaged using cdecl, stdcall or both.  Application types include Windows 8 Server, Windows 8 Phone, and a variety of desktops.  The point is, you can define as many pivots as you need to provide the widest usefulness of your packages.</p>
+
+<p>The list of pivots is not a finite set, so AutoPackage is designed to let you define however many nodes you need to cover all the pivots of your particular packages.  Just define all the nodes you need, specify the conditions for each build (i.e., what combination of pivot values to use), and AutoPackage handles everything else.</p>
+
+<p>You can see the commonly handled configurations <a href="http://coapp.org/reference/autopackage-ref.html#Pivots">in the AutoPackage reference</a></p>
+
+<h4>Specifying Package Contents</h4>
+
+<p>The <em>files</em> node is what lets you specify the contents of your packages.  So let's take a look at the AutoPackage script to see where the <em>files</em> node fits in the scheme of things.</p>
+
+
+<p>
+<div class="highlight"><pre><span class="nt">nuget</span><span class="o">(</span>
+    <span class="nt">nuspec</span><span class="p">{</span>
+        <span class="o">...</span>
+    <span class="p">}</span>
+
+    <span class="nt">files</span> <span class="p">{</span>
+        <span class="o">...</span>
+    <span class="p">}</span>
+}
+</pre></div>
+
+<p>
+
+<p>You can see that it resides at the same level as the <em>nuspec</em> node.  Where <em>nuspec</em> specifies the metadata for the NuGet packages, the <em>files</em> node specifies the contents.  Now let's fill in the build variables we want to use to create our C++ REST SDK packages.</p>
+
+<p>The <code>files</code> node is what lets you make sure all of your files are placed in the correct location, for example, all of your header files, all of your binaries, they all need to go into the correct location at the time of build and deployment.</p>
+
+<p>First, we'll define some location macros that will make the script more readable and easier to work with.  With these macros, we're identifying that we want to create packages for the three SDKs supported by C++.  Remember, these are the Windows Store App, the Visual Studio 2010 and the Visual Studio 2012 SDKs.</p>
+
+
+<p>
+<div class="highlight"><pre>    <span class="o">//</span> <span class="nt">the</span> <span class="nt">files</span> <span class="nt">that</span> <span class="nt">go</span> <span class="nt">into</span> <span class="nt">the</span> <span class="nt">content</span> <span class="nt">folders</span>
+    <span class="nt">files</span> <span class="p">{</span>
+
+        <span class="m">#define</span>s {
+            <span class="n">SDK_RT</span>   <span class="o">=</span> <span class="n">CppRESTWindowsSDK</span>\<span class="m">0</span><span class="o">.</span><span class="m">6</span>\<span class="n">redist</span>\<span class="p">;</span>
+            <span class="n">SDK_2010</span> <span class="o">=</span> <span class="n">Microsoft</span> <span class="n">Cpp</span> <span class="n">REST</span> <span class="n">SDK</span> <span class="n">for</span> <span class="n">VS</span> <span class="m">2010</span>\<span class="n">SDK</span>\<span class="p">;</span>
+            <span class="n">SDK_2012</span> <span class="o">=</span> <span class="n">Microsoft</span> <span class="n">Cpp</span> <span class="n">REST</span> <span class="n">SDK</span> <span class="n">for</span> <span class="n">VS</span> <span class="m">2012</span>\<span class="n">SDK</span>\<span class="p">;</span>
+        <span class="p">}</span>
+    }
+</pre></div>
+
+<p>
+
+<p>Now let's gather all of the include files we need to conduct our builds.  With some investigation, you'll see that the include files for all three SDKs are the same, so we only need to specify one of them.</p>
+
+
+<p>
+<div class="highlight"><pre>    <span class="o">//</span> <span class="nt">grab</span> <span class="nt">all</span> <span class="nt">the</span> <span class="nt">files</span> <span class="nt">in</span> <span class="nt">the</span> <span class="nt">include</span> <span class="nt">folder</span>
+    <span class="o">//</span> <span class="nt">the</span> <span class="nt">folder</span> <span class="nt">that</span> <span class="nt">contains</span> <span class="nt">all</span> <span class="nt">the</span> <span class="nc">.h</span> <span class="nt">files</span> <span class="nt">will</span> 
+    <span class="o">//</span> <span class="nt">automatically</span> <span class="nt">get</span> <span class="nt">added</span> <span class="nt">to</span> <span class="nt">the</span> <span class="nt">Includes</span> <span class="nt">path</span><span class="o">.</span>
+    <span class="nt">include</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;${SDK_2010}include\*&quot;</span> <span class="p">}</span><span class="o">;</span>
+</pre></div>
+
+<p>
+
+<p>In this case, all of the header files are located in the <em>include</em> directory itself.  If they had been organized in folders underneath the <em>include</em> directory, you would need to specify this using '**' as shown in the following example:</p>
+
+
+<p>
+<div class="highlight"><pre>    <span class="nt">include</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;${SDK_2010}include\**\*&quot;</span> <span class="p">}</span><span class="o">;</span>
+</pre></div>
+
+<p>
+
+<p>If your project uses header files from multiple locations, you can also specify this in the <em>include</em> node as follows:</p>
+
+
+<p>
+<div class="highlight"><pre>    <span class="nt">include</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;${SDK_2010}include\*&quot;</span><span class="o">,</span> <span class="n">foo</span><span class="o">.</span>h<span class="o">,</span> c<span class="o">:</span>\<span class="n">test</span>\<span class="n">foo</span><span class="o">.</span>h <span class="p">}</span><span class="o">;</span>
+</pre></div>
+
+<p>
+
+<p>However, for this tutorial, none of these additional designations is neccessary.</p>
+
+<p>Now, let's add a node to specify what documentation to include with the release:</p>
+
+
+<p>
+<div class="highlight"><pre>    <span class="o">//</span> <span class="nt">Documents</span> <span class="nt">that</span> <span class="nt">we</span> <span class="nt">want</span> <span class="nt">to</span> <span class="nt">ship</span> <span class="nt">with</span> <span class="nt">the</span> <span class="nt">package</span><span class="o">.</span> 
+    <span class="nt">docs</span><span class="o">:</span> <span class="p">{</span>  <span class="err">${</span><span class="n">SDK_2012</span><span class="p">}</span><span class="nt">license</span><span class="nc">.rtf</span> }<span class="o">;</span>
+</pre></div>
+
+<p>
+
+<p>Next, we need to define the specific conditions for which we want to build. Here's where we return to the concept of <em>pivots</em>. For this example, let's start to build our packages to be deployed on x64 platforms, using the Visual Studio 2010 toolset and let's make our output a "debug" release for the project.  These three conditions are the <em>pivots</em> for our first package.  The following code example shows how to do this.  Note that the variables $(Platform), $(PlatfromToolset), $(Configuration) shown in the initial comment correspond to environment variables used by Visual Studio and are not used directly in this script.</p>
+
+
+<p>
+<div class="highlight"><pre>    <span class="o">//</span> <span class="nt">these</span> <span class="nt">declarations</span> <span class="nt">of</span> <span class="nt">lib</span><span class="o">,</span> <span class="nt">symbols</span> <span class="nt">and</span> <span class="nt">bin</span> <span class="nt">folders</span> <span class="nt">only</span> <span class="nt">apply</span>
+    <span class="o">//</span> <span class="nt">to</span> <span class="nt">the</span> <span class="nt">project</span> <span class="nt">when</span><span class="o">:</span>
+    <span class="o">//</span>        $<span class="o">(</span><span class="nt">Platform</span><span class="o">)</span> <span class="o">==</span> <span class="nt">x64</span>
+    <span class="o">//</span>        $<span class="o">(</span><span class="nt">PlatformToolset</span><span class="o">)</span> <span class="o">==</span> <span class="nt">v100</span> 
+    <span class="o">//</span>        $<span class="o">(</span><span class="nt">Configuration</span><span class="o">)</span> <span class="o">==</span> <span class="nt">Debug</span> 
+    <span class="o">[</span><span class="nt">x64</span><span class="o">,</span><span class="nt">v100</span><span class="o">,</span><span class="nt">debug</span><span class="o">]</span> <span class="p">{</span> 
+        <span class="o">//</span> <span class="n">files</span> <span class="n">in</span> <span class="n">the</span> <span class="n">lib</span> <span class="n">collection</span> <span class="n">are</span> <span class="n">automatically</span> 
+        <span class="o">//</span> <span class="n">added</span> <span class="n">to</span> <span class="n">the</span> <span class="n">AdditionalLibraries</span> <span class="n">in</span> <span class="n">the</span> <span class="n">link</span> <span class="n">stage</span><span class="o">.</span>
+        <span class="n">lib</span><span class="o">:</span> <span class="err">${</span><span class="n">SDK_2010</span><span class="p">}</span><span class="nt">lib</span>\<span class="nt">x64</span>\<span class="nt">Debug</span>\<span class="nt">casablanca100</span><span class="nc">.lib</span><span class="o">;</span>
+
+        <span class="o">//</span> <span class="nt">files</span> <span class="nt">in</span> <span class="nt">the</span> <span class="nt">symbols</span> <span class="nt">collection</span> <span class="nt">are</span> <span class="nt">added</span> <span class="nt">to</span> <span class="nt">the</span> 
+        <span class="o">//</span> <span class="nt">symbols</span> <span class="nt">package</span> 
+        <span class="nt">symbols</span><span class="o">:</span> $<span class="p">{</span><span class="n">SDK_2010</span><span class="p">}</span><span class="nt">bin</span>\<span class="nt">x64</span>\<span class="nt">Debug</span>\<span class="nt">casablanca100</span><span class="nc">.pdb</span><span class="o">;</span>
+
+        <span class="o">//</span> <span class="nt">files</span> <span class="nt">in</span> <span class="nt">the</span> <span class="nt">bin</span> <span class="nt">directory</span> <span class="nt">are</span> <span class="nt">put</span> <span class="nt">in</span> <span class="nt">the</span> <span class="nt">redist</span> <span class="nt">package</span>
+        <span class="o">//</span> <span class="nt">and</span> <span class="nt">copied</span> <span class="nt">to</span> <span class="nt">the</span> <span class="nt">output</span> <span class="nt">folder</span> <span class="nt">at</span> <span class="nt">build</span> <span class="nt">time</span><span class="o">.</span>
+        <span class="nt">bin</span><span class="o">:</span> $<span class="p">{</span><span class="n">SDK_2010</span><span class="p">}</span><span class="nt">bin</span>\<span class="nt">x64</span>\<span class="nt">Debug</span>\<span class="nt">casablanca100</span><span class="nc">.dll</span><span class="o">;</span>
+    }
+</pre></div>
+
+<p>
+
+<p>In the above segment, the conditional statement is defined by the line:</p>
+
+
+<p>
+<div class="highlight"><pre>    <span class="o">[</span><span class="nt">x64</span><span class="o">,</span><span class="nt">v100</span><span class="o">,</span><span class="nt">debug</span><span class="o">]</span>
+</pre></div>
+
+<p>
+
+<p>For this particular configuration, you can then set the locations for where to store the library, symbols and binary files for the package you're creating.  In this example, we're instructing AutoPackage to ensure that the library file <code>${SDK_2010}lib\x64\Debug\casablanca100.lib</code> is stored in the proper lib directory.  The same is true for the symbols file, which can later by uploaded to a symbols server, and the binary DLL file.</p>
+
+<p>Let go ahead now and specify all the remaining configurations for the Visual Studio 2010 family of packages.  This means creating pivots for all the combinations of platforms and releases that can be built by Visual Studio 2010.</p>
+
+
+<p>
+<div class="highlight"><pre>    <span class="o">[</span><span class="nt">x64</span><span class="o">,</span><span class="nt">v100</span><span class="o">,</span><span class="nt">release</span><span class="o">]</span> <span class="p">{</span> 
+        <span class="n">lib</span><span class="o">:</span> <span class="err">${</span><span class="n">SDK_2010</span><span class="p">}</span><span class="nt">lib</span>\<span class="nt">x64</span>\<span class="nt">Release</span>\<span class="nt">casablanca100</span><span class="nc">.lib</span><span class="o">;</span>
+        <span class="nt">symbols</span><span class="o">:</span> $<span class="p">{</span><span class="n">SDK_2010</span><span class="p">}</span><span class="nt">bin</span>\<span class="nt">x64</span>\<span class="nt">Release</span>\<span class="nt">casablanca100</span><span class="nc">.pdb</span><span class="o">;</span>
+        <span class="nt">bin</span><span class="o">:</span> $<span class="p">{</span><span class="n">SDK_2010</span><span class="p">}</span><span class="nt">bin</span>\<span class="nt">x64</span>\<span class="nt">Release</span>\<span class="nt">casablanca100</span><span class="nc">.dll</span><span class="o">;</span>
+    }
+
+    <span class="o">[</span><span class="nt">x86</span><span class="o">,</span><span class="nt">v100</span><span class="o">,</span><span class="nt">debug</span><span class="o">]</span> <span class="p">{</span> 
+        <span class="n">lib</span><span class="o">:</span> <span class="err">${</span><span class="n">SDK_2010</span><span class="p">}</span><span class="nt">lib</span>\<span class="nt">x86</span>\<span class="nt">Debug</span>\<span class="nt">casablanca100</span><span class="nc">.lib</span><span class="o">;</span>
+        <span class="nt">symbols</span><span class="o">:</span> $<span class="p">{</span><span class="n">SDK_2010</span><span class="p">}</span><span class="nt">bin</span>\<span class="nt">x86</span>\<span class="nt">Debug</span>\<span class="nt">casablanca100</span><span class="nc">.pdb</span><span class="o">;</span>
+        <span class="nt">bin</span><span class="o">:</span> $<span class="p">{</span><span class="n">SDK_2010</span><span class="p">}</span><span class="nt">bin</span>\<span class="nt">x86</span>\<span class="nt">Debug</span>\<span class="nt">casablanca100</span><span class="nc">.dll</span><span class="o">;</span>
+    }    
+
+    <span class="o">[</span><span class="nt">x86</span><span class="o">,</span><span class="nt">v100</span><span class="o">,</span><span class="nt">release</span><span class="o">]</span> <span class="p">{</span> 
+        <span class="n">lib</span><span class="o">:</span> <span class="err">${</span><span class="n">SDK_2010</span><span class="p">}</span><span class="nt">lib</span>\<span class="nt">x86</span>\<span class="nt">Release</span>\<span class="nt">casablanca100</span><span class="nc">.lib</span><span class="o">;</span>
+        <span class="nt">symbols</span><span class="o">:</span> $<span class="p">{</span><span class="n">SDK_2010</span><span class="p">}</span><span class="nt">bin</span>\<span class="nt">x86</span>\<span class="nt">Release</span>\<span class="nt">casablanca100</span><span class="nc">.pdb</span><span class="o">;</span>
+        <span class="nt">bin</span><span class="o">:</span> $<span class="p">{</span><span class="n">SDK_2010</span><span class="p">}</span><span class="nt">bin</span>\<span class="nt">x86</span>\<span class="nt">Release</span>\<span class="nt">casablanca100</span><span class="nc">.dll</span><span class="o">;</span>
+    }
+</pre></div>
+
+<p>
+
+<p>Now let's do the same thing for all of the Visual Studio 2012 builds.  Note in these examples that we've added the <em>desktop</em> pivot value which is for desktop (i.e., non-Windows RT) applications.  The difference here is that under Visual Studio 2010, building for Windows RT isn't an option.  The compilations are by default for the desktop.  With Visual Studio 2012, you now have the choice of building for either the desktop or for Windows RT.</p>
+
+
+<p>
+
+<p>
+
+<p>Now that we've covered all of the desktop builds we can do the same for Windows RT, as you can see in the following script segment.</p>
+
+
+<p>
+<div class="highlight"><pre>    <span class="o">[</span><span class="nt">arm</span><span class="o">,</span><span class="nt">v110</span><span class="o">,</span><span class="nt">debug</span><span class="o">,</span><span class="nt">winrt</span><span class="o">]</span> <span class="p">{</span>
+        <span class="n">bin</span><span class="o">:</span> <span class="err">${</span><span class="n">SDK_RT</span><span class="p">}</span><span class="nt">Debug</span>\<span class="nt">arm</span>\<span class="nt">casablanca110</span><span class="nc">.winrt.dll</span><span class="o">;</span>
+        <span class="nt">symbols</span><span class="o">:</span> $<span class="p">{</span><span class="n">SDK_RT</span><span class="p">}</span><span class="nt">Debug</span>\<span class="nt">arm</span>\<span class="nt">casablanca110</span><span class="nc">.winrt.pdb</span><span class="o">;</span>
+        <span class="nt">lib</span><span class="o">:</span>$<span class="p">{</span><span class="n">SDK_2012</span><span class="p">}</span><span class="nt">lib</span>\<span class="nt">arm</span>\<span class="nt">Debug</span>\<span class="nt">casablanca110</span><span class="nc">.winrt.lib</span><span class="o">;</span>
+    }
+
+    <span class="o">[</span><span class="nt">x64</span><span class="o">,</span><span class="nt">v110</span><span class="o">,</span><span class="nt">debug</span><span class="o">,</span><span class="nt">winrt</span><span class="o">]</span> <span class="p">{</span>
+        <span class="n">bin</span><span class="o">:</span><span class="err">${</span><span class="n">SDK_RT</span><span class="p">}</span><span class="nt">Debug</span>\<span class="nt">x64</span>\<span class="nt">casablanca110</span><span class="nc">.winrt.dll</span><span class="o">;</span>
+        <span class="nt">symbols</span><span class="o">:</span>$<span class="p">{</span><span class="n">SDK_RT</span><span class="p">}</span><span class="nt">Debug</span>\<span class="nt">x64</span>\<span class="nt">casablanca110</span><span class="nc">.winrt.pdb</span><span class="o">;</span>
+        <span class="nt">lib</span><span class="o">:</span>$<span class="p">{</span><span class="n">SDK_2012</span><span class="p">}</span><span class="nt">lib</span>\<span class="nt">x64</span>\<span class="nt">Debug</span>\<span class="nt">casablanca110</span><span class="nc">.winrt.lib</span><span class="o">;</span>
+    }
+
+    <span class="o">[</span><span class="nt">x86</span><span class="o">,</span><span class="nt">v110</span><span class="o">,</span><span class="nt">debug</span><span class="o">,</span><span class="nt">winrt</span><span class="o">]</span> <span class="p">{</span>
+        <span class="n">bin</span><span class="o">:</span><span class="err">${</span><span class="n">SDK_RT</span><span class="p">}</span><span class="nt">Debug</span>\<span class="nt">x86</span>\<span class="nt">casablanca110</span><span class="nc">.winrt.dll</span><span class="o">;</span>
+        <span class="nt">symbols</span><span class="o">:</span>$<span class="p">{</span><span class="n">SDK_RT</span><span class="p">}</span><span class="nt">Debug</span>\<span class="nt">x86</span>\<span class="nt">casablanca110</span><span class="nc">.winrt.pdb</span><span class="o">;</span>
+        <span class="nt">lib</span><span class="o">:</span>$<span class="p">{</span><span class="n">SDK_2012</span><span class="p">}</span><span class="nt">lib</span>\<span class="nt">x86</span>\<span class="nt">Debug</span>\<span class="nt">casablanca110</span><span class="nc">.winrt.lib</span><span class="o">;</span>
+    }            
+
+    <span class="o">[</span><span class="nt">arm</span><span class="o">,</span><span class="nt">v110</span><span class="o">,</span><span class="nt">release</span><span class="o">,</span><span class="nt">winrt</span><span class="o">]</span> <span class="p">{</span>
+        <span class="n">bin</span><span class="o">:</span><span class="err">${</span><span class="n">SDK_RT</span><span class="p">}</span><span class="nt">Retail</span>\<span class="nt">arm</span>\<span class="nt">casablanca110</span><span class="nc">.winrt.dll</span><span class="o">;</span>
+        <span class="nt">symbols</span><span class="o">:</span>$<span class="p">{</span><span class="n">SDK_RT</span><span class="p">}</span><span class="nt">Retail</span>\<span class="nt">arm</span>\<span class="nt">casablanca110</span><span class="nc">.winrt.pdb</span><span class="o">;</span>
+        <span class="nt">lib</span><span class="o">:</span>$<span class="p">{</span><span class="n">SDK_2012</span><span class="p">}</span><span class="nt">lib</span>\<span class="nt">arm</span>\<span class="nt">Release</span>\<span class="nt">casablanca110</span><span class="nc">.winrt.lib</span><span class="o">;</span>
+    }
+
+    <span class="o">[</span><span class="nt">x64</span><span class="o">,</span><span class="nt">v110</span><span class="o">,</span><span class="nt">release</span><span class="o">,</span><span class="nt">winrt</span><span class="o">]</span> <span class="p">{</span>
+        <span class="n">bin</span><span class="o">:</span><span class="err">${</span><span class="n">SDK_RT</span><span class="p">}</span><span class="nt">Retail</span>\<span class="nt">x64</span>\<span class="nt">casablanca110</span><span class="nc">.winrt.dll</span><span class="o">;</span>
+        <span class="nt">symbols</span><span class="o">:</span>$<span class="p">{</span><span class="n">SDK_RT</span><span class="p">}</span><span class="nt">Retail</span>\<span class="nt">x64</span>\<span class="nt">casablanca110</span><span class="nc">.winrt.pdb</span><span class="o">;</span>
+        <span class="nt">lib</span><span class="o">:</span>$<span class="p">{</span><span class="n">SDK_2012</span><span class="p">}</span><span class="nt">lib</span>\<span class="nt">x64</span>\<span class="nt">Release</span>\<span class="nt">casablanca110</span><span class="nc">.winrt.lib</span><span class="o">;</span>
+    }
+
+    <span class="o">[</span><span class="nt">x86</span><span class="o">,</span><span class="nt">v110</span><span class="o">,</span><span class="nt">release</span><span class="o">,</span><span class="nt">winrt</span><span class="o">]</span> <span class="p">{</span>
+        <span class="n">bin</span><span class="o">:</span><span class="err">${</span><span class="n">SDK_RT</span><span class="p">}</span><span class="nt">Retail</span>\<span class="nt">x86</span>\<span class="nt">casablanca110</span><span class="nc">.winrt.dll</span><span class="o">;</span>
+        <span class="nt">symbols</span><span class="o">:</span>$<span class="p">{</span><span class="n">SDK_RT</span><span class="p">}</span><span class="nt">Retail</span>\<span class="nt">x86</span>\<span class="nt">casablanca110</span><span class="nc">.winrt.pdb</span><span class="o">;</span>
+        <span class="nt">lib</span><span class="o">:</span>$<span class="p">{</span><span class="n">SDK_2012</span><span class="p">}</span><span class="nt">lib</span>\<span class="nt">x86</span>\<span class="nt">Release</span>\<span class="nt">casablanca110</span><span class="nc">.winrt.lib</span><span class="o">;</span>
+    }
+</pre></div>
+
+<p>
+
+<p>So now we've covered all of the variants we can handle for the set of pivot points: <code>platform</code>, <code>toolset</code>, <code>configuration</code> and <code>target application type</code>. </p>
+
+<p>The final piece we want to add to the file is a <em>targets</em> node.  For now that only includes a definition that can be used later to help software pick up what it actually needs.  This will be covered in a later tutorial, so just include this node for now.</p>
+
+
+<p>
+<div class="highlight"><pre>    <span class="nt">nuget</span><span class="p">{</span>
+        <span class="n">nuspec</span>{
+        <span class="o">...</span>
+        <span class="p">}</span>
+
+        <span class="nt">files</span><span class="p">{</span>
+        <span class="o">...</span>
+        <span class="p">}</span>
+
+        <span class="nt">targets</span> <span class="p">{</span>
+            <span class="o">//</span> <span class="n">We</span><span class="err">&#39;</span><span class="n">re</span> <span class="n">trying</span> <span class="n">to</span> <span class="n">be</span> <span class="n">standard</span> <span class="n">about</span> <span class="n">these</span> <span class="n">sorts</span> <span class="n">of</span> <span class="n">thing</span><span class="o">.</span> 
+            <span class="o">//</span> <span class="p">(</span><span class="n">Will</span> <span class="k">help</span> <span class="n">with</span> <span class="n">config</span><span class="o">.</span>h <span class="n">later</span> <span class="o">:</span>D<span class="p">)</span>
+            <span class="n">Defines</span> <span class="o">+=</span> <span class="n">HAS_CPPRESTSDK</span><span class="p">;</span>
+        <span class="p">}</span>
+    }
+</pre></div>
+
+<p>
+
+<p>This completes creation of the AutoPackage script for the C++ REST SDK packages.</p>
+
+<h4>Producing the Outputs</h4>
+
+<p>In the process we're following for this tutorial, three packages get generated. </p>
+
+<ul>
+<li><code>Main</code> package - contains source files, headers, binaries and is used by developers</li>
+<li><code>Redist</code> package - contains binaries and are used by developers and those who are installing packages</li>
+<li><code>Symbols</code> package - contains symbol information and is used by developers for debugging</li>
+</ul>
+
+<p>To produce the package use the command from a PowerShell prompt:</p>
+
+
+<p>
+<div class="highlight"><pre>    <span class="nb">Write-NuGetPackage</span> <span class="p">.\</span><span class="n">cpprestsdk</span><span class="p">.</span><span class="n">autopkg</span>
+</pre></div>
+
+<p>
+
+<p>where cpprestssdk.autopkg is the script you've just written.  The resulting output follows:</p>
+
+
+<p>
+<div class="highlight"><pre>&gt;C:\project&gt; Write-NuGetPackage .\cpprestsdk.autoconfig
+&gt; Attempting to build package from &#39;cpprestsdk.autoconfig&#39;
+&gt; Successfully created package &#39;C:\project\cpprestsdk.0.6.0.7.nupkg
+&gt; Attempting to build package from &#39;cpprestsdk.redist.nuspec\
+&gt; Successfully created package &#39;C:\project\cpprestsdk.redist.0.6.0.7.nupkg
+&gt;
+&gt; Attempting to build package from &#39;cpprestsdk.symbols.nuspec&#39;
+&gt; Successfully created package &#39;C:\project\cpprestsdk.symbols.0.6.0.7.nupkg
+
+C:\project&gt; dir
+
+04/22/3013  02:05 PM            259769 cpprestsdk.0.6.0.7
+04/22/2013  02:05 PM             5,786 cpprestsdk.autopkg
+04/22/2013  02:05 PM           5260255 cpprestsdk.redist.0.6.0.7.nupkg
+04/22/2013  02:05 PM           6045737 cpprestsdk.symbols.0.6.0.7.nupkg
+04/22/2013  02:05 PM    &lt;DIR&gt;          CppRESTWindowsSDK
+04/22/2013  02:05 PM    &lt;DIR&gt;          Microsoft Cpp REST SDK for VS 2010
+04/22/2013  02:05 PM    &lt;DIR&gt;          Microsoft Cpp REST SDK for VS 2012
+</pre></div>
+
+<p>
+
+<p>These .nupkg files are all just zip file that you can uncompress to see their contents.</p>
+
+<h4>Consuming NuGet Packages</h4>
+
+<p>Consuming NuGet packages from Visual Studio is straightforward:</p>
+
+<p>1) Click on "Manage NuGet References"<br />2) Choose the packages you want to consume<br />3) Start coding</p>
+
+<p>Let's go through the steps together and create a Win32 console application.  Begin by starting a new project in Visual Studio and call it "TestApp."  Now, go to your Solution Explorer on the right-hand side of your screen and open "Manage NuGet References."  You'll only see this if you're running NuGet 2.5 or later as stated in the <a href="#Requirements">Requirements</a> section of this document.</p>
+
+<p><span class="scrollcontainer"><img src="/images/tutorials/menu_item.png" alt="Menu Item" title="" /></span></p>
+
+<p>Go to the online section and have it search different packages sources.  Choose the C++ REST SDK package.  On the right-hand side of your screen, you'll see all of the text we added to the AutoPackage script.</p>
+
+<p><span class="scrollcontainer"><img src="/images/tutorials/manage_packages.png" alt="C++ Rest SDK Package" title="" /></span></p>
+
+<p>Include the package into your project.  You'll see that NuGet handles any dependencies you'll need, in this case the <em>redist</em> package.  Close that window, which will take you back to your coding window.  Next drop the following code into you workspace.  It's the source from one of the examples from the SDK itself.</p>
+
+
+<p>
+<div class="highlight"><pre>    <span class="cm">/***</span>
+<span class="cm">    * ==++==</span>
+<span class="cm">    *</span>
+<span class="cm">    * Copyright (c) Microsoft Corporation. All rights reserved. </span>
+<span class="cm">    * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="cm">    * You may obtain a copy of the License at</span>
+<span class="cm">    * &lt;a href=&#39;http://www.apache.org/licenses/LICENSE-2.0&#39;&gt;http://www.apache.org/licenses/LICENSE-2.0&lt;/a&gt;</span>
+<span class="cm">    * </span>
+<span class="cm">    * Unless required by applicable law or agreed to in writing, software</span>
+<span class="cm">    * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="cm">    * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="cm">    * See the License for the specific language governing permissions and</span>
+<span class="cm">    ** you may not use this file except in compliance with the License.</span>
+<span class="cm">     limitations under the License.</span>
+<span class="cm">    *</span>
+<span class="cm">    * ==--==</span>
+<span class="cm">    * =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+</span>
+<span class="cm">    *</span>
+<span class="cm">    * bingrequest.cpp - Simple cmd line application that makes an HTTP GET request to Bing and outputs</span>
+<span class="cm">    *       the resulting HTML response body into a file.</span>
+<span class="cm">    *</span>
+<span class="cm">    * =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-</span>
+<span class="cm">    ****/</span>
+
+    <span class="cp">#include &lt;httpclient.h&gt;</span>
+    <span class="cp">#include &lt;filestream.h&gt;</span>
+
+    <span class="n">using</span> <span class="n">namespace</span> <span class="n">utility</span><span class="p">;</span>
+    <span class="n">using</span> <span class="n">namespace</span> <span class="n">web</span><span class="o">::</span><span class="n">http</span><span class="p">;</span>
+    <span class="n">using</span> <span class="n">namespace</span> <span class="n">web</span><span class="o">::</span><span class="n">http</span><span class="o">::</span><span class="n">client</span><span class="p">;</span>
+    <span class="n">using</span> <span class="n">namespace</span> <span class="n">concurrency</span><span class="o">::</span><span class="n">streams</span><span class="p">;</span>
+
+    <span class="cp">#ifdef _MS_WINDOWS</span>
+    <span class="kt">int</span> <span class="nf">wmain</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">wchar_t</span> <span class="o">*</span><span class="n">args</span><span class="p">[])</span>
+    <span class="cp">#else</span>
+    <span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">args</span><span class="p">[])</span>
+    <span class="cp">#endif</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">argc</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Usage: BingRequest.exe search_term output_file</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">const</span> <span class="n">string_t</span> <span class="n">searchTerm</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+        <span class="k">const</span> <span class="n">string_t</span> <span class="n">outputFileName</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+
+        <span class="c1">// Open a stream to the file to write the HTTP response body into.</span>
+        <span class="k">auto</span> <span class="n">fileBuffer</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">streambuf</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;&gt;</span><span class="p">();</span>
+        <span class="n">file_buffer</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;::</span><span class="n">open</span><span class="p">(</span><span class="n">outputFileName</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">ios</span><span class="o">::</span><span class="n">out</span><span class="p">)</span>
+            <span class="p">.</span><span class="n">then</span><span class="p">([</span><span class="o">=</span><span class="p">](</span><span class="n">streambuf</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;</span> <span class="n">outFile</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pplx</span><span class="o">::</span><span class="n">task</span><span class="o">&lt;</span><span class="n">httpresponse</span><span class="o">&gt;</span>
+        <span class="p">{</span>
+            <span class="o">*</span><span class="n">fileBuffer</span> <span class="o">=</span> <span class="n">outFile</span><span class="p">;</span> 
+
+            <span class="c1">// Create an HTTP request.</span>
+            <span class="c1">// Encode the URI query since it could contain </span>
+            <span class="c1">// special characters like spaces.</span>
+            <span class="n">httpclient</span> <span class="n">client</span><span class="p">(</span><span class="n">U</span><span class="p">(</span><span class="s">&quot;&lt;a href=&#39;http://www.bing.com/&#39;&gt;http://www.bing.com/&lt;/a&gt;&quot;</span><span class="p">));</span>
+            <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="n">methods</span><span class="o">::</span><span class="n">GET</span><span class="p">,</span> <span class="n">uri_builder</span><span class="p">(</span><span class="n">U</span><span class="p">(</span><span class="s">&quot;/search&quot;</span><span class="p">))</span>
+                <span class="p">.</span><span class="n">append_query</span><span class="p">(</span><span class="n">U</span><span class="p">(</span><span class="s">&quot;q&quot;</span><span class="p">),</span> <span class="n">searchTerm</span><span class="p">).</span><span class="n">to_string</span><span class="p">());</span>
+        <span class="p">})</span>
+
+        <span class="c1">// Write the response body into the file buffer.</span>
+        <span class="p">.</span><span class="n">then</span><span class="p">([</span><span class="o">=</span><span class="p">](</span><span class="n">httpresponse</span> <span class="n">response</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pplx</span><span class="o">::</span><span class="n">task</span><span class="o">&lt;</span><span class="kt">size_t</span><span class="o">&gt;</span>
+        <span class="p">{</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Response status code %u returned.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">response</span><span class="p">.</span><span class="n">status_code</span><span class="p">());</span>
+
+            <span class="k">return</span> <span class="n">response</span><span class="p">.</span><span class="n">body</span><span class="p">().</span><span class="n">read_to_end</span><span class="p">(</span><span class="o">*</span><span class="n">fileBuffer</span><span class="p">);</span>
+        <span class="p">})</span>
+
+        <span class="c1">// Close the file buffer.</span>
+        <span class="p">.</span><span class="n">then</span><span class="p">([</span><span class="o">=</span><span class="p">](</span><span class="kt">size_t</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="n">fileBuffer</span><span class="o">-&gt;</span><span class="n">close</span><span class="p">();</span>
+        <span class="p">})</span>
+
+        <span class="c1">// Wait for the entire response body to be written into the file.</span>
+        <span class="p">.</span><span class="n">wait</span><span class="p">();</span>
+
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+</pre></div>
+
+<p>
+
+<p>Notice that Visual C++ is not complaining about missing references like <code>http_client</code>.  Such references are resolved automatically through external dependencies.  Click on the <em>external dependencies</em> link on the right-hand side of your screen and you see all of the references that have been included from the C++ REST SDK package that we created.  We didn't have to set up anything manually it was all set up by the package itself and it set it up for the conditions under which we are compiling, namely, <code>Win32</code> and <code>debug</code>.  If you have a special set of includes that only works for one set of conditions, they will be there.</p>
+
+<p>Now select <em>Build</em>.  Once your build is complete, <em>cd</em> to the output directory and look at the files.  </p>
+
+<p><span class="scrollcontainer"><img src="/images/tutorials/output_dir_listing.PNG" alt="Menu Item" title="" /></span></p>
+
+<p>You can see the file TestApp.exe and the library <code>casablanca110.dll</code>.  This means that the package did the "right thing" and made sure the appropriage DLL was in our build directory.  That happened because the following line in our AutoPackage script made sure this version of the DLL was properly stored:</p>
+
+
+<p>
+<div class="highlight"><pre>    <span class="nt">bin</span><span class="o">:</span> $<span class="p">{</span><span class="n">SDK_2012</span><span class="p">}</span><span class="nt">bin</span>\<span class="nt">x86</span>\<span class="nt">Debug</span>\<span class="nt">casablanca110</span><span class="nc">.dll</span><span class="o">;</span>
+</pre></div>
+
+<p>
+
+<p>And the next line from our AutoPackage script made sure we linked against the correct library.</p>
+
+
+<p>
+<div class="highlight"><pre>    <span class="nt">lib</span><span class="o">:</span> $<span class="p">{</span><span class="n">SDK_2012</span><span class="p">}</span><span class="nt">lib</span>\<span class="nt">x86</span>\<span class="nt">Debug</span>\<span class="nt">casablanca110</span><span class="nc">.lib</span><span class="o">;</span>
+</pre></div>
+
+<p>
+
+<p>Now, let's test the program.  Enter the command:</p>
+
+
+<p>
+<div class="highlight"><pre>    c:\project&gt; TestApp &quot;coapp&quot; Test.html
+</pre></div>
+
+<p>
+
+<p>This tells TestApp to search for the term "coapp" and store the result in the file <code>Test.html</code>.</p>
+
+<p>Finally, run the command:</p>
+
+
+<p>
+<div class="highlight"><pre>    c:\project&gt; explorer .\Test.html
+</pre></div>
+
+<p>
+
+<pre><code>Show search results </code></pre>
+
+<p>You see that the search results returned by TestApp represent a valid search output that includes CoApp.org and other references to <em>coapp</em> and that the display is being pulled from the file we told TestApp to create, namely <em>Test.html</em>.</p>
+
+<p>This demonstrates that we were able to build, compile, link and run a program all without ever having to look at the Visual Studio project files and without having to modify any of the properties by hand including not having to specify a source directory, library files, or include directories.  All we relied on was the contents of the package and everything worked.</p>
+
+<h4>Looking Under the Covers</h4>
+
+<p>If you're curious you can see how the process works.  Go back to the TestApp directory and cd to the <em>packages</em> directory.  Show its contents, then drill down through the <em>build</em> directory to the <em>native</em> directory.</p>
+
+
+<p>
+<div class="highlight"><pre>C:\project&gt; dir
+
+04/22/3013  02:15 PM            259769 cpprestsdk.0.6.0.7
+04/22/2013  02:15 PM           5260255 cpprestsdk.redist.0.6.0.7
+04/22/2013    02:15 PM             118 repositories.config
+
+C:\project&gt; cd cppreststk.0.6.0.7
+C:\project&gt; dir
+
+04/22/2013    02:15 PM    &lt;DIR&gt;        build
+04/22/3013  02:15 PM            259765 cpprestsdk.0.6.0.7.nupkg
+04/22/2013  02:15 PM              1984 cpprestsdk.0.6.0.7.nuspec
+
+C:\project&gt; cd build
+C:\project&gt; dir
+
+04/22/2013    02:15 PM    &lt;DIR&gt;        native
+04/22/3013  02:15 PM               686 configurations.autopkg
+
+C:\project&gt; cd native
+C:\project&gt; dir
+
+04/22/2013    02:15 PM    &lt;DIR&gt;        docs
+04/22/2013    02:15 PM    &lt;DIR&gt;        include
+04/22/2013    02:15 PM    &lt;DIR&gt;        lib
+04/22/3013  02:15 PM               906 cpprestsdk.properti3sui-01cfd1c2-96fd-43da-94ca07db3a30.xml
+04/22/3013  02:15 PM               527 cpprestsdk.0.6.0.7.props
+04/22/2013  02:15 PM              9679 cpprestsdk.0.6.0.7.targets
+</pre></div>
+
+<p>
+
+<p>Use your editor to look at <em>cpprestsdk.0.6.0.7.targets</em> to see the complexity that AutoPackage has managed for you.</p>
+
+
+<p>
+<div class="highlight"><pre><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="nt">&lt;Project</span>  <span class="na">ToolsVersion=</span><span class="s">&quot;4.0&quot;</span> <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/developer/msbuild/2003&quot;</span> <span class="na">InitialTargets=</span><span class="s">&quot;init&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;PropertyGroup</span>
+    <span class="na">Label=</span><span class="s">&quot;Default initializers for properties&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Linkage-cpprestsdk_redist</span>
+      <span class="na">Condition=</span><span class="s">&quot;&#39;$(Linkage-cpprestsdk_redist)&#39; == &#39;&#39;&quot;</span><span class="nt">&gt;</span>dynamic<span class="nt">&lt;/Linkage-cpprestsdk_redist&gt;</span>
+    <span class="nt">&lt;CallingConvention-cpprestsdk_redist</span>
+      <span class="na">Condition=</span><span class="s">&quot;&#39;$(CallingConvention-cpprestsdk_redist)&#39; == &#39;&#39;&quot;</span><span class="nt">&gt;</span>cdecl<span class="nt">&lt;/CallingConvention-cpprestsdk_redist&gt;</span>
+  <span class="nt">&lt;/PropertyGroup&gt;</span>
+  <span class="nt">&lt;ItemGroup</span>
+    <span class="na">Label=</span><span class="s">&quot;x64 and v100 and Debug&quot;</span>
+    <span class="na">Condition=</span><span class="s">&quot;&#39;$(Platform)&#39; == &#39;x64&#39; And &#39;$(PlatformToolset)&#39; == &#39;v100&#39; And &#39;$(Configuration)&#39; == &#39;Debug&#39;&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;None</span>
+      <span class="na">Include=</span><span class="s">&quot;$(MSBuildThisFileDirectory)..\..\build\native\bin\x64\v100\Debug\casablanca100.dll&quot;</span>
+      <span class="na">Condition=</span><span class="s">&quot;&#39;$(TargetApplicationType)&#39; == &#39;WinRT&#39;&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;DeploymentContent&gt;</span>true<span class="nt">&lt;/DeploymentContent&gt;</span>
+    <span class="nt">&lt;/None&gt;</span>
+  <span class="nt">&lt;/ItemGroup&gt;</span>
+  <span class="nt">&lt;ItemGroup</span>
+    <span class="na">Label=</span><span class="s">&quot;x64 and v100 and Release&quot;</span>
+    <span class="na">Condition=</span><span class="s">&quot;&#39;$(Platform)&#39; == &#39;x64&#39; And &#39;$(PlatformToolset)&#39; == &#39;v100&#39; And &#39;$(Configuration)&#39; == &#39;Release&#39;&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;None</span>
+      <span class="na">Include=</span><span class="s">&quot;$(MSBuildThisFileDirectory)..\..\build\native\bin\x64\v100\Release\casablanca100.dll&quot;</span>
+      <span class="na">Condition=</span><span class="s">&quot;&#39;$(TargetApplicationType)&#39; == &#39;WinRT&#39;&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;DeploymentContent&gt;</span>true<span class="nt">&lt;/DeploymentContent&gt;</span>
+    <span class="nt">&lt;/None&gt;</span>
+  <span class="nt">&lt;/ItemGroup&gt;</span>
+  <span class="nt">&lt;ItemGroup</span>
+    <span class="na">Label=</span><span class="s">&quot;Win32 and v100 and Debug&quot;</span>
+    <span class="na">Condition=</span><span class="s">&quot;&#39;$(Platform)&#39; == &#39;Win32&#39; And &#39;$(PlatformToolset)&#39; == &#39;v100&#39; And &#39;$(Configuration)&#39; == &#39;Debug&#39;&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;None</span>
+      <span class="na">Include=</span><span class="s">&quot;$(MSBuildThisFileDirectory)..\..\build\native\bin\Win32\v100\Debug\casablanca100.dll&quot;</span>
+      <span class="na">Condition=</span><span class="s">&quot;&#39;$(TargetApplicationType)&#39; == &#39;WinRT&#39;&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;DeploymentContent&gt;</span>true<span class="nt">&lt;/DeploymentContent&gt;</span>
+    <span class="nt">&lt;/None&gt;</span>
+  <span class="nt">&lt;/ItemGroup&gt;</span>
+  <span class="nt">&lt;ItemGroup</span>
+    <span class="na">Label=</span><span class="s">&quot;Win32 and v100 and Release&quot;</span>
+    <span class="na">Condition=</span><span class="s">&quot;&#39;$(Platform)&#39; == &#39;Win32&#39; And &#39;$(PlatformToolset)&#39; == &#39;v100&#39; And &#39;$(Configuration)&#39; == &#39;Release&#39;&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;None</span>
+      <span class="na">Include=</span><span class="s">&quot;$(MSBuildThisFileDirectory)..\..\build\native\bin\Win32\v100\Release\casablanca100.dll&quot;</span>
+      <span class="na">Condition=</span><span class="s">&quot;&#39;$(TargetApplicationType)&#39; == &#39;WinRT&#39;&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;DeploymentContent&gt;</span>true<span class="nt">&lt;/DeploymentContent&gt;</span>
+    <span class="nt">&lt;/None&gt;</span>
+  <span class="nt">&lt;/ItemGroup&gt;</span>
+  <span class="nt">&lt;ItemGroup</span>
+    <span class="na">Label=</span><span class="s">&quot;x64 and v110 and Debug and Desktop&quot;</span>
+    <span class="na">Condition=</span><span class="s">&quot;&#39;$(Platform)&#39; == &#39;x64&#39; And &#39;$(PlatformToolset)&#39; == &#39;v110&#39; And &#39;$(Configuration)&#39; == &#39;Debug&#39; And &#39;$(TargetApplicationType)&#39; == &#39;Desktop&#39;&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;None</span>
+      <span class="na">Include=</span><span class="s">&quot;$(MSBuildThisFileDirectory)..\..\build\native\bin\x64\v110\Debug\Desktop\casablanca110.dll&quot;</span>
+      <span class="na">Condition=</span><span class="s">&quot;&#39;$(TargetApplicationType)&#39; == &#39;WinRT&#39;&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;DeploymentContent&gt;</span>true<span class="nt">&lt;/DeploymentContent&gt;</span>
+    <span class="nt">&lt;/None&gt;</span>
+  <span class="nt">&lt;/ItemGroup&gt;</span>
+  <span class="nt">&lt;ItemGroup</span>
+    <span class="na">Label=</span><span class="s">&quot;x64 and v110 and Release and Desktop&quot;</span>
+    <span class="na">Condition=</span><span class="s">&quot;&#39;$(Platform)&#39; == &#39;x64&#39; And &#39;$(PlatformToolset)&#39; == &#39;v110&#39; And &#39;$(Configuration)&#39; == &#39;Release&#39; And &#39;$(TargetApplicationType)&#39; == &#39;Desktop&#39;&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;None</span>
+      <span class="na">Include=</span><span class="s">&quot;$(MSBuildThisFileDirectory)..\..\build\native\bin\x64\v110\Release\Desktop\casablanca110.dll&quot;</span>
+      <span class="na">Condition=</span><span class="s">&quot;&#39;$(TargetApplicationType)&#39; == &#39;WinRT&#39;&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;DeploymentContent&gt;</span>true<span class="nt">&lt;/DeploymentContent&gt;</span>
+    <span class="nt">&lt;/None&gt;</span>
+  <span class="nt">&lt;/ItemGroup&gt;</span>
+  <span class="nt">&lt;ItemGroup</span>
+    <span class="na">Label=</span><span class="s">&quot;Win32 and v110 and Debug and Desktop&quot;</span>
+    <span class="na">Condition=</span><span class="s">&quot;&#39;$(Platform)&#39; == &#39;Win32&#39; And &#39;$(PlatformToolset)&#39; == &#39;v110&#39; And &#39;$(Configuration)&#39; == &#39;Debug&#39; And &#39;$(TargetApplicationType)&#39; == &#39;Desktop&#39;&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;None</span>
+      <span class="na">Include=</span><span class="s">&quot;$(MSBuildThisFileDirectory)..\..\build\native\bin\Win32\v110\Debug\Desktop\casablanca110.dll&quot;</span>
+      <span class="na">Condition=</span><span class="s">&quot;&#39;$(TargetApplicationType)&#39; == &#39;WinRT&#39;&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;DeploymentContent&gt;</span>true<span class="nt">&lt;/DeploymentContent&gt;</span>
+    <span class="nt">&lt;/None&gt;</span>
+  <span class="nt">&lt;/ItemGroup&gt;</span>
+  <span class="nt">&lt;ItemGroup</span>
+    <span class="na">Label=</span><span class="s">&quot;Win32 and v110 and Release and Desktop&quot;</span>
+    <span class="na">Condition=</span><span class="s">&quot;&#39;$(Platform)&#39; == &#39;Win32&#39; And &#39;$(PlatformToolset)&#39; == &#39;v110&#39; And &#39;$(Configuration)&#39; == &#39;Release&#39; And &#39;$(TargetApplicationType)&#39; == &#39;Desktop&#39;&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;None</span>
+      <span class="na">Include=</span><span class="s">&quot;$(MSBuildThisFileDirectory)..\..\build\native\bin\Win32\v110\Release\Desktop\casablanca110.dll&quot;</span>
+      <span class="na">Condition=</span><span class="s">&quot;&#39;$(TargetApplicationType)&#39; == &#39;WinRT&#39;&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;DeploymentContent&gt;</span>true<span class="nt">&lt;/DeploymentContent&gt;</span>
+    <span class="nt">&lt;/None&gt;</span>
+  <span class="nt">&lt;/ItemGroup&gt;</span>
+  <span class="nt">&lt;ItemGroup</span>
+    <span class="na">Label=</span><span class="s">&quot;ARM and v110 and Debug and WinRT&quot;</span>
+    <span class="na">Condition=</span><span class="s">&quot;&#39;$(Platform)&#39; == &#39;ARM&#39; And &#39;$(PlatformToolset)&#39; == &#39;v110&#39; And &#39;$(Configuration)&#39; == &#39;Debug&#39; And &#39;$(TargetApplicationType)&#39; == &#39;WinRT&#39;&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;None</span>
+      <span class="na">Include=</span><span class="s">&quot;$(MSBuildThisFileDirectory)..\..\build\native\bin\ARM\v110\Debug\WinRT\casablanca110.winrt.dll&quot;</span>
+      <span class="na">Condition=</span><span class="s">&quot;&#39;$(TargetApplicationType)&#39; == &#39;WinRT&#39;&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;DeploymentContent&gt;</span>true<span class="nt">&lt;/DeploymentContent&gt;</span>
+    <span class="nt">&lt;/None&gt;</span>
+  <span class="nt">&lt;/ItemGroup&gt;</span>
+  <span class="nt">&lt;ItemGroup</span>
+    <span class="na">Label=</span><span class="s">&quot;x64 and v110 and Debug and WinRT&quot;</span>
+    <span class="na">Condition=</span><span class="s">&quot;&#39;$(Platform)&#39; == &#39;x64&#39; And &#39;$(PlatformToolset)&#39; == &#39;v110&#39; And &#39;$(Configuration)&#39; == &#39;Debug&#39; And &#39;$(TargetApplicationType)&#39; == &#39;WinRT&#39;&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;None</span>
+      <span class="na">Include=</span><span class="s">&quot;$(MSBuildThisFileDirectory)..\..\build\native\bin\x64\v110\Debug\WinRT\casablanca110.winrt.dll&quot;</span>
+      <span class="na">Condition=</span><span class="s">&quot;&#39;$(TargetApplicationType)&#39; == &#39;WinRT&#39;&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;DeploymentContent&gt;</span>true<span class="nt">&lt;/DeploymentContent&gt;</span>
+    <span class="nt">&lt;/None&gt;</span>
+  <span class="nt">&lt;/ItemGroup&gt;</span>
+  <span class="nt">&lt;ItemGroup</span>
+    <span class="na">Label=</span><span class="s">&quot;Win32 and v110 and Debug and WinRT&quot;</span>
+    <span class="na">Condition=</span><span class="s">&quot;&#39;$(Platform)&#39; == &#39;Win32&#39; And &#39;$(PlatformToolset)&#39; == &#39;v110&#39; And &#39;$(Configuration)&#39; == &#39;Debug&#39; And &#39;$(TargetApplicationType)&#39; == &#39;WinRT&#39;&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;None</span>
+      <span class="na">Include=</span><span class="s">&quot;$(MSBuildThisFileDirectory)..\..\build\native\bin\Win32\v110\Debug\WinRT\casablanca110.winrt.dll&quot;</span>
+      <span class="na">Condition=</span><span class="s">&quot;&#39;$(TargetApplicationType)&#39; == &#39;WinRT&#39;&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;DeploymentContent&gt;</span>true<span class="nt">&lt;/DeploymentContent&gt;</span>
+    <span class="nt">&lt;/None&gt;</span>
+  <span class="nt">&lt;/ItemGroup&gt;</span>
+  <span class="nt">&lt;ItemGroup</span>
+    <span class="na">Label=</span><span class="s">&quot;ARM and v110 and Release and WinRT&quot;</span>
+    <span class="na">Condition=</span><span class="s">&quot;&#39;$(Platform)&#39; == &#39;ARM&#39; And &#39;$(PlatformToolset)&#39; == &#39;v110&#39; And &#39;$(Configuration)&#39; == &#39;Release&#39; And &#39;$(TargetApplicationType)&#39; == &#39;WinRT&#39;&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;None</span>
+      <span class="na">Include=</span><span class="s">&quot;$(MSBuildThisFileDirectory)..\..\build\native\bin\ARM\v110\Release\WinRT\casablanca110.winrt.dll&quot;</span>
+      <span class="na">Condition=</span><span class="s">&quot;&#39;$(TargetApplicationType)&#39; == &#39;WinRT&#39;&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;DeploymentContent&gt;</span>true<span class="nt">&lt;/DeploymentContent&gt;</span>
+    <span class="nt">&lt;/None&gt;</span>
+  <span class="nt">&lt;/ItemGroup&gt;</span>
+  <span class="nt">&lt;ItemGroup</span>
+    <span class="na">Label=</span><span class="s">&quot;x64 and v110 and Release and WinRT&quot;</span>
+    <span class="na">Condition=</span><span class="s">&quot;&#39;$(Platform)&#39; == &#39;x64&#39; And &#39;$(PlatformToolset)&#39; == &#39;v110&#39; And &#39;$(Configuration)&#39; == &#39;Release&#39; And &#39;$(TargetApplicationType)&#39; == &#39;WinRT&#39;&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;None</span>
+      <span class="na">Include=</span><span class="s">&quot;$(MSBuildThisFileDirectory)..\..\build\native\bin\x64\v110\Release\WinRT\casablanca110.winrt.dll&quot;</span>
+      <span class="na">Condition=</span><span class="s">&quot;&#39;$(TargetApplicationType)&#39; == &#39;WinRT&#39;&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;DeploymentContent&gt;</span>true<span class="nt">&lt;/DeploymentContent&gt;</span>
+    <span class="nt">&lt;/None&gt;</span>
+  <span class="nt">&lt;/ItemGroup&gt;</span>
+  <span class="nt">&lt;ItemGroup</span>
+    <span class="na">Label=</span><span class="s">&quot;Win32 and v110 and Release and WinRT&quot;</span>
+    <span class="na">Condition=</span><span class="s">&quot;&#39;$(Platform)&#39; == &#39;Win32&#39; And &#39;$(PlatformToolset)&#39; == &#39;v110&#39; And &#39;$(Configuration)&#39; == &#39;Release&#39; And &#39;$(TargetApplicationType)&#39; == &#39;WinRT&#39;&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;None</span>
+      <span class="na">Include=</span><span class="s">&quot;$(MSBuildThisFileDirectory)..\..\build\native\bin\Win32\v110\Release\WinRT\casablanca110.winrt.dll&quot;</span>
+      <span class="na">Condition=</span><span class="s">&quot;&#39;$(TargetApplicationType)&#39; == &#39;WinRT&#39;&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;DeploymentContent&gt;</span>true<span class="nt">&lt;/DeploymentContent&gt;</span>
+    <span class="nt">&lt;/None&gt;</span>
+  <span class="nt">&lt;/ItemGroup&gt;</span>
+  <span class="nt">&lt;Target</span>
+    <span class="na">Name=</span><span class="s">&quot;cpprestsdk_redist_AfterBuild&quot;</span>
+    <span class="na">AfterTargets=</span><span class="s">&quot;AfterBuild&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;Target</span>
+    <span class="na">Name=</span><span class="s">&quot;cpprestsdk_redist_AfterBuild_x64_and_v100_and_Debug&quot;</span>
+    <span class="na">Label=</span><span class="s">&quot;x64 and v100 and Debug&quot;</span>
+    <span class="na">Condition=</span><span class="s">&quot;&#39;$(Platform)&#39; == &#39;x64&#39; And &#39;$(PlatformToolset)&#39; == &#39;v100&#39; And &#39;$(Configuration)&#39; == &#39;Debug&#39;&quot;</span>
+    <span class="na">AfterTargets=</span><span class="s">&quot;cpprestsdk_redist_AfterBuild&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Copy</span>
+      <span class="na">SourceFiles=</span><span class="s">&quot;$(MSBuildThisFileDirectory)..\..\build\native\bin\x64\v100\Debug\casablanca100.dll&quot;</span>
+      <span class="na">DestinationFolder=</span><span class="s">&quot;$(TargetDir)&quot;</span>
+      <span class="na">SkipUnchangedFiles=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/Target&gt;</span>
+  <span class="nt">&lt;Target</span>
+    <span class="na">Name=</span><span class="s">&quot;cpprestsdk_redist_AfterBuild_x64_and_v100_and_Release&quot;</span>
+    <span class="na">Label=</span><span class="s">&quot;x64 and v100 and Release&quot;</span>
+    <span class="na">Condition=</span><span class="s">&quot;&#39;$(Platform)&#39; == &#39;x64&#39; And &#39;$(PlatformToolset)&#39; == &#39;v100&#39; And &#39;$(Configuration)&#39; == &#39;Release&#39;&quot;</span>
+    <span class="na">AfterTargets=</span><span class="s">&quot;cpprestsdk_redist_AfterBuild&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Copy</span>
+      <span class="na">SourceFiles=</span><span class="s">&quot;$(MSBuildThisFileDirectory)..\..\build\native\bin\x64\v100\Release\casablanca100.dll&quot;</span>
+      <span class="na">DestinationFolder=</span><span class="s">&quot;$(TargetDir)&quot;</span>
+      <span class="na">SkipUnchangedFiles=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/Target&gt;</span>
+  <span class="nt">&lt;Target</span>
+    <span class="na">Name=</span><span class="s">&quot;cpprestsdk_redist_AfterBuild_Win32_and_v100_and_Debug&quot;</span>
+    <span class="na">Label=</span><span class="s">&quot;Win32 and v100 and Debug&quot;</span>
+    <span class="na">Condition=</span><span class="s">&quot;&#39;$(Platform)&#39; == &#39;Win32&#39; And &#39;$(PlatformToolset)&#39; == &#39;v100&#39; And &#39;$(Configuration)&#39; == &#39;Debug&#39;&quot;</span>
+    <span class="na">AfterTargets=</span><span class="s">&quot;cpprestsdk_redist_AfterBuild&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Copy</span>
+      <span class="na">SourceFiles=</span><span class="s">&quot;$(MSBuildThisFileDirectory)..\..\build\native\bin\Win32\v100\Debug\casablanca100.dll&quot;</span>
+      <span class="na">DestinationFolder=</span><span class="s">&quot;$(TargetDir)&quot;</span>
+      <span class="na">SkipUnchangedFiles=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/Target&gt;</span>
+  <span class="nt">&lt;Target</span>
+    <span class="na">Name=</span><span class="s">&quot;cpprestsdk_redist_AfterBuild_Win32_and_v100_and_Release&quot;</span>
+    <span class="na">Label=</span><span class="s">&quot;Win32 and v100 and Release&quot;</span>
+    <span class="na">Condition=</span><span class="s">&quot;&#39;$(Platform)&#39; == &#39;Win32&#39; And &#39;$(PlatformToolset)&#39; == &#39;v100&#39; And &#39;$(Configuration)&#39; == &#39;Release&#39;&quot;</span>
+    <span class="na">AfterTargets=</span><span class="s">&quot;cpprestsdk_redist_AfterBuild&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Copy</span>
+      <span class="na">SourceFiles=</span><span class="s">&quot;$(MSBuildThisFileDirectory)..\..\build\native\bin\Win32\v100\Release\casablanca100.dll&quot;</span>
+      <span class="na">DestinationFolder=</span><span class="s">&quot;$(TargetDir)&quot;</span>
+      <span class="na">SkipUnchangedFiles=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/Target&gt;</span>
+  <span class="nt">&lt;Target</span>
+    <span class="na">Name=</span><span class="s">&quot;cpprestsdk_redist_AfterBuild_x64_and_v110_and_Debug_and_Desktop&quot;</span>
+    <span class="na">Label=</span><span class="s">&quot;x64 and v110 and Debug and Desktop&quot;</span>
+    <span class="na">Condition=</span><span class="s">&quot;&#39;$(Platform)&#39; == &#39;x64&#39; And &#39;$(PlatformToolset)&#39; == &#39;v110&#39; And &#39;$(Configuration)&#39; == &#39;Debug&#39; And &#39;$(TargetApplicationType)&#39; == &#39;Desktop&#39;&quot;</span>
+    <span class="na">AfterTargets=</span><span class="s">&quot;cpprestsdk_redist_AfterBuild&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Copy</span>
+      <span class="na">SourceFiles=</span><span class="s">&quot;$(MSBuildThisFileDirectory)..\..\build\native\bin\x64\v110\Debug\Desktop\casablanca110.dll&quot;</span>
+      <span class="na">DestinationFolder=</span><span class="s">&quot;$(TargetDir)&quot;</span>
+      <span class="na">SkipUnchangedFiles=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/Target&gt;</span>
+  <span class="nt">&lt;Target</span>
+    <span class="na">Name=</span><span class="s">&quot;cpprestsdk_redist_AfterBuild_x64_and_v110_and_Release_and_Desktop&quot;</span>
+    <span class="na">Label=</span><span class="s">&quot;x64 and v110 and Release and Desktop&quot;</span>
+    <span class="na">Condition=</span><span class="s">&quot;&#39;$(Platform)&#39; == &#39;x64&#39; And &#39;$(PlatformToolset)&#39; == &#39;v110&#39; And &#39;$(Configuration)&#39; == &#39;Release&#39; And &#39;$(TargetApplicationType)&#39; == &#39;Desktop&#39;&quot;</span>
+    <span class="na">AfterTargets=</span><span class="s">&quot;cpprestsdk_redist_AfterBuild&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Copy</span>
+      <span class="na">SourceFiles=</span><span class="s">&quot;$(MSBuildThisFileDirectory)..\..\build\native\bin\x64\v110\Release\Desktop\casablanca110.dll&quot;</span>
+      <span class="na">DestinationFolder=</span><span class="s">&quot;$(TargetDir)&quot;</span>
+      <span class="na">SkipUnchangedFiles=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/Target&gt;</span>
+  <span class="nt">&lt;Target</span>
+    <span class="na">Name=</span><span class="s">&quot;cpprestsdk_redist_AfterBuild_Win32_and_v110_and_Debug_and_Desktop&quot;</span>
+    <span class="na">Label=</span><span class="s">&quot;Win32 and v110 and Debug and Desktop&quot;</span>
+    <span class="na">Condition=</span><span class="s">&quot;&#39;$(Platform)&#39; == &#39;Win32&#39; And &#39;$(PlatformToolset)&#39; == &#39;v110&#39; And &#39;$(Configuration)&#39; == &#39;Debug&#39; And &#39;$(TargetApplicationType)&#39; == &#39;Desktop&#39;&quot;</span>
+    <span class="na">AfterTargets=</span><span class="s">&quot;cpprestsdk_redist_AfterBuild&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Copy</span>
+      <span class="na">SourceFiles=</span><span class="s">&quot;$(MSBuildThisFileDirectory)..\..\build\native\bin\Win32\v110\Debug\Desktop\casablanca110.dll&quot;</span>
+      <span class="na">DestinationFolder=</span><span class="s">&quot;$(TargetDir)&quot;</span>
+      <span class="na">SkipUnchangedFiles=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/Target&gt;</span>
+  <span class="nt">&lt;Target</span>
+    <span class="na">Name=</span><span class="s">&quot;cpprestsdk_redist_AfterBuild_Win32_and_v110_and_Release_and_Desktop&quot;</span>
+    <span class="na">Label=</span><span class="s">&quot;Win32 and v110 and Release and Desktop&quot;</span>
+    <span class="na">Condition=</span><span class="s">&quot;&#39;$(Platform)&#39; == &#39;Win32&#39; And &#39;$(PlatformToolset)&#39; == &#39;v110&#39; And &#39;$(Configuration)&#39; == &#39;Release&#39; And &#39;$(TargetApplicationType)&#39; == &#39;Desktop&#39;&quot;</span>
+    <span class="na">AfterTargets=</span><span class="s">&quot;cpprestsdk_redist_AfterBuild&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Copy</span>
+      <span class="na">SourceFiles=</span><span class="s">&quot;$(MSBuildThisFileDirectory)..\..\build\native\bin\Win32\v110\Release\Desktop\casablanca110.dll&quot;</span>
+      <span class="na">DestinationFolder=</span><span class="s">&quot;$(TargetDir)&quot;</span>
+      <span class="na">SkipUnchangedFiles=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/Target&gt;</span>
+  <span class="nt">&lt;Target</span>
+    <span class="na">Name=</span><span class="s">&quot;cpprestsdk_redist_AfterBuild_ARM_and_v110_and_Debug_and_WinRT&quot;</span>
+    <span class="na">Label=</span><span class="s">&quot;ARM and v110 and Debug and WinRT&quot;</span>
+    <span class="na">Condition=</span><span class="s">&quot;&#39;$(Platform)&#39; == &#39;ARM&#39; And &#39;$(PlatformToolset)&#39; == &#39;v110&#39; And &#39;$(Configuration)&#39; == &#39;Debug&#39; And &#39;$(TargetApplicationType)&#39; == &#39;WinRT&#39;&quot;</span>
+    <span class="na">AfterTargets=</span><span class="s">&quot;cpprestsdk_redist_AfterBuild&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Copy</span>
+      <span class="na">SourceFiles=</span><span class="s">&quot;$(MSBuildThisFileDirectory)..\..\build\native\bin\ARM\v110\Debug\WinRT\casablanca110.winrt.dll&quot;</span>
+      <span class="na">DestinationFolder=</span><span class="s">&quot;$(TargetDir)&quot;</span>
+      <span class="na">SkipUnchangedFiles=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/Target&gt;</span>
+  <span class="nt">&lt;Target</span>
+    <span class="na">Name=</span><span class="s">&quot;cpprestsdk_redist_AfterBuild_x64_and_v110_and_Debug_and_WinRT&quot;</span>
+    <span class="na">Label=</span><span class="s">&quot;x64 and v110 and Debug and WinRT&quot;</span>
+    <span class="na">Condition=</span><span class="s">&quot;&#39;$(Platform)&#39; == &#39;x64&#39; And &#39;$(PlatformToolset)&#39; == &#39;v110&#39; And &#39;$(Configuration)&#39; == &#39;Debug&#39; And &#39;$(TargetApplicationType)&#39; == &#39;WinRT&#39;&quot;</span>
+    <span class="na">AfterTargets=</span><span class="s">&quot;cpprestsdk_redist_AfterBuild&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Copy</span>
+      <span class="na">SourceFiles=</span><span class="s">&quot;$(MSBuildThisFileDirectory)..\..\build\native\bin\x64\v110\Debug\WinRT\casablanca110.winrt.dll&quot;</span>
+      <span class="na">DestinationFolder=</span><span class="s">&quot;$(TargetDir)&quot;</span>
+      <span class="na">SkipUnchangedFiles=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/Target&gt;</span>
+  <span class="nt">&lt;Target</span>
+    <span class="na">Name=</span><span class="s">&quot;cpprestsdk_redist_AfterBuild_Win32_and_v110_and_Debug_and_WinRT&quot;</span>
+    <span class="na">Label=</span><span class="s">&quot;Win32 and v110 and Debug and WinRT&quot;</span>
+    <span class="na">Condition=</span><span class="s">&quot;&#39;$(Platform)&#39; == &#39;Win32&#39; And &#39;$(PlatformToolset)&#39; == &#39;v110&#39; And &#39;$(Configuration)&#39; == &#39;Debug&#39; And &#39;$(TargetApplicationType)&#39; == &#39;WinRT&#39;&quot;</span>
+    <span class="na">AfterTargets=</span><span class="s">&quot;cpprestsdk_redist_AfterBuild&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Copy</span>
+      <span class="na">SourceFiles=</span><span class="s">&quot;$(MSBuildThisFileDirectory)..\..\build\native\bin\Win32\v110\Debug\WinRT\casablanca110.winrt.dll&quot;</span>
+      <span class="na">DestinationFolder=</span><span class="s">&quot;$(TargetDir)&quot;</span>
+      <span class="na">SkipUnchangedFiles=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/Target&gt;</span>
+  <span class="nt">&lt;Target</span>
+    <span class="na">Name=</span><span class="s">&quot;cpprestsdk_redist_AfterBuild_ARM_and_v110_and_Release_and_WinRT&quot;</span>
+    <span class="na">Label=</span><span class="s">&quot;ARM and v110 and Release and WinRT&quot;</span>
+    <span class="na">Condition=</span><span class="s">&quot;&#39;$(Platform)&#39; == &#39;ARM&#39; And &#39;$(PlatformToolset)&#39; == &#39;v110&#39; And &#39;$(Configuration)&#39; == &#39;Release&#39; And &#39;$(TargetApplicationType)&#39; == &#39;WinRT&#39;&quot;</span>
+    <span class="na">AfterTargets=</span><span class="s">&quot;cpprestsdk_redist_AfterBuild&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Copy</span>
+      <span class="na">SourceFiles=</span><span class="s">&quot;$(MSBuildThisFileDirectory)..\..\build\native\bin\ARM\v110\Release\WinRT\casablanca110.winrt.dll&quot;</span>
+      <span class="na">DestinationFolder=</span><span class="s">&quot;$(TargetDir)&quot;</span>
+      <span class="na">SkipUnchangedFiles=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/Target&gt;</span>
+  <span class="nt">&lt;Target</span>
+    <span class="na">Name=</span><span class="s">&quot;cpprestsdk_redist_AfterBuild_x64_and_v110_and_Release_and_WinRT&quot;</span>
+    <span class="na">Label=</span><span class="s">&quot;x64 and v110 and Release and WinRT&quot;</span>
+    <span class="na">Condition=</span><span class="s">&quot;&#39;$(Platform)&#39; == &#39;x64&#39; And &#39;$(PlatformToolset)&#39; == &#39;v110&#39; And &#39;$(Configuration)&#39; == &#39;Release&#39; And &#39;$(TargetApplicationType)&#39; == &#39;WinRT&#39;&quot;</span>
+    <span class="na">AfterTargets=</span><span class="s">&quot;cpprestsdk_redist_AfterBuild&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Copy</span>
+      <span class="na">SourceFiles=</span><span class="s">&quot;$(MSBuildThisFileDirectory)..\..\build\native\bin\x64\v110\Release\WinRT\casablanca110.winrt.dll&quot;</span>
+      <span class="na">DestinationFolder=</span><span class="s">&quot;$(TargetDir)&quot;</span>
+      <span class="na">SkipUnchangedFiles=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/Target&gt;</span>
+  <span class="nt">&lt;Target</span>
+    <span class="na">Name=</span><span class="s">&quot;cpprestsdk_redist_AfterBuild_Win32_and_v110_and_Release_and_WinRT&quot;</span>
+    <span class="na">Label=</span><span class="s">&quot;Win32 and v110 and Release and WinRT&quot;</span>
+    <span class="na">Condition=</span><span class="s">&quot;&#39;$(Platform)&#39; == &#39;Win32&#39; And &#39;$(PlatformToolset)&#39; == &#39;v110&#39; And &#39;$(Configuration)&#39; == &#39;Release&#39; And &#39;$(TargetApplicationType)&#39; == &#39;WinRT&#39;&quot;</span>
+    <span class="na">AfterTargets=</span><span class="s">&quot;cpprestsdk_redist_AfterBuild&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Copy</span>
+      <span class="na">SourceFiles=</span><span class="s">&quot;$(MSBuildThisFileDirectory)..\..\build\native\bin\Win32\v110\Release\WinRT\casablanca110.winrt.dll&quot;</span>
+      <span class="na">DestinationFolder=</span><span class="s">&quot;$(TargetDir)&quot;</span>
+      <span class="na">SkipUnchangedFiles=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/Target&gt;</span>
+  <span class="nt">&lt;UsingTask</span>
+    <span class="na">TaskName=</span><span class="s">&quot;cpprestsdk_redist_Contains&quot;</span>
+    <span class="na">AssemblyFile=</span><span class="s">&quot;$(MSBuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll&quot;</span>
+    <span class="na">TaskFactory=</span><span class="s">&quot;CodeTaskFactory&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;ParameterGroup&gt;</span>
+      <span class="nt">&lt;Text</span>
+        <span class="na">Output=</span><span class="s">&quot;false&quot;</span>
+        <span class="na">ParameterType=</span><span class="s">&quot;System.String&quot;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;Library</span>
+        <span class="na">Output=</span><span class="s">&quot;false&quot;</span>
+        <span class="na">Required=</span><span class="s">&quot;true&quot;</span>
+        <span class="na">ParameterType=</span><span class="s">&quot;System.String&quot;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;Value</span>
+        <span class="na">Output=</span><span class="s">&quot;false&quot;</span>
+        <span class="na">Required=</span><span class="s">&quot;true&quot;</span>
+        <span class="na">ParameterType=</span><span class="s">&quot;System.String&quot;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;Result</span>
+        <span class="na">Output=</span><span class="s">&quot;true&quot;</span>
+        <span class="na">ParameterType=</span><span class="s">&quot;System.String&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/ParameterGroup&gt;</span>
+    <span class="nt">&lt;Task&gt;</span>
+      <span class="nt">&lt;Code&gt;</span>Result = ((Text ?? &quot;&quot;).Split(&#39;;&#39;).Contains(Library) ) ? Value : String.Empty;<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;/Task&gt;</span>
+  <span class="nt">&lt;/UsingTask&gt;</span>
+  <span class="nt">&lt;Target</span>
+    <span class="na">Name=</span><span class="s">&quot;init&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;cpprestsdk_redist_Contains</span>
+      <span class="na">Text=</span><span class="s">&quot;Linkage-dynamic&quot;</span>
+      <span class="na">Library=</span><span class="s">&quot;cpprestsdk_redist&quot;</span>
+      <span class="na">Value=</span><span class="s">&quot;dynamic&quot;</span>
+      <span class="na">Condition=</span><span class="s">&quot;&#39;$(Linkage-cpprestsdk_redist)&#39;==&#39;&#39;&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;Output</span>
+        <span class="na">TaskParameter=</span><span class="s">&quot;Result&quot;</span>
+        <span class="na">PropertyName=</span><span class="s">&quot;Linkage-cpprestsdk_redist&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/cpprestsdk_redist_Contains&gt;</span>
+    <span class="nt">&lt;cpprestsdk_redist_Contains</span>
+      <span class="na">Text=</span><span class="s">&quot;Linkage-static&quot;</span>
+      <span class="na">Library=</span><span class="s">&quot;cpprestsdk_redist&quot;</span>
+      <span class="na">Value=</span><span class="s">&quot;static&quot;</span>
+      <span class="na">Condition=</span><span class="s">&quot;&#39;$(Linkage-cpprestsdk_redist)&#39;==&#39;&#39;&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;Output</span>
+        <span class="na">TaskParameter=</span><span class="s">&quot;Result&quot;</span>
+        <span class="na">PropertyName=</span><span class="s">&quot;Linkage-cpprestsdk_redist&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/cpprestsdk_redist_Contains&gt;</span>
+    <span class="nt">&lt;cpprestsdk_redist_Contains</span>
+      <span class="na">Text=</span><span class="s">&quot;Linkage-ltcg&quot;</span>
+      <span class="na">Library=</span><span class="s">&quot;cpprestsdk_redist&quot;</span>
+      <span class="na">Value=</span><span class="s">&quot;ltcg&quot;</span>
+      <span class="na">Condition=</span><span class="s">&quot;&#39;$(Linkage-cpprestsdk_redist)&#39;==&#39;&#39;&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;Output</span>
+        <span class="na">TaskParameter=</span><span class="s">&quot;Result&quot;</span>
+        <span class="na">PropertyName=</span><span class="s">&quot;Linkage-cpprestsdk_redist&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/cpprestsdk_redist_Contains&gt;</span>
+    <span class="nt">&lt;cpprestsdk_redist_Contains</span>
+      <span class="na">Text=</span><span class="s">&quot;Linkage-sxs&quot;</span>
+      <span class="na">Library=</span><span class="s">&quot;cpprestsdk_redist&quot;</span>
+      <span class="na">Value=</span><span class="s">&quot;sxs&quot;</span>
+      <span class="na">Condition=</span><span class="s">&quot;&#39;$(Linkage-cpprestsdk_redist)&#39;==&#39;&#39;&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;Output</span>
+        <span class="na">TaskParameter=</span><span class="s">&quot;Result&quot;</span>
+        <span class="na">PropertyName=</span><span class="s">&quot;Linkage-cpprestsdk_redist&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/cpprestsdk_redist_Contains&gt;</span>
+    <span class="nt">&lt;cpprestsdk_redist_Contains</span>
+      <span class="na">Text=</span><span class="s">&quot;CallingConvention-cdecl&quot;</span>
+      <span class="na">Library=</span><span class="s">&quot;cpprestsdk_redist&quot;</span>
+      <span class="na">Value=</span><span class="s">&quot;cdecl&quot;</span>
+      <span class="na">Condition=</span><span class="s">&quot;&#39;$(CallingConvention-cpprestsdk_redist)&#39;==&#39;&#39;&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;Output</span>
+        <span class="na">TaskParameter=</span><span class="s">&quot;Result&quot;</span>
+        <span class="na">PropertyName=</span><span class="s">&quot;CallingConvention-cpprestsdk_redist&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/cpprestsdk_redist_Contains&gt;</span>
+    <span class="nt">&lt;cpprestsdk_redist_Contains</span>
+      <span class="na">Text=</span><span class="s">&quot;CallingConvention-stdcall&quot;</span>
+      <span class="na">Library=</span><span class="s">&quot;cpprestsdk_redist&quot;</span>
+      <span class="na">Value=</span><span class="s">&quot;stdcall&quot;</span>
+      <span class="na">Condition=</span><span class="s">&quot;&#39;$(CallingConvention-cpprestsdk_redist)&#39;==&#39;&#39;&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;Output</span>
+        <span class="na">TaskParameter=</span><span class="s">&quot;Result&quot;</span>
+        <span class="na">PropertyName=</span><span class="s">&quot;CallingConvention-cpprestsdk_redist&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/cpprestsdk_redist_Contains&gt;</span>
+    <span class="nt">&lt;cpprestsdk_redist_Contains</span>
+      <span class="na">Text=</span><span class="s">&quot;CallingConvention-fastcall&quot;</span>
+      <span class="na">Library=</span><span class="s">&quot;cpprestsdk_redist&quot;</span>
+      <span class="na">Value=</span><span class="s">&quot;fastcall&quot;</span>
+      <span class="na">Condition=</span><span class="s">&quot;&#39;$(CallingConvention-cpprestsdk_redist)&#39;==&#39;&#39;&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;Output</span>
+        <span class="na">TaskParameter=</span><span class="s">&quot;Result&quot;</span>
+        <span class="na">PropertyName=</span><span class="s">&quot;CallingConvention-cpprestsdk_redist&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/cpprestsdk_redist_Contains&gt;</span>
+    <span class="nt">&lt;cpprestsdk_redist_Contains</span>
+      <span class="na">Text=</span><span class="s">&quot;CallingConvention-thiscall&quot;</span>
+      <span class="na">Library=</span><span class="s">&quot;cpprestsdk_redist&quot;</span>
+      <span class="na">Value=</span><span class="s">&quot;thiscall&quot;</span>
+      <span class="na">Condition=</span><span class="s">&quot;&#39;$(CallingConvention-cpprestsdk_redist)&#39;==&#39;&#39;&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;Output</span>
+        <span class="na">TaskParameter=</span><span class="s">&quot;Result&quot;</span>
+        <span class="na">PropertyName=</span><span class="s">&quot;CallingConvention-cpprestsdk_redist&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/cpprestsdk_redist_Contains&gt;</span>
+    <span class="nt">&lt;cpprestsdk_redist_Contains</span>
+      <span class="na">Text=</span><span class="s">&quot;CallingConvention-clrcall&quot;</span>
+      <span class="na">Library=</span><span class="s">&quot;cpprestsdk_redist&quot;</span>
+      <span class="na">Value=</span><span class="s">&quot;clrcall&quot;</span>
+      <span class="na">Condition=</span><span class="s">&quot;&#39;$(CallingConvention-cpprestsdk_redist)&#39;==&#39;&#39;&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;Output</span>
+        <span class="na">TaskParameter=</span><span class="s">&quot;Result&quot;</span>
+        <span class="na">PropertyName=</span><span class="s">&quot;CallingConvention-cpprestsdk_redist&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/cpprestsdk_redist_Contains&gt;</span>
+  <span class="nt">&lt;/Target&gt;</span>
+<span class="nt">&lt;/Project&gt;</span>
+</pre></div>
+
+<p>
+
+<p>This is a Visual Studio properties file and you can see that AutoPackage has taken care of a lot of detail you never need to worry about.  All you need to do is use it.</p>
+
+<h4>What's Next?</h4>
+
+<p>Look for additional tutorials soon covering:</p>
+
+<ul>
+<li>Uploading packages </li>
+<li>Deep dive into how it works</li>
+<li>Creating/using dependencies</li>
+<li>Customizing targets/props files</li>
+<li>Advance scenarios</li>
+</ul>
+</div>
+
+<script>
+$('video').mediaelementplayer({
+    enableAutosize: true,
+    features: ['playpause','progress','current','duration','volume','fullscreen']
+});
+</script>
+
+<!-- Disqus Comment System -->
+<div id="disqus_thread"><div id="dsq-content"></div></div>
+<ul id="dsq-comments"></ul>
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'coapp'; // required: replace example with your forum shortname
+
+    // The following are highly recommended additional parameters. Remove the slashes in front to use.
+    
+    var disqus_identifier = "/tutorials/building-a-package.html/1.0";
+    var disqus_url = 'http://www.coapp.org/tutorials/building-a-package.html?version=1.0';
+    var disqus_title = "How to Build a Package/1.0";
+    var disqus_developer = 0; 
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </div>
+        </section>
+    </div>  
+    <br>    
+    <div class="push" ></div>
+    </div>
+    <footer class="footer">
+        <div class="container-fluid">
+        <p  style="float:left;">&copy; CoApp Contributors, 2011. 
+        <br><sub>The source for this page can be found <a href="https://github.com/coapp/coapp.org/blob/master/src/dynamic/tutorials/building-a-package.html.md">in the github repository.</a></sub>
+        </p>
+        <p style="float:right;">
+            This website was generated on Aug 25 2015 and has 185 documents
+        </p>
+        </div>
+    </footer>
+</body>
+</html>

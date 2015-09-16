@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+
+<html lange="en">
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <title>CoApp - CoApp Packages - Best Practices</title>
+    <meta name="description" content="">
+    <meta name="author" content="CoApp Project">
+
+    <meta property="og:title" content="CoApp - CoApp Packages - Best Practices"/>
+    
+        <meta property="og:type" content="article"/>
+    
+    <meta property="og:image" content="http://coapp.org/images/logo-small.png"/>
+    <meta property="og:url" content="http://coapp.org/developers/packagingbestpractices.html"/>
+    <meta property="og:site_name" content="CoApp"/>
+    <meta property="og:admins" content="CoApp - fearthecowboy"/>
+
+    <meta name="docid" content="reference:packagingbestpractices" />
+    <meta name="srclocation" content="https://github.com/coapp/coapp.org/blob/master/src/dynamic/developers/packagingbestpractices.html.md" />
+
+    <!-- Icons -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+    <!-- Shims: IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script async src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Styles -->
+    <link href="/styles/style.css" rel="stylesheet"/>
+    <link href="/styles/prettify.css" rel="stylesheet"/>
+    <link href="/styles/mediaelementplayer.min.css" rel="stylesheet"  />
+    
+</head>
+<body >
+    
+    <!-- Scripts -->
+    <script src="/scripts/jquery-1.6.4.min.js"></script>
+    <script src="/scripts/prettify.js"></script>
+    <script src="/scripts/jquery.tweet.js"></script>
+    <script src="/scripts/mediaelement-and-player.js"></script>
+    <script src="/scripts/bootstrap/bootstrap-dropdown.js"></script>
+    <div id="fb-root"></div>
+      <script type="text/javascript">
+      (function() {
+        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+        po.src = 'https://apis.google.com/js/plusone.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+      })();
+      </script>
+      <script type="text/javascript">
+      (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-15630590-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    <script>
+        // $('#topbar').dropdown();
+    </script>
+    <!-- Markup -->
+    <div class="topbar" data-dropdown="dropdown">
+        <div class="fill">
+            <div class="container-fluid">
+                <h3><a href="/index.html"><image style="margin:0; padding:0; position:absolute; top:2px; left:-2px;" src="/images/logo-small_32x32.png"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CoApp</a></h3>
+                <ul>
+                      
+                        
+                        <li typeof="sioc:Page" about="/pages/news.html" class="">
+                            <a href="/pages/news.html" property="dc:title">News</a>
+                        </li>
+
+                        
+                      
+                        
+                        <li typeof="sioc:Page" about="/pages/releases.html" class="">
+                            <a href="/pages/releases.html" property="dc:title">Releases</a>
+                        </li>
+
+                        
+                      
+                        
+                        <li typeof="sioc:Page" about="/pages/tutorials.html" class="">
+                            <a href="/pages/tutorials.html" property="dc:title">Tutorials</a>
+                        </li>
+
+                        
+                      
+                        
+                        <li typeof="sioc:Page" about="/pages/reference.html" class="">
+                            <a href="/pages/reference.html" property="dc:title">Reference</a>
+                        </li>
+
+                        
+                      
+                        
+                        <li typeof="sioc:Page" about="/pages/about.html" class="">
+                            <a href="/pages/about.html" property="dc:title">About</a>
+                        </li>
+
+                        
+                    
+                </ul>
+                
+                
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+    <div class="container-fluid pushdown">
+        <div class="sidebar">
+            
+        </div> 
+        <section id="content" class="content">
+        <div class="spanonethird rightsidebox" > <!-- float:right; display: inline; veritical-align:top; -->
+            
+                
+                    <h2>Documentation Sprint</h2>
+
+<p>We're starting a documentation phase right now, since there's so much that people <em>can</em> do, but there's little documentation. </p>
+
+<p>Keep checking back daily to see what's new! </p>
+                
+                    <h4><u>In the twittersphere...</u></h4> 
+
+<p><div class="tweet"></div></p> 
+
+<div style="text-align: right;    "> 
+    <br> 
+    <a class="btn info" href="http://search.twitter.com/search?q=&ands=CoAppCommits&phrase=&ors=&nots=&tag=&lang=all&from=&to=&ref=&near=&within=15&units=mi&since=&until=&rpp=15" > 
+    Read more</a> <br><br><br></div> 
+
+<script type="text/javascript">  
+$(document).ready(function(){ 
+        $(".tweet").tweet({ 
+            query: "CoAppCommits", 
+
+            avatar_size: 48, 
+            count: 5, 
+
+            loading_text: "loading tweets...", 
+            refresh_interval: 60 
+        }); 
+    }); 
+</script>
+                
+            
+        </div> 
+            <div class="spantwothirds">
+            
+
+
+<span style="display:inline-block;">
+    <h1>CoApp Packages - Best Practices</h1>
+    <h4>Version:1.0</h4>
+</span>
+<span style="display:inline-block; float:right;">
+    <br><br>
+    <span style="margin-top:8px; height;100%; display:inline-block; "><g:plusone href="http://coapp.org/developers/packagingbestpractices.html"></g:plusone></span>
+    <div class="fb-like" style="top:-5px;" data-href="http://coapp.org/developers/packagingbestpractices.html" data-layout="button_count" data-show-faces="true" data-colorscheme="dark" data-font="tahoma"></div>
+</span>  
+
+<div id="post" class="post">
+    <h2>Package building best practices</h2>
+
+<p>This document sets forth the standard guidelines the CoApp team uses for package building and publishing.  If you are a package developer and wish to have your package considered for direct publishing by the CoApp project, your package <strong>must</strong> follow these guidelines.</p>
+
+<hr />
+
+<ul>
+<li><a href="#files">File Locations</a></li>
+<li><a href="#buildinfo">The .buildinfo file</a></li>
+<li><a href="#autopkg">*.autopkg files</a></li>
+<li><a href="#recommendations">General Recommendations</a></li>
+</ul>
+
+<hr />
+
+<h3>File locations<a id="files" href="#files"></a></h3>
+
+<p>All build and configuration files for CoApp tools must reside in the <code>COPKG</code> subdirectory of the project root.  The location of any other files is left to the discretion of the developer.  <em>Developers forking existing software projects should make an active effort to change as little as possible from the original project files outside of the <code>COPKG</code> directory.  This will allow for easier updates and merges from the upstream project over time.</em></p>
+
+<p>e.g.</p>
+
+
+<p>
+<div class="highlight"><pre>C:\MyProject&gt; dir
+
+&lt;DIR&gt;  COPKG  &lt;-- All CoApp config files go here.
+&lt;DIR&gt;  src
+&lt;DIR&gt;  inc
+&lt;DIR&gt;  lib
+       MyProject.sln
+       README
+</pre></div>
+
+<p>
+
+<p>At a minimum, there must exist a <code>.buildinfo</code> file and at least one autopackage file (e.g. <code>MyProject.autopkg</code>).</p>
+
+<h3>The .buildinfo file<a id="buildinfo" href="#buildinfo"></a></h3>
+
+<p>The following targets <strong>must</strong> be implemented in the <code>.buildinfo</code> file in any order.</p>
+
+<ol>
+<li><a href="#Test-Target">test</a></li>
+<li><a href="#Package-Target">package</a></li>
+<li><a href="#commit-version">commit-version</a>*</li>
+<li><a href="#Release-Target">release</a></li>
+</ol>
+
+<p>The following targets <em>should</em> be implemented in the <code>.buildinfo</code> file.</p>
+
+<ol>
+<li><a href="#Sign-Target">sign</a></li>
+<li><a href="#Debug-Target">debug</a></li>
+<li><a href="#x86-Target">x86</a>  (if applicable)</li>
+<li><a href="#x64-Target">x64</a>  (if applicable)</li>
+<li><a href="#Any-Target">any</a>  (if applicable)</li>
+</ol>
+
+<h4><a id="Test-Target" href="#Test-Target">test</a> target</h4>
+
+<p>This target should depend on the <a href="#Release-Target">release</a>, and then run any project-specific tests that the developer provides.  <em><strong>*It is expected that developers will provide tools and/or libraries for testing the function of their software.  The CoApp team WILL NOT perform additional tests on arbitrary packages before release.  Failure to provide testing functionality is grounds for removal from publishing by the CoApp team.*</strong></em></p>
+
+<p>Example:</p>
+
+
+<p>
+<div class="highlight"><pre>test {
+    uses: release;
+    build-command: @&quot;call MyTestRoutine.bat
+mstest MyTestSuite.dll
+MyTestProg.exe -doStuff&quot;;
+};
+</pre></div>
+
+<p>
+
+<h4><a id="Package-Target" href="#Package-Target">package</a> target</h4>
+
+<p>This required target should call the <a href="#Sign-Target">sign</a> target (if present) and <a href="#Release-Target">release</a> target (as appropriate for the <a href="#Sign-Target">Sign</a> target), followed by any post-build actions necessary to produce all intended final package files.  This includes running <code>AutoPackage</code> with any relevant <code>*.autopkg</code> files.  When this target is run without additional parameters, it must also increase any relavent version number used for packaging.  An optional parameter (such as <code>--noversion=true</code>) may be included which will allow skipping reversioning.  This target must be able to run successfully immediately following a call to the <a href="#Test-Target">test</a> target.  An optional parameter of <code>--built=true</code> may skip calling the <a href="#Release-Target">release</a> target at the package maintainer's discretion.</p>
+
+<p>Example:</p>
+
+
+<p>
+<div class="highlight"><pre>package {
+    uses: sign;
+    build-command: @&quot;
+        echo #define { package-version: ${package-version++}; } &gt; COPKG\version.inc
+        autopackage.exe COPKG\*.autopkg
+    &quot;;
+}
+</pre></div>
+
+<p>
+
+<h4><a id="commit-version" href="#commit-version">commit-version</a>* target</h4>
+
+<p>* <em>This target is only required if no <code>version.inc</code> file is maintained to track the package version.</em><br />This target may assume that the <code>package</code> target has already been run.  When complete, this target must have performed a <code>git commit</code>, including any relavent files and an appropriate commit message.</p>
+
+<h4><a id="Release-Target" href="#Release-Target">release</a> target</h4>
+
+<p>This required target is expected to set necessary environment variables, then either call the appropriate <a href="#x86-Target">x86</a>, <a href="#x64-Target">x64</a>, and/or <a href="#Any-Target">Any</a> targets or provide direct build commands to produce officially releasable binaries/libraries/etc. for the project.</p>
+
+<p>Example:</p>
+
+
+<p>
+<div class="highlight"><pre>release {
+    set: BuildCfg=&quot;Release&quot;;
+    uses: {x86, x64};
+}
+</pre></div>
+
+<p>
+
+<h4><a id="Sign-Target" href="#Sign-Target">sign</a> target</h4>
+
+<p>This suggested target may operate in one of two ways at the developer's discretion:<br />1. This target may call the <a href="#Release-Target">Release</a> target, followed by a script to run <code>simplesigner</code> on all relevant output files.<br />2. This target may assume that the <a href="#Release-Target">Release</a> target has already been run and attempt to operate on the output files appropriately.</p>
+
+<p>Example:</p>
+
+
+<p>
+<div class="highlight"><pre>sign {
+    uses: release;
+    build-command: @&quot;simplesigner.exe --nologo out\**.dll out\**.exe&quot;;
+}
+</pre></div>
+
+<p>
+
+<h4><a id="Debug-Target" href="#Debug-Target">debug</a> target</h4>
+
+<p>If present, it is expected that this target would set necessary environment variables and then call the relevant <a href="#x86-Target">x86</a>, <a href="#x64-Target">x64</a>, or <a href="#Any-Target">Any</a> targets (or directly build the software if those targets are not provided).</p>
+
+<p>Example:</p>
+
+
+<p>
+<div class="highlight"><pre>debug {
+    set: BuildCfg=&quot;Debug&quot;;
+    uses: any;
+}
+</pre></div>
+
+<p>
+
+<h4><a id="x86-Target" href="#x86-Target">x86</a>, <a id="x64-Target" href="#x64-Target">x64</a>, <a id="Any-Target" href="#Any-Target">Any</a> targets</h4>
+
+<p>These would typically be the individual sets of build commands for each targeted architecture.  If present, it is expected that each of these would contain all necessary information to build the project as either Debug or Release for the appropriate architecture.</p>
+
+<p>Example:</p>
+
+
+<p>
+<div class="highlight"><pre>any {
+    targets:{
+        MyLib.dll,
+        MyProg.exe
+    };
+    build-command: @&quot;if defined BuildCfg (
+        msbuild /p:Configuration=%BuildCfg% MyProject.sln
+        ) else (
+        msbuild MyProject.sln
+        )&quot;;
+}
+</pre></div>
+
+<p>
+
+<h3>*.autopkg files<a id="autopkg" href="#autopkg"></a></h3>
+
+<p>Proper procedure dictates one <code>*.autopkg</code> file for for each type of package to be produced.  For example, if one wishes to package up a dynamically linked library for use by other software, this would typically have three (3) seperate <code>.autopkg</code> files.  Assuming that the library is titled <code>MyLib</code>, we would expect to see the following <code>.autopkg</code> files in the <code>COPKG</code> directory:</p>
+
+
+<p>
+<div class="highlight"><pre>MyLib.autopkg                &lt;== Will produce packages containing the end-user dlls
+MyLib-dev.autopkg            &lt;== Will produce packages containing developer linking libraries (.lib files)
+MyLib-dev-common.autopkg    &lt;== Will produce a package containing all relavent headers/include files.
+                                    Generally also includes any developer documentation.
+</pre></div>
+
+<p>
+
+<p>AutoPackage files may be constructed as described on the <a href="/developers/autopackage.html">AutoPackage</a> page.</p>
+
+<p>Package developers and maintainers wishing to have the CoApp team build their packages should make an active effort to provide for future extendability in their AutoPackage files.  By this it is meant that <code>.autopkg</code> files should be designed to accept and operate based upon variable input for the package flavor information (eg. <code>vc10</code>) and the system archetecture (eg. <code>x64</code>) as appropriate.  In addition, packaging information that is likely to change over time (such as the package version information) should be placed in a seperate file to be included by the AutoPackage files.</p>
+
+<p>Example <code>version.inc</code> - Defines version info:</p>
+
+
+<p>
+<div class="highlight"><pre>#define { package-version: &quot;1.12.3.45&quot;; } 
+</pre></div>
+
+<p>
+
+<p>Partial example <code>MyLib.autopkg</code> - Includes version info and uses variables to produce package:</p>
+
+
+<p>
+<div class="highlight"><pre>@import &quot;version.inc&quot;;
+
+#define { 
+    flavor: &quot;${comp??vc10}&quot;; 
+    arch : &quot;${plat??x86}&quot;;
+}
+
+package {
+    name: &quot;MyLib[${flavor}]&quot;;
+    version: &quot;${package-version}&quot;;
+    arch : &quot;${arch}&quot;;
+}
+
+...
+</pre></div>
+
+<p>
+
+<h3>General Recommendations<a id="recommendations" href="#recommendations"></a></h3>
+
+<p>There are a few conventions that the CoApp team suggests using, but which are neither required nor enforced.</p>
+
+<h4>Output files</h4>
+
+<p>For the ease of future maintainers, we recommend copying or moving all final output files from the build process to a directory named <code>output</code> (or similar) in the root of the project.  It is generally desirable to have a directory structure similar to that shown below to enable smooth operation of build automation:</p>
+
+
+<p>
+<div class="highlight"><pre>&lt;DIR&gt;  output
+    &lt;DIR&gt;  vc9
+        &lt;DIR&gt;  x86
+            &lt;DIR&gt;  Release
+        &lt;DIR&gt;  x64
+            &lt;DIR&gt;  Release
+    &lt;DIR&gt;  vc10
+      .
+      .
+      .      
+</pre></div>
+
+<p>
+
+<p>That is, the desired final location of a file to be packaged would be <code>.\output\{flavor}\{arch}\{configuration}\&lt;filename&gt;</code>.</p>
+
+<h4>Build variables</h4>
+
+<p>It is highly encouraged for package maintainers to use property sheet variables whenever possible for conditions which may change from one developer to the next or within the same common build command.  This would include such things as the compiler to build with, the architecture being targeted, and the type of build configuration (Debug or Release, for example).  Below we can see an example of how use of these variables can greatly reduce clutter and confusion within a .buildinfo file:</p>
+
+
+<p>
+<div class="highlight"><pre>test{
+    set: COMPILERS=&quot;${COMPILERS??vc8, vc9, vc10}&quot;; //If COMPILER is not assigned already, set it to &quot;vc8, vc9, vc10&quot;
+    uses: release;
+    build-command: @&quot;
+        for %%A in (${COMPILERS}) do (
+            pushd output\$$A\any\Release\
+            runTest.exe
+            popd
+        )
+    &quot;;
+};
+
+release{
+    set: COMPILERS=&quot;${COMPILERS??vc8, vc9, vc10}&quot;; //Same effect as in the &#39;test&#39; target
+    build-command: @&quot;
+        for %%A in (${COMPILERS}) do (
+            ptk build --CONFIG=Release --COMP=%%A
+        )
+    &quot;;
+};
+
+build{
+    set: {
+        CONFIG=&quot;${CONFIG??Debug}&quot;;
+        COMP=&quot;${COMP??vc10}&quot;;
+    }
+
+    compiler: ${COMP};
+    platform: any;
+
+    build-command: @&quot;
+        msbuild /p:Platform=&quot;Any CPU&quot; /p:Configuration=${CONFIG} windows\${COMP}\Project.sln
+        md output\${COMP}\any\${CONFIG}\
+        copy windows\${COMP}\bin\${CONFIG}\* output\${COMP}\any\${CONFIG}\
+    &quot;;
+}
+</pre></div>
+
+<p>
+
+<p>The above <code>.buildinfo</code> file is highly versatile, being able to build for any combination of compilers (not necessarily only the 3 already listed) and able to accommodate debugging out of the box and a <code>package</code> target can be readily added with only a few additional lines.</p>
+
+<p>To use the above <code>.buildinfo</code> file, we could use any of the following command line entries for varied results:</p>
+
+<p><code>ptk test</code>  ==> will build the project under VC8, VC9, and VC10 and will run the appropriate build of tests against each one<br /><code>ptk release --COMPILERS=vc9</code>  ==> will build a release version of the project in only VC9, no tests are run<br /><code>ptk build</code>  ==> will build a debug version of the project in VC10 (the listed default for that target)<br /><code>ptk release --COMPILERS="vc6, vc71"</code>  ==> assuming that the necessary solution files are in the correct locations, this will build release versions of the project in both VC6 and VC7.1 (VC 2003)</p>
+</div>
+
+<script>
+$('video').mediaelementplayer({
+    enableAutosize: true,
+    features: ['playpause','progress','current','duration','volume','fullscreen']
+});
+</script>
+
+<!-- Disqus Comment System -->
+<div id="disqus_thread"><div id="dsq-content"></div></div>
+<ul id="dsq-comments"></ul>
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'coapp'; // required: replace example with your forum shortname
+
+    // The following are highly recommended additional parameters. Remove the slashes in front to use.
+    
+    var disqus_identifier = "/developers/packagingbestpractices.html/1.0";
+    var disqus_url = 'http://www.coapp.org/developers/packagingbestpractices.html?version=1.0';
+    var disqus_title = "CoApp Packages - Best Practices/1.0";
+    var disqus_developer = 0; 
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </div>
+        </section>
+    </div>  
+    <br>    
+    <div class="push" ></div>
+    </div>
+    <footer class="footer">
+        <div class="container-fluid">
+        <p  style="float:left;">&copy; CoApp Contributors, 2011. 
+        <br><sub>The source for this page can be found <a href="https://github.com/coapp/coapp.org/blob/master/src/dynamic/developers/packagingbestpractices.html.md">in the github repository.</a></sub>
+        </p>
+        <p style="float:right;">
+            This website was generated on Aug 25 2015 and has 185 documents
+        </p>
+        </div>
+    </footer>
+</body>
+</html>

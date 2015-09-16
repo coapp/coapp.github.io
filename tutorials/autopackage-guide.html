@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+
+<html lange="en">
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <title>CoApp - AutoPackage</title>
+    <meta name="description" content="">
+    <meta name="author" content="CoApp Project">
+
+    <meta property="og:title" content="CoApp - AutoPackage"/>
+    
+        <meta property="og:type" content="article"/>
+    
+    <meta property="og:image" content="http://coapp.org/images/logo-small.png"/>
+    <meta property="og:url" content="http://coapp.org/tutorials/autopackage-guide.html"/>
+    <meta property="og:site_name" content="CoApp"/>
+    <meta property="og:admins" content="CoApp - fearthecowboy"/>
+
+    <meta name="docid" content="undefined" />
+    <meta name="srclocation" content="https://github.com/coapp/coapp.org/blob/master/src/dynamic/tutorials/autopackage-guide.html.md" />
+
+    <!-- Icons -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+    <!-- Shims: IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script async src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Styles -->
+    <link href="/styles/style.css" rel="stylesheet"/>
+    <link href="/styles/prettify.css" rel="stylesheet"/>
+    <link href="/styles/mediaelementplayer.min.css" rel="stylesheet"  />
+    
+</head>
+<body >
+    
+    <!-- Scripts -->
+    <script src="/scripts/jquery-1.6.4.min.js"></script>
+    <script src="/scripts/prettify.js"></script>
+    <script src="/scripts/jquery.tweet.js"></script>
+    <script src="/scripts/mediaelement-and-player.js"></script>
+    <script src="/scripts/bootstrap/bootstrap-dropdown.js"></script>
+    <div id="fb-root"></div>
+      <script type="text/javascript">
+      (function() {
+        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+        po.src = 'https://apis.google.com/js/plusone.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+      })();
+      </script>
+      <script type="text/javascript">
+      (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-15630590-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    <script>
+        // $('#topbar').dropdown();
+    </script>
+    <!-- Markup -->
+    <div class="topbar" data-dropdown="dropdown">
+        <div class="fill">
+            <div class="container-fluid">
+                <h3><a href="/index.html"><image style="margin:0; padding:0; position:absolute; top:2px; left:-2px;" src="/images/logo-small_32x32.png"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CoApp</a></h3>
+                <ul>
+                      
+                        
+                        <li typeof="sioc:Page" about="/pages/news.html" class="">
+                            <a href="/pages/news.html" property="dc:title">News</a>
+                        </li>
+
+                        
+                      
+                        
+                        <li typeof="sioc:Page" about="/pages/releases.html" class="">
+                            <a href="/pages/releases.html" property="dc:title">Releases</a>
+                        </li>
+
+                        
+                      
+                        
+                        <li typeof="sioc:Page" about="/pages/tutorials.html" class="">
+                            <a href="/pages/tutorials.html" property="dc:title">Tutorials</a>
+                        </li>
+
+                        
+                      
+                        
+                        <li typeof="sioc:Page" about="/pages/reference.html" class="">
+                            <a href="/pages/reference.html" property="dc:title">Reference</a>
+                        </li>
+
+                        
+                      
+                        
+                        <li typeof="sioc:Page" about="/pages/about.html" class="">
+                            <a href="/pages/about.html" property="dc:title">About</a>
+                        </li>
+
+                        
+                    
+                </ul>
+                
+                
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+    <div class="container-fluid pushdown">
+        <div class="sidebar">
+            
+        </div> 
+        <section id="content" class="content">
+        <div class="spanonethird rightsidebox" > <!-- float:right; display: inline; veritical-align:top; -->
+            
+                
+                    <h2>Documentation Sprint</h2>
+
+<p>We're starting a documentation phase right now, since there's so much that people <em>can</em> do, but there's little documentation. </p>
+
+<p>Keep checking back daily to see what's new! </p>
+                
+                    <h4><u>In the twittersphere...</u></h4> 
+
+<p><div class="tweet"></div></p> 
+
+<div style="text-align: right;    "> 
+    <br> 
+    <a class="btn info" href="http://search.twitter.com/search?q=&ands=CoAppCommits&phrase=&ors=&nots=&tag=&lang=all&from=&to=&ref=&near=&within=15&units=mi&since=&until=&rpp=15" > 
+    Read more</a> <br><br><br></div> 
+
+<script type="text/javascript">  
+$(document).ready(function(){ 
+        $(".tweet").tweet({ 
+            query: "CoAppCommits", 
+
+            avatar_size: 48, 
+            count: 5, 
+
+            loading_text: "loading tweets...", 
+            refresh_interval: 60 
+        }); 
+    }); 
+</script>
+                
+            
+        </div> 
+            <div class="spantwothirds">
+            
+
+
+<span style="display:inline-block;">
+    <h1>AutoPackage</h1>
+    <h4>Version:0.1</h4>
+</span>
+<span style="display:inline-block; float:right;">
+    <br><br>
+    <span style="margin-top:8px; height;100%; display:inline-block; "><g:plusone href="http://coapp.org/tutorials/autopackage-guide.html"></g:plusone></span>
+    <div class="fb-like" style="top:-5px;" data-href="http://coapp.org/tutorials/autopackage-guide.html" data-layout="button_count" data-show-faces="true" data-colorscheme="dark" data-font="tahoma"></div>
+</span>  
+
+<div id="post" class="post">
+    <div class="alert-message warning">
+    <p>This is a draft document -- send feedback to <a href='mailto:hanrahat@microsoft.com'>hanrahat@microsoft.com</a>, or submit a pull request</p>
+</div>
+
+<h2>Automated Package Creation</h2>
+
+<h4>Overview</h4>
+
+<p><strong>AutoPackage</strong> is designed to automate the CoApp package creation process.  It allows you to define the build options you want to control and lets you determine the number and types of packages you create for a particular software component.  For example, if you're building a library component, you can choose to create a dynamic link, static link or standard call (stdcall) variant of the package, or you can choose to create all three.  You can choose to create the packages targeted to Win32, x64 or ARM platforms, or all three.  This document gives examples of the AutoPackage scripts you need to write in order to manage the package creation process.</p>
+
+<p>AutoPackage scripts are identified with the extension <code>.autopkg</code> and follow the <strong><a href="http://www.coapp.org/reference/overview.html">PropertySheet</a></strong> format.</p>
+
+<h4>AutoPackage Nodes</h4>
+
+<div class="alert-message warning">
+<span class="label warning">NOTE!</span>  The AutoPackage script format is constantly evolving to include new output formats.  At present all supported formats will be presented on this page, but as this tool evolves, these instructions may be divided into seperate pages according to the desired output.
+</div>
+
+<h5>Implicit AutoPackage Script</h5>
+
+<p>There is an implicit AutoPackage script built into the tools which sets the default properties for package creation across the complete range of build options.  It is automatically loaded loaded by AutoPackage before processing on user files begins.</p>
+
+<p>For more detailed information about the implicit script, <strong><a href="/reference/implicit-packagescript.html">read here</a></strong>.</p>
+
+<h5>Configuration Options / Pivots</h5>
+
+<p>A top-level node which is common to all output formats is the <code>configurations</code> node, which contains descriptors for file and package variants that may affect the package consumer or have an impact on where files are placed.  There are some defaults defined by the <strong><a href="/reference/implicit-packagescript.html#Configurations">implicit AutoPackage script</a></strong> which should cover a majority of the pivots most packages will need.  Additional pivots may be added as described in the <strong><a href="/reference/autopackage-ref.html#Pivots">AutoPackage Reference</a></strong> if needed.</p>
+
+<h5>NuGet Packages</h5>
+
+<p>The initial and primary output type is NuGet packages.  The design of NuGet packages is such that all supported variations are expected to be included in the same package file.  These packages must also contain a variety of metadata for discoverability and administrative purposes.  In an effort to make doing all of this as painless as possible, particularly for native libraries, all of the file and metadata information can be entered into the <code>.autopkg</code> file, from which all defined variations for all necessary output files will be generated in a single action.</p>
+
+<p>A NuGet package's definition is contained in the <code>nuget</code> top-level node.  Below we walk through this definition for the common library, <code>zlib</code>.  This is just a basic example to show how most of these nodes and definitions work to produce the output packages.</p>
+
+<h6>NuGet metadata</h6>
+
+<p>First the NuGet metadata, which resides in the <code>nuspec</code> node:</p>
+
+
+<p>
+<div class="highlight"><pre>    <span class="nt">nuspec</span> <span class="p">{</span>
+        <span class="n">id</span> <span class="o">=</span> <span class="n">zlib</span><span class="p">;</span>
+        <span class="n">version</span> <span class="o">:</span> <span class="err">${</span><span class="n">package</span><span class="o">-</span><span class="n">version</span><span class="p">}</span><span class="o">;</span>
+        <span class="nt">title</span><span class="o">:</span> <span class="nt">ZLib</span> <span class="nt">compression</span> <span class="nt">library</span><span class="o">;</span>
+        <span class="nt">authors</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;Jean-loup Gailly&quot;</span><span class="o">,</span> <span class="s2">&quot;Mark Adler&quot;</span><span class="o">,</span> <span class="s2">&quot;Garrett Serack&quot;</span><span class="o">,</span> <span class="s2">&quot;Tim Rogers&quot;</span> <span class="p">}</span><span class="o">;</span>
+        <span class="nt">owners</span><span class="o">:</span> <span class="nt">Garrett</span> <span class="nt">Serack</span><span class="o">;</span>
+        <span class="nt">licenseUrl</span><span class="o">:</span> <span class="s2">&quot;http://zlib.net/zlib_license.html&quot;</span><span class="o">;</span>
+        <span class="nt">projectUrl</span><span class="o">:</span> <span class="s2">&quot;http://github.com/coapp-packages/zlib&quot;</span><span class="o">;</span>
+        <span class="nt">iconUrl</span><span class="o">:</span> <span class="s2">&quot;http://zlib.net/images/zlib3d-b1.png&quot;</span><span class="o">;</span>
+        <span class="nt">requireLicenseAcceptance</span><span class="nd">:false</span><span class="o">;</span>
+        <span class="nt">summary</span><span class="nd">:A</span> <span class="nt">zlib</span> <span class="nt">library</span><span class="o">;</span>
+        <span class="nt">description</span><span class="o">:</span> <span class="o">@</span><span class="s2">&quot;A native zlib library.</span>
+<span class="s2">        zlib homepage:  &lt;a href=&#39;http://zlib.net&#39;&gt;http://zlib.net&lt;/a&gt;&quot;</span><span class="o">;</span>
+        <span class="nt">releaseNotes</span><span class="o">:</span> <span class="s2">&quot;Release of zlib 1.2.7 libraries.&quot;</span><span class="o">;</span>
+        <span class="nt">copyright</span><span class="o">:</span> <span class="nt">Copyright</span> <span class="nt">2013</span><span class="o">;</span>
+        <span class="nt">tags</span><span class="o">:</span> <span class="p">{</span> <span class="n">zlib</span><span class="o">,</span> <span class="n">native</span><span class="o">,</span> <span class="n">coapp</span><span class="o">,</span>  <span class="p">}</span><span class="o">;</span>
+    }<span class="o">;</span>
+</pre></div>
+
+<p>
+
+<p>For information on appropriate values for these fields, please refer to the <strong><a href="http://docs.nuget.org/docs/reference/nuspec-reference">NuGet documentation</a></strong> on the subject.  Of particular interest to us is the <code>id</code> field, which determines the default output filenames.</p>
+
+<h6>Files</h6>
+
+<p>The <code>files</code> node defines the files to be included in this package.  There are multiple pre-defined collections which should cover the vast majority of needs for NuGet library packages.  These include:</p>
+
+<ul>
+<li>source  -  Files in this collection will be added as source files to the <code>${id}.symbols.nupkg</code> file.</li>
+<li>symbols -  These files will be added as debug symbols to the <code>${id}.symbols.nupkg</code> file.</li>
+<li>docs  -  Documentation files.  These are not copied or included in the consuming project, but are made available in the directory tree to which the package is installed.  These are added to the <code>${id}.nupkg</code> file.</li>
+<li>include  -  Files in this collection will be placed into an <code>include</code> directory, which will be added to the include path for consuming projects.  These are added to <code>${id}.nupkg</code>.</li>
+<li>lib  -  Link-time library files (typically ending in <code>.lib</code>).  These will automatically be added to the linker command line of consuming projects as additional libraries to link with.  These are added to <code>${id}.nupkg</code>.</li>
+<li>bin  -  Binaries or run-time libraries (typically ending in <code>.dll</code>).  These will be copied to the output directory of the consuming project after a successful build.  These files are added to the <code>${id}.redist.nupkg</code> package.</li>
+</ul>
+
+<p>Additional file collections may be defined in the manner <strong><a href="/reference/autopackage-ref.html#Files">described here</a></strong>. Existing collections may also be adjusted or re-defined in the same way.</p>
+
+<p>All of these pre-defined collections can accept both global and condition-specific file specifiers.  A file specifier is simply a string path to the file(s) to include in the collection which may contain wildcards.  File specifiers should relative paths from the location of the <code>.autopkg</code> file being processed. <br /><br />The following are all perfectly acceptable file specifiers:</p>
+
+<ul>
+<li><code>..\includes\*.h</code></li>
+<li><code>.\docs\**\*</code></li>
+<li><code>..\output\v110\x64\Release\MyLib.dll</code></li>
+</ul>
+
+<p>Adding files to a collection at a global level means that those files will always be present in and connected to consuming projects regardless of the conditions specified in the consuming project.  This is typically desirable for header files and documentation, which commonly do not change from one set of conditions to another.</p>
+
+<p>An example of global usage:</p>
+
+
+<p>
+<div class="highlight"><pre>    <span class="nt">files</span> <span class="p">{</span>
+        <span class="n">include</span> <span class="o">+=</span> {
+            <span class="o">..</span>\<span class="n">include</span>\<span class="o">*.</span>h<span class="o">,</span>
+            <span class="o">..</span>\<span class="n">include</span>\<span class="o">*.</span><span class="n">hpp</span>
+        <span class="p">}</span>
+    }<span class="o">;</span>
+</pre></div>
+
+<p>
+
+<p>Adding files to a collection at a condition-specific level means that those files will only be connected to consuming projects when those conditions are set in the consuming project.  This is frequently necessary for link-time and run-time libraries, which will differ from one set of build conditions to another.</p>
+
+<p>An example of condition-specific usage:</p>
+
+
+<p>
+<div class="highlight"><pre>    <span class="nt">files</span> <span class="p">{</span>
+        <span class="p">[</span><span class="n">Win32</span><span class="o">,</span><span class="n">Release</span><span class="p">]</span> {
+            <span class="n">bin</span> <span class="o">+=</span> <span class="o">..</span>\<span class="n">output</span>\<span class="n">Win32</span>\<span class="n">Release</span>\<span class="o">*.</span><span class="n">dll</span><span class="p">;</span>
+            <span class="n">lib</span> <span class="o">+=</span> <span class="o">..</span>\<span class="n">output</span>\<span class="n">Win32</span>\<span class="n">Release</span>\<span class="o">*.</span><span class="n">lib</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="o">[</span><span class="nt">Win32</span><span class="o">,</span><span class="nt">Debug</span><span class="o">]</span> <span class="p">{</span>
+            <span class="n">bin</span> <span class="o">+=</span> <span class="o">..</span>\<span class="n">output</span>\<span class="n">Win32</span>\<span class="n">Debug</span>\<span class="o">*.</span><span class="n">dll</span><span class="p">;</span>
+            <span class="n">lib</span> <span class="o">+=</span> <span class="o">..</span>\<span class="n">output</span>\<span class="n">Win32</span>\<span class="n">Debug</span>\<span class="o">*.</span><span class="n">lib</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="o">[</span><span class="nt">x64</span><span class="o">,</span><span class="nt">Debug</span><span class="o">]</span> <span class="p">{</span>
+            <span class="n">bin</span> <span class="o">+=</span> <span class="o">..</span>\<span class="n">output</span>\<span class="n">x64</span>\<span class="n">Debug</span>\<span class="o">*.</span><span class="n">dll</span><span class="p">;</span>
+            <span class="n">lib</span> <span class="o">+=</span> <span class="o">..</span>\<span class="n">output</span>\<span class="n">x64</span>\<span class="n">Debug</span>\<span class="o">*.</span><span class="n">lib</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="o">[</span><span class="nt">x64</span><span class="o">,</span><span class="nt">Release</span><span class="o">]</span>  
+            <span class="nt">bin</span> <span class="o">+=</span> <span class="o">..</span>\<span class="nt">output</span>\<span class="nt">x64</span>\<span class="nt">Release</span>\<span class="o">*</span><span class="nc">.dll</span><span class="o">;</span>
+        <span class="o">[</span><span class="nt">Release</span><span class="o">,</span> <span class="nt">x64</span><span class="o">]</span>  <span class="o">//</span> <span class="nt">This</span> <span class="nt">condition</span> <span class="nt">is</span> <span class="nt">identical</span> <span class="nt">to</span> <span class="nt">the</span> <span class="nt">previous</span> <span class="nt">one</span><span class="o">.</span>
+            <span class="nt">lib</span> <span class="o">+=</span> <span class="o">..</span>\<span class="nt">output</span>\<span class="nt">x64</span>\<span class="nt">Release</span>\<span class="o">*</span><span class="nc">.lib</span><span class="o">;</span>
+
+    }<span class="o">;</span>
+</pre></div>
+
+<p>
+
+<p>As evidenced by the example above, the order in which the conditions are specified does not matter and they will be normalized during processing.</p>
+
+<h6>Project Properties and Targets</h6>
+
+<p>The <code>props</code> and <code>targets</code> nodes are identical in all ways except with regards to when they take effect.  Both of these nodes have a direct impact on projects which consume this package by way of prepending or appending various properties or values into the Visual Studio project file.  These are ideal places to insert any defines that are necessary to properly link with your libraries which have no relevance to other projects.  As a general rule, it is </p>
+
+<ul>
+<li><p>OK to add defines that are specific to this (and <strong>ONLY</strong> this) library,</p></li>
+<li><p>not OK to include defines that have any purpose outside this library.</p></li>
+</ul>
+
+<p>In a similar fashion to the <code>files</code> node, the <code>props</code> and <code>targets</code> nodes, the pre-defined collections for these nodes will function properly for both global and condition-specific scopes.</p>
+
+<p>An example from our <code>zlib.autopkg</code>:</p>
+
+
+<p>
+<div class="highlight"><pre>    <span class="nt">targets</span> <span class="p">{</span>
+        <span class="n">Defines</span> <span class="o">+=</span> <span class="n">HAS_ZLIB</span><span class="p">;</span>
+
+        <span class="p">[</span><span class="n">dynamic</span><span class="p">]</span>
+        <span class="n">Defines</span> <span class="o">+=</span> <span class="n">ZLIB_DLL</span><span class="p">;</span>
+
+        <span class="p">[</span><span class="n">stdcall</span><span class="p">]</span>
+        <span class="n">Defines</span> <span class="o">+=</span> <span class="n">ZLIB_WINAPI</span><span class="p">;</span>
+    <span class="p">}</span><span class="o">;</span>
+</pre></div>
+
+<p>
+
+<p>You can find examples of AutoPackage scripts for other software components built by the CoApp community in our <strong><a href="https://github.com/organizations/coapp-packages/">GitHub repository</a></strong>.</p>
+</div>
+
+<script>
+$('video').mediaelementplayer({
+    enableAutosize: true,
+    features: ['playpause','progress','current','duration','volume','fullscreen']
+});
+</script>
+
+<!-- Disqus Comment System -->
+<div id="disqus_thread"><div id="dsq-content"></div></div>
+<ul id="dsq-comments"></ul>
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'coapp'; // required: replace example with your forum shortname
+
+    // The following are highly recommended additional parameters. Remove the slashes in front to use.
+    
+    var disqus_identifier = "/tutorials/autopackage-guide.html/0.1";
+    var disqus_url = 'http://www.coapp.org/tutorials/autopackage-guide.html?version=0.1';
+    var disqus_title = "AutoPackage/0.1";
+    var disqus_developer = 0; 
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </div>
+        </section>
+    </div>  
+    <br>    
+    <div class="push" ></div>
+    </div>
+    <footer class="footer">
+        <div class="container-fluid">
+        <p  style="float:left;">&copy; CoApp Contributors, 2011. 
+        <br><sub>The source for this page can be found <a href="https://github.com/coapp/coapp.org/blob/master/src/dynamic/tutorials/autopackage-guide.html.md">in the github repository.</a></sub>
+        </p>
+        <p style="float:right;">
+            This website was generated on Aug 25 2015 and has 185 documents
+        </p>
+        </div>
+    </footer>
+</body>
+</html>

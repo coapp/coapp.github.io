@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+
+<html lange="en">
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <title>CoApp - AutoPackage Script Guide</title>
+    <meta name="description" content="">
+    <meta name="author" content="CoApp Project">
+
+    <meta property="og:title" content="CoApp - AutoPackage Script Guide"/>
+    
+        <meta property="og:type" content="article"/>
+    
+    <meta property="og:image" content="http://coapp.org/images/logo-small.png"/>
+    <meta property="og:url" content="http://coapp.org/reference/autopackage-ref.html"/>
+    <meta property="og:site_name" content="CoApp"/>
+    <meta property="og:admins" content="CoApp - fearthecowboy"/>
+
+    <meta name="docid" content="undefined" />
+    <meta name="srclocation" content="https://github.com/coapp/coapp.org/blob/master/src/dynamic/reference/autopackage-ref.html.md.ejs" />
+
+    <!-- Icons -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+    <!-- Shims: IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script async src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Styles -->
+    <link href="/styles/style.css" rel="stylesheet"/>
+    <link href="/styles/prettify.css" rel="stylesheet"/>
+    <link href="/styles/mediaelementplayer.min.css" rel="stylesheet"  />
+    
+</head>
+<body >
+    
+    <!-- Scripts -->
+    <script src="/scripts/jquery-1.6.4.min.js"></script>
+    <script src="/scripts/prettify.js"></script>
+    <script src="/scripts/jquery.tweet.js"></script>
+    <script src="/scripts/mediaelement-and-player.js"></script>
+    <script src="/scripts/bootstrap/bootstrap-dropdown.js"></script>
+    <div id="fb-root"></div>
+      <script type="text/javascript">
+      (function() {
+        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+        po.src = 'https://apis.google.com/js/plusone.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+      })();
+      </script>
+      <script type="text/javascript">
+      (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-15630590-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    <script>
+        // $('#topbar').dropdown();
+    </script>
+    <!-- Markup -->
+    <div class="topbar" data-dropdown="dropdown">
+        <div class="fill">
+            <div class="container-fluid">
+                <h3><a href="/index.html"><image style="margin:0; padding:0; position:absolute; top:2px; left:-2px;" src="/images/logo-small_32x32.png"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CoApp</a></h3>
+                <ul>
+                      
+                        
+                        <li typeof="sioc:Page" about="/pages/news.html" class="">
+                            <a href="/pages/news.html" property="dc:title">News</a>
+                        </li>
+
+                        
+                      
+                        
+                        <li typeof="sioc:Page" about="/pages/releases.html" class="">
+                            <a href="/pages/releases.html" property="dc:title">Releases</a>
+                        </li>
+
+                        
+                      
+                        
+                        <li typeof="sioc:Page" about="/pages/tutorials.html" class="">
+                            <a href="/pages/tutorials.html" property="dc:title">Tutorials</a>
+                        </li>
+
+                        
+                      
+                        
+                        <li typeof="sioc:Page" about="/pages/reference.html" class="">
+                            <a href="/pages/reference.html" property="dc:title">Reference</a>
+                        </li>
+
+                        
+                      
+                        
+                        <li typeof="sioc:Page" about="/pages/about.html" class="">
+                            <a href="/pages/about.html" property="dc:title">About</a>
+                        </li>
+
+                        
+                    
+                </ul>
+                
+                
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+    <div class="container-fluid pushdown">
+        <div class="sidebar">
+            
+        </div> 
+        <section id="content" class="content">
+        <div class="spanonethird rightsidebox" > <!-- float:right; display: inline; veritical-align:top; -->
+            
+                
+                    <h2>Documentation Sprint</h2>
+
+<p>We're starting a documentation phase right now, since there's so much that people <em>can</em> do, but there's little documentation. </p>
+
+<p>Keep checking back daily to see what's new! </p>
+                
+                    <h4><u>In the twittersphere...</u></h4> 
+
+<p><div class="tweet"></div></p> 
+
+<div style="text-align: right;    "> 
+    <br> 
+    <a class="btn info" href="http://search.twitter.com/search?q=&ands=CoAppCommits&phrase=&ors=&nots=&tag=&lang=all&from=&to=&ref=&near=&within=15&units=mi&since=&until=&rpp=15" > 
+    Read more</a> <br><br><br></div> 
+
+<script type="text/javascript">  
+$(document).ready(function(){ 
+        $(".tweet").tweet({ 
+            query: "CoAppCommits", 
+
+            avatar_size: 48, 
+            count: 5, 
+
+            loading_text: "loading tweets...", 
+            refresh_interval: 60 
+        }); 
+    }); 
+</script>
+                
+            
+        </div> 
+            <div class="spantwothirds">
+            
+
+
+<span style="display:inline-block;">
+    <h1>AutoPackage Script Guide</h1>
+    <h4>Version:0.4</h4>
+</span>
+<span style="display:inline-block; float:right;">
+    <br><br>
+    <span style="margin-top:8px; height;100%; display:inline-block; "><g:plusone href="http://coapp.org/reference/autopackage-ref.html"></g:plusone></span>
+    <div class="fb-like" style="top:-5px;" data-href="http://coapp.org/reference/autopackage-ref.html" data-layout="button_count" data-show-faces="true" data-colorscheme="dark" data-font="tahoma"></div>
+</span>  
+
+<div id="post" class="post">
+    <div class="alert-message warning">
+    <p>This is a draft document -- send feedback to <a href='mailto:tiroger@microsoft.com'>tiroger@microsoft.com</a></p>
+</div>
+
+<h3>Table of Contents</h3>
+
+<ul>
+<li><p><a href="#Format">General Format</a></p></li>
+<li><p><a href="#Details">Detailed Information</a></p>
+
+<ul><li><a href="#Pivots">Pivots</a></li>
+<li><a href="#OutputFiles">Output Files</a></li>
+<li><a href="#Files">File Collections</a></li></ul></li>
+<li><p><a href="#Resources">Other Resources</a></p>
+
+<ul><li><a href="#ImplicitRules">Implicit AutoPackage Rules</a></li></ul></li>
+</ul>
+
+<hr />
+
+<h3><a id="Format" href="#Format">General Format</a></h3>
+
+<p>An annotated overview of a general .autopkg script:</p>
+
+
+<p>
+<div class="highlight"><pre>#<span class="n">defines</span> <span class="p">{</span>
+    <span class="c1">// Global variables may be added here.</span>
+    <span class="c1">// Variables on the &quot;value&quot; side of each definition will be processed at access time.</span>
+    <span class="n">GlobalVar1</span> <span class="p">=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">configurations</span> <span class="p">{</span>
+    <span class="c1">// This node contains pivot information.</span>
+    <span class="c1">// These are discussed in detail in the <a class="lnk" href="#Pivots">Pivots section</a>.</span>
+<span class="p">}</span>
+
+<span class="n">nuget</span> <span class="p">{</span>
+
+
+    #<span class="n">defines</span> <span class="p">{</span>
+         <span class="c1">// Variable definitions specific to this node (ie. &quot;nuget&quot;).</span>
+        <span class="c1">// Only available while inside this scope.</span>
+        <span class="c1">// This metadata is not needed for most packages and is typically omitted.</span>
+    <span class="p">};</span>
+
+
+    <span class="c1">// The nuspec file metadata.</span>
+    <span class="n">nuspec</span> <span class="p">{</span>
+
+        <span class="c1">// Unique package identifier</span>
+        <span class="n">id</span> <span class="p">=</span> <span class="n">MyNewPackage</span><span class="p">;</span>
+
+        <span class="c1">// Version number. Follows NuGet standards. (currently SemVer 1.0)</span>
+        <span class="n">version</span> <span class="p">:</span> <span class="m">1.1</span><span class="p">.</span><span class="m">0</span><span class="p">;</span>
+
+        <span class="c1">// Display name for package.</span>
+        <span class="n">title</span><span class="p">:</span> <span class="n">My</span> <span class="k">new</span> <span class="n">library</span><span class="p">;</span>
+
+        <span class="c1">// List of package authors.  Braces may be ommited if only one author.</span>
+        <span class="n">authors</span><span class="p">:</span> <span class="p">{</span><span class="n">bob</span><span class="p">,</span> <span class="n">sam</span><span class="p">,</span> <span class="n">mark</span><span class="p">};</span>
+
+        <span class="c1">// List of owners.  Braces may be ommited if only one author.</span>
+        <span class="c1">// Ignored by the default NuGet repository.</span>
+        <span class="n">owners</span><span class="p">:</span> <span class="p">{</span><span class="n">bob</span><span class="p">,</span> <span class="n">tom</span><span class="p">};</span>
+
+        <span class="c1">// URL link to the license this package is released under.</span>
+        <span class="n">licenseUrl</span><span class="p">:</span> <span class="s">&quot;http://directory.fsf.org/wiki/License:Apache2.0&quot;</span><span class="p">;</span>
+
+        <span class="c1">// URL to the project website (if any).</span>
+        <span class="n">projectUrl</span><span class="p">:</span> <span class="s">&quot;http://mysite.info/myproject&quot;</span><span class="p">;</span> 
+
+        <span class="c1">// URL to an image to be used for package icons.</span>
+        <span class="n">iconUrl</span><span class="p">:</span> <span class="s">&quot;http://mysite.info/myproject/logo.png&quot;</span><span class="p">;</span> 
+
+        <span class="c1">// If the license this package is being released</span>
+        <span class="c1">// under has use restrictions, set this to &quot;true&quot;.</span>
+        <span class="n">requireLicenseAcceptance</span><span class="p">:</span><span class="k">false</span><span class="p">;</span> 
+
+        <span class="c1">// Brief summary of the package contents. Keep it short!</span>
+        <span class="n">summary</span><span class="p">:</span><span class="n">My</span> <span class="k">new</span> <span class="n">library</span> <span class="n">package</span><span class="p">.</span>  <span class="n">Now</span> <span class="n">with</span> <span class="n">features</span><span class="p">!;</span> 
+
+        <span class="c1">// Extended description of the package contents.                                           </span>
+        <span class="n">description</span><span class="p">:</span> <span class="n">My</span> <span class="n">random</span> <span class="n">description</span><span class="p">...;</span> 
+
+        <span class="c1">// Brief notes about this version of the package.                                          </span>
+        <span class="n">releaseNotes</span><span class="p">:</span> <span class="s">&quot;Public release!&quot;</span><span class="p">;</span>  
+
+        <span class="c1">// Copyright notice.</span>
+        <span class="n">copyright</span><span class="p">:</span> <span class="n">Copyright</span> <span class="m">2013</span><span class="p">;</span>       
+
+        <span class="c1">// Tags of arbitrary text for categorizing and filtering.</span>
+        <span class="n">tags</span><span class="p">:</span> <span class="p">{</span> <span class="n">stuff</span><span class="p">,</span> <span class="n">native</span><span class="p">,</span> <span class="n">random</span> <span class="p">};</span> 
+
+    <span class="p">};</span>
+
+
+    #<span class="n">output</span><span class="p">-</span><span class="n">packages</span> <span class="p">{</span>
+        <span class="c1">// Output file definitions.  These are covered in detail in <a class="lnk" href="#OutputFiles">Output Files</a>.</span>
+        <span class="c1">// This metadata is not needed for most packages and is typically omitted.</span>
+    <span class="p">}</span>
+
+
+    <span class="n">dependencies</span> <span class="p">{</span>
+        <span class="c1">// This node defines any outside items which may be needed to consume this package.</span>
+        <span class="n">packages</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="c1">// This is a list of other NuGet packages required to use this package.</span>
+            <span class="c1">// Each item follows the format &quot;&lt;pkg_name&gt;/&lt;version&gt;&quot;</span>
+            <span class="n">my_pkg</span><span class="p">/</span><span class="m">1.0</span><span class="p">.</span><span class="m">0</span><span class="p">,</span>
+            <span class="n">my_other_pkg</span><span class="p">/</span><span class="m">2.1</span><span class="p">.</span><span class="m">5.33</span>
+        <span class="p">};</span>
+    <span class="p">}</span>
+
+
+    <span class="n">files</span> <span class="p">{</span>
+        <span class="c1">// File location information.  This node is critical for all packages, and is</span>
+        <span class="c1">// where much of the effort is.  All file paths are relative to this .autopkg</span>
+        <span class="c1">// file&#39;s location.</span>
+
+        <span class="c1">// This node is frequently divided by multiple condition statements or rules.</span>
+        <span class="c1">// Below is an example of how a typical package might be described.</span>
+        <span class="c1">// For the below examples, we assume that this file is in</span>
+        <span class="c1">//      &lt;src_root&gt;\contrib\coapp\</span>
+        <span class="c1">// and that the compiled libraries are in a semi-logical directory tree in</span>
+        <span class="c1">//      &lt;src_root&gt;\output\.</span>
+
+        <span class="c1">// All .h and .hpp  files in &lt;src_root&gt;\include, but not in subdirectories.</span>
+        <span class="c1">// Included for all conditions.</span>
+        <span class="n">include</span><span class="p">:</span> <span class="p">{</span> <span class="p">..</span>\<span class="n">include</span>\<span class="p">*.</span><span class="n">h</span><span class="p">,</span> <span class="p">..</span>\<span class="n">include</span>\<span class="p">*.</span><span class="n">hpp</span> <span class="p">};</span> 
+
+        <span class="c1">// All files in &lt;src_root&gt;\doc\, including all subdirectories recursively.</span>
+        <span class="c1">// Included for all conditions.</span>
+        <span class="n">docs</span><span class="p">:</span> <span class="p">{</span>  <span class="p">..</span>\<span class="n">doc</span>\<span class="p">**</span>\<span class="p">*</span> <span class="p">};</span> 
+
+        <span class="c1">// Include these specific files in the libpath and &quot;copy to output&quot; path only</span>
+        <span class="c1">// under these pivot conditions.</span>
+<span class="na">        [Win32,dynamic]</span> <span class="p">{</span>  <span class="c1">// x86, dll (dynamic linking)</span>
+            <span class="n">lib</span><span class="p">:</span> <span class="p">{</span> <span class="p">..</span>\<span class="n">output</span>\<span class="n">x86</span>\<span class="n">release</span>\<span class="n">mylib</span><span class="p">.</span><span class="n">lib</span> <span class="p">};</span>
+            <span class="n">bin</span><span class="p">:</span> <span class="p">{</span> <span class="p">..</span>\<span class="n">output</span>\<span class="n">x86</span>\<span class="n">release</span>\<span class="n">mylib</span><span class="p">.</span><span class="n">dll</span> <span class="p">};</span>
+        <span class="p">}</span>
+
+<span class="na">        [x64,dynamic]</span> <span class="p">{</span>  <span class="c1">// x64, dll (dynamic linking)</span>
+            <span class="n">lib</span><span class="p">:</span> <span class="p">{</span> <span class="p">..</span>\<span class="n">output</span>\<span class="n">x64</span>\<span class="n">release</span>\<span class="n">mylib</span><span class="p">.</span><span class="n">lib</span> <span class="p">};</span>
+            <span class="n">bin</span><span class="p">:</span> <span class="p">{</span> <span class="p">..</span>\<span class="n">output</span>\<span class="n">x64</span>\<span class="n">release</span>\<span class="n">mylib</span><span class="p">.</span><span class="n">dll</span> <span class="p">};</span>
+        <span class="p">}</span>
+
+<span class="na">        [Win32,static]</span> <span class="p">{</span>  <span class="c1">// x86, static linking</span>
+            <span class="n">lib</span><span class="p">:</span> <span class="p">{</span> <span class="p">..</span>\<span class="n">output</span>\<span class="n">x86</span>\<span class="n">release</span>\<span class="n">mylib</span><span class="p">-</span><span class="k">static</span><span class="p">.</span><span class="n">lib</span> <span class="p">};</span>
+        <span class="p">}</span>
+
+<span class="na">        [x64,static]</span> <span class="p">{</span>  <span class="c1">// x64, static linking</span>
+            <span class="n">lib</span><span class="p">:</span> <span class="p">{</span> <span class="p">..</span>\<span class="n">output</span>\<span class="n">x64</span>\<span class="n">release</span>\<span class="n">mylib</span><span class="p">-</span><span class="k">static</span><span class="p">.</span><span class="n">lib</span> <span class="p">};</span>
+        <span class="p">}</span>
+
+    <span class="p">};</span>
+
+
+    <span class="n">props</span> <span class="p">{</span>
+        <span class="c1">// Additional declarations to insert into consuming projects before most of the</span>
+        <span class="c1">// project settings. (These may be modified in visual studio by a developer</span>
+        <span class="c1">// consuming this package.)</span>
+        <span class="c1">// This node is typically not needed for most packages and may be omitted.</span>
+    <span class="p">}</span>
+
+
+    <span class="n">targets</span> <span class="p">{</span>
+        <span class="c1">// Additional declarations to insert into consuming projects after most of the</span>
+        <span class="c1">// project settings. (These may NOT be modified in visual studio by a developer</span>
+        <span class="c1">// consuming this package.)</span>
+        <span class="c1">// This node is often used to set defines that are required that must be set by</span>
+        <span class="c1">// the consuming project in order to correctly link to the libraries in this</span>
+        <span class="c1">// package.  Such defines may be set either globally or only set under specific</span>
+        <span class="c1">// conditions.</span>
+        <span class="n">Defines</span> <span class="p">+=</span> <span class="n">HAS_MyLib</span><span class="p">;</span>
+<span class="na">        [dynamic]</span>
+            <span class="n">Defines</span> <span class="p">+=</span> <span class="n">HAS_MyLib</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+
+<p>
+
+<h3><a id="Details" href="#Details">Detailed Information</a></h3>
+
+<h4><a id="Pivots" href="#Pivots">Pivots</a></h4>
+
+<p>A <strong>pivot</strong> is the generic term used for a unique set of mutually exclusive build/configuration options as viewed from the perspective of a Visual Studio project.  As an example, one cannot build a Visual Studio project for both x64 and ARM simultaneously.  These options therefore belong to a single pivot.</p>
+
+<p>A single package script (<code>.autopkg</code>) may define many pivots, each of which may in turn contain many choices.  The basic syntax for defining a pivot is presented below.</p>
+
+
+<p>
+<div class="highlight"><pre><span class="n">configurations</span> <span class="p">{</span>
+    <span class="n">PivotName</span> <span class="p">{</span>
+        <span class="c1">// MSBuild property name.  This is only supplied if there is a direct mapping</span>
+        <span class="c1">// between the pivot choices and an MSBuild property.</span>
+        <span class="n">key</span> <span class="p">:</span> <span class="s">&quot;MSBuildPropertyName&quot;</span><span class="p">;</span>
+
+        <span class="c1">// List of possible selections from this pivot.  When processing, only one</span>
+        <span class="c1">// choice from each pivot may be selected simultaneously.</span>
+        <span class="n">choices</span><span class="p">:</span> <span class="p">{</span> <span class="n">option1</span><span class="p">,</span> <span class="n">option2</span><span class="p">,</span> <span class="n">option3</span> <span class="p">};</span>
+
+        <span class="c1">// This is the description used by Visual Studio for this pivot if no key</span>
+        <span class="c1">// was provided.</span>
+        <span class="n">description</span> <span class="p">=</span> <span class="s">&quot;The option to use for this library&quot;</span><span class="p">;</span>
+
+        <span class="c1">// These are alternate names by which to reference &quot;option1&quot;.</span>
+        <span class="n">option1</span><span class="p">.</span><span class="n">aliases</span> <span class="p">:</span> <span class="p">{</span> <span class="n">o1</span><span class="p">,</span> <span class="n">opt1</span> <span class="p">};</span>
+
+        <span class="c1">// This is what will display in the drop-down list in Visual Studio to identify</span>
+        <span class="c1">// this choice for this pivot.  Defaults to the choice name (eg. &quot;option2&quot;)</span>
+        <span class="c1">// if this is not provided.</span>
+        <span class="n">option2</span><span class="p">.</span><span class="n">description</span> <span class="p">=</span> <span class="s">&quot;Second option&quot;</span><span class="p">;</span>
+
+        <span class="c1">// This will prevent Visual Studio from allowing this choice if &quot;Win32&quot; is not</span>
+        <span class="c1">// selected in another pivot.</span>
+        <span class="n">option3</span><span class="p">.</span><span class="n">restricted</span><span class="p">-</span><span class="n">to</span> <span class="p">=</span> <span class="s">&quot;Win32&quot;</span><span class="p">;</span>
+    <span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>
+
+<p><span class="label warning">NOTE!</span>  At this time it is expected that every choice across all pivots has a unique name.  The behaviour if this is not the case is undefined.</p>
+
+<p>There are a number of pivots that are pre-defined and will be automatically included in every <code>.autopkg</code> file:</p>
+
+
+<p>
+<div class="highlight"><pre>    <span class="n">Toolset</span> <span class="p">{</span>
+        <span class="n">key</span> <span class="p">:</span> <span class="s">&quot;PlatformToolset&quot;</span><span class="p">;</span>
+        <span class="n">choices</span><span class="p">:</span> <span class="p">{</span> <span class="n">v110</span><span class="p">,</span> <span class="n">v100</span><span class="p">,</span> <span class="n">v90</span><span class="p">,</span> <span class="n">v80</span><span class="p">,</span> <span class="n">v71</span><span class="p">,</span> <span class="n">v70</span><span class="p">,</span> <span class="n">v60</span><span class="p">,</span> <span class="n">gcc</span> <span class="p">};</span>
+    <span class="p">};</span>
+
+    <span class="n">Platform</span> <span class="p">{</span>
+        <span class="n">key</span> <span class="p">:</span> <span class="s">&quot;Platform&quot;</span><span class="p">;</span>
+        <span class="n">choices</span><span class="p">:</span> <span class="p">{</span> <span class="n">Win32</span><span class="p">,</span> <span class="n">x64</span><span class="p">,</span> <span class="n">ARM</span><span class="p">,</span> <span class="n">AnyCPU</span> <span class="p">};</span>
+        <span class="n">Win32</span><span class="p">.</span><span class="n">aliases</span> <span class="p">:</span> <span class="p">{</span> <span class="n">x86</span><span class="p">,</span> <span class="n">win32</span><span class="p">,</span> <span class="n">ia32</span><span class="p">,</span> <span class="m">386</span> <span class="p">};</span>
+        <span class="n">x64</span><span class="p">.</span><span class="n">aliases</span> <span class="p">:</span> <span class="p">{</span> <span class="n">x64</span><span class="p">,</span> <span class="n">amd64</span><span class="p">,</span> <span class="n">em64t</span><span class="p">,</span> <span class="n">intel64</span><span class="p">,</span> <span class="n">x86</span><span class="p">-</span><span class="m">64</span><span class="p">,</span> <span class="n">x86_64</span> <span class="p">};</span>
+        <span class="n">ARM</span><span class="p">.</span><span class="n">aliases</span> <span class="p">:</span> <span class="p">{</span> <span class="n">arm</span><span class="p">,</span> <span class="n">woa</span> <span class="p">};</span>
+        <span class="n">AnyCPU</span><span class="p">.</span><span class="n">aliases</span> <span class="p">:</span> <span class="p">{</span> <span class="n">anycpu</span><span class="p">,</span> <span class="n">any</span> <span class="p">};</span>
+    <span class="p">};</span>
+
+    <span class="n">Configuration</span> <span class="p">{</span>
+        <span class="n">key</span> <span class="p">:</span> <span class="s">&quot;Configuration&quot;</span><span class="p">;</span>
+        <span class="n">choices</span><span class="p">:</span> <span class="p">{</span> <span class="n">Release</span><span class="p">,</span> <span class="n">Debug</span> <span class="p">};</span>
+    <span class="p">};</span>
+
+    <span class="n">Linkage</span> <span class="p">{</span>
+        <span class="n">choices</span> <span class="p">:</span> <span class="p">{</span> <span class="kt">dynamic</span><span class="p">,</span> <span class="k">static</span><span class="p">,</span> <span class="n">ltcg</span><span class="p">,</span> <span class="n">sxs</span> <span class="p">};</span>
+        <span class="n">description</span> <span class="p">=</span> <span class="s">&quot;Which version of the .lib file to link to this library&quot;</span><span class="p">;</span>
+
+        <span class="n">ltcg</span><span class="p">.</span><span class="n">description</span> <span class="p">=</span> <span class="s">&quot;Link Time Compiler Generation&quot;</span><span class="p">;</span>
+        <span class="kt">dynamic</span><span class="p">.</span><span class="n">description</span> <span class="p">=</span> <span class="s">&quot;Dynamic Library (DLL)&quot;</span><span class="p">;</span>
+        <span class="k">static</span><span class="p">.</span><span class="n">description</span> <span class="p">=</span> <span class="s">&quot;Static&quot;</span><span class="p">;</span>
+        <span class="n">sxs</span><span class="p">.</span><span class="n">description</span> <span class="p">=</span> <span class="s">&quot;Side-by-Side&quot;</span><span class="p">;</span>
+    <span class="p">};</span>
+
+    <span class="n">CallingConvention</span> <span class="p">{</span>
+        <span class="c1">// Only really applicable to x86</span>
+        <span class="n">choices</span> <span class="p">:</span> <span class="p">{</span> <span class="n">cdecl</span><span class="p">,</span> <span class="n">stdcall</span><span class="p">,</span> <span class="n">fastcall</span><span class="p">,</span> <span class="n">thiscall</span><span class="p">,</span> <span class="n">clrcall</span> <span class="p">};</span>
+        <span class="n">description</span> <span class="p">=</span> <span class="s">&quot;Calling convention model to use (for x86 only)&quot;</span><span class="p">;</span>
+        <span class="n">cdecl</span><span class="p">.</span><span class="n">description</span> <span class="p">=</span> <span class="s">&quot;cdecl&quot;</span><span class="p">;</span>
+        <span class="n">stdcall</span><span class="p">.</span><span class="n">description</span> <span class="p">=</span> <span class="s">&quot;stdcall (Uncommon)&quot;</span><span class="p">;</span>
+        <span class="n">fastcall</span><span class="p">.</span><span class="n">description</span> <span class="p">=</span> <span class="s">&quot;fastcall (Rare)&quot;</span><span class="p">;</span>
+        <span class="n">thiscall</span><span class="p">.</span><span class="n">description</span> <span class="p">=</span> <span class="s">&quot;thiscall (Rare)&quot;</span><span class="p">;</span>
+        <span class="n">clrcall</span><span class="p">.</span><span class="n">description</span> <span class="p">=</span> <span class="s">&quot;clrcall (Rare)&quot;</span><span class="p">;</span>
+
+        <span class="n">stdcall</span><span class="p">.</span><span class="n">restricted</span><span class="p">-</span><span class="n">to</span> <span class="p">=</span> <span class="s">&quot;Win32&quot;</span><span class="p">;</span>
+        <span class="n">fastcall</span><span class="p">.</span><span class="n">restricted</span><span class="p">-</span><span class="n">to</span> <span class="p">=</span> <span class="s">&quot;Win32&quot;</span><span class="p">;</span>
+        <span class="n">thiscall</span><span class="p">.</span><span class="n">restricted</span><span class="p">-</span><span class="n">to</span> <span class="p">=</span> <span class="s">&quot;Win32&quot;</span><span class="p">;</span>
+        <span class="n">clrcall</span><span class="p">.</span><span class="n">restricted</span><span class="p">-</span><span class="n">to</span> <span class="p">=</span> <span class="s">&quot;Win32&quot;</span><span class="p">;</span>
+    <span class="p">};</span>
+</pre></div>
+
+<p>
+
+<h4><a id="OutputFiles" href="#OutputFiles">Output Files</a></h4>
+
+<p>This metadata node defines the <code>.nupkg</code> files which will be generated.  These may be referenced by collections in the <code>Files</code>, <code>Props</code>, and <code>Targets</code> nodes to direct certain files and actions to be placed in different files.  Below is presented the list of default output packages defined by AutoPackage.  These exist automatically without needing to include them in your <code>.autopkg</code> file.</p>
+
+
+<p>
+<div class="highlight"><pre>    <span class="c1">// For reference,  ${pkgname} resolves to the ID specified in the nuspec node.</span>
+
+    #<span class="n">output</span><span class="p">-</span><span class="n">packages</span> <span class="p">{</span>
+        <span class="k">default</span> <span class="p">:</span> $<span class="p">{</span><span class="n">pkgname</span><span class="p">};</span>          <span class="c1">//  eg.  bob.nupkg</span>
+        <span class="n">redist</span> <span class="p">:</span> $<span class="p">{</span><span class="n">pkgname</span><span class="p">}.</span><span class="n">redist</span><span class="p">;</span>    <span class="c1">//  eg.  bob.redist.nupkg</span>
+        <span class="n">symbols</span> <span class="p">:</span> $<span class="p">{</span><span class="n">pkgname</span><span class="p">}.</span><span class="n">symbols</span><span class="p">;</span>  <span class="c1">//  eg.  bob.symbols.nupkg</span>
+    <span class="p">}</span>
+</pre></div>
+
+<p>
+
+<h4><a id="Files" href="#Files">File Collections</a></h4>
+
+<p>File collections in the <code>files</code> node may be defined or re-defined by the following syntax.  All fields are optional for new collections.  Re-defining a collection requires explicitly changing its existing properties.</p>
+
+
+<p>
+<div class="highlight"><pre>    <span class="n">Collection_Name</span> <span class="p">+=</span> <span class="p">{</span>
+        #<span class="n">output</span> <span class="p">{</span> <span class="c1">// Assigns the output package file this collection is insterted into.</span>
+                  <span class="c1">// Defaults to &#39;default&#39; if not specified.</span>
+            <span class="n">package</span> <span class="p">=</span> <a class="lnk" href="#OutputFiles"><span class="p">&lt;</span><span class="n">Output_File</span><span class="p">&gt;</span></a><span class="p">;</span>  <span class="c1">// Must be named in #output-packages</span>
+                                                     <span class="c1">// eg. default, redist, ...</span>
+        <span class="p">};</span>
+
+        <span class="c1">// This will add each file in this collection to another collection in this script.</span>
+        #<span class="k">add</span><span class="p">-</span><span class="n">each</span><span class="p">-</span><span class="n">file</span> <span class="p">:</span> <span class="p">&lt;</span><span class="n">collection_to_also_add_to</span><span class="p">&gt;;</span>
+
+        <span class="c1">// This will add the destination folder to another collection in this script.</span>
+        #<span class="k">add</span><span class="p">-</span><span class="n">folder</span> <span class="p">:</span> <span class="p">&lt;</span><span class="n">collection_to_also_add_to</span><span class="p">&gt;;</span>
+
+        <span class="c1">// If true, this will flatten all files in this collection to be located in the</span>
+        <span class="c1">// root of #destination.  Default is false, which will preserve minimum relative</span>
+        <span class="c1">// paths when wildcards are used to select files.</span>
+        #<span class="n">flatten</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+
+        <span class="c1">// Assigns the folder within the package&#39;s directory tree where these files</span>
+        <span class="c1">// should be placed.</span>
+        #<span class="n">destination</span> <span class="p">=</span> $<span class="p">{</span><span class="n">d_lib</span><span class="p">};</span>
+    <span class="p">};</span>
+</pre></div>
+
+<p>
+
+<p>Below is a sample of file collections as defined in the <strong><a href="/reference/implicit-packagescript.html">Implicit PackageScript</a></strong>.</p>
+
+
+<p>
+<div class="highlight"><pre>    <span class="n">bin</span> <span class="p">+=</span> <span class="p">{</span>
+        #<span class="n">output</span> <span class="p">{</span>
+            <span class="n">package</span> <span class="p">=</span> <span class="n">redist</span><span class="p">;</span>
+        <span class="p">};</span>
+        #<span class="k">add</span><span class="p">-</span><span class="n">each</span><span class="p">-</span><span class="n">file</span> <span class="p">:</span> <span class="p">::</span><span class="n">nuget</span><span class="p">.[</span><span class="n">redist</span><span class="p">]</span><span class="n">targets</span><span class="p">.[</span>$<span class="p">{</span><span class="n">condition</span><span class="p">}].</span><span class="n">CopyToOutput</span><span class="p">;</span>
+        #<span class="n">destination</span> <span class="p">:</span> $<span class="p">{</span><span class="n">d_bin</span><span class="p">};</span>
+    <span class="p">};</span>
+
+    <span class="n">lib</span> <span class="p">+=</span> <span class="p">{</span>
+        <span class="c1">// add each file as a link rule</span>
+        #<span class="k">add</span><span class="p">-</span><span class="n">each</span><span class="p">-</span><span class="n">file</span> <span class="p">:</span> <span class="p">::</span><span class="n">nuget</span><span class="p">.</span><span class="n">targets</span><span class="p">.[</span>$<span class="p">{</span><span class="n">condition</span><span class="p">}].</span><span class="n">Libraries</span><span class="p">;</span>
+        #<span class="n">flatten</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+        #<span class="n">destination</span> <span class="p">=</span> $<span class="p">{</span><span class="n">d_lib</span><span class="p">};</span>
+    <span class="p">};</span>
+
+    <span class="n">include</span> <span class="p">+=</span> <span class="p">{</span>
+        #<span class="k">add</span><span class="p">-</span><span class="n">folder</span> <span class="p">:</span> <span class="p">::</span><span class="n">nuget</span><span class="p">.</span><span class="n">targets</span><span class="p">.[</span>$<span class="p">{</span><span class="n">condition</span><span class="p">}].</span><span class="n">Includes</span><span class="p">;</span>
+        #<span class="n">destination</span> <span class="p">:</span> $<span class="p">{</span><span class="n">d_include</span><span class="p">};</span>
+    <span class="p">};</span>
+</pre></div>
+
+<p>
+
+<h3><a id="Resources" href="#Resources">Other Resources</a></h3>
+
+<h4><a id="ImplicitRules" href="#ImplicitRules">Implicit AutoPackage Rules</a></h4>
+
+<p>For a complete listing of the AutoPackage rules that are assigned automatically before the <code>autopkg</code> file is read, see the <strong><a href="/reference/implicit-packagescript.html">Implicit PackageScript</a></strong>.</p>
+
+<h3>How to have Include files nested in a subfolder</h3>
+
+<p>Sometimes the package creator wants to have files placed in a subdirectory so that consuming developers includes files like:</p>
+
+
+<p>
+<div class="highlight"><pre><span class="c1">// sample include</span>
+<span class="cp">#include &lt;mylib/mylib.h&gt; </span>
+</pre></div>
+
+<p>
+
+<p>Autopackage tries to un-nest as much as possible. To work around this you can add a different file section and tell it how to add the files to the package:</p>
+
+
+<p>
+<div class="highlight"><pre><span class="nt">nuget</span> <span class="p">{</span>
+    <span class="n">files</span> { 
+        <span class="o">//</span> <span class="n">instead</span> <span class="n">of</span> <span class="n">using</span> <span class="n">something</span> <span class="n">like</span> <span class="n">this</span><span class="o">:</span>
+        <span class="n">include</span><span class="o">:</span> { 
+            <span class="s2">&quot;inc\*.h&quot;</span> 
+        <span class="p">}</span><span class="o">;</span>
+
+        <span class="o">//</span> <span class="nt">use</span> <span class="nt">this</span><span class="o">:</span>
+        <span class="nt">nestedInclude</span><span class="o">:</span> <span class="p">{</span>
+            <span class="m">#destin</span><span class="n">ation</span> <span class="o">=</span> <span class="err">${</span><span class="n">d_include</span><span class="p">}</span>\<span class="nt">mylib</span><span class="o">;</span>
+             <span class="s2">&quot;inc\*.h&quot;</span>
+        }<span class="o">;</span>
+    }<span class="o">;</span>
+}<span class="o">;</span>
+</pre></div>
+
+<p>
+
+<p>This will copy the files into the subdirectory of the <code>include</code> folder.</p>
+</div>
+
+<script>
+$('video').mediaelementplayer({
+    enableAutosize: true,
+    features: ['playpause','progress','current','duration','volume','fullscreen']
+});
+</script>
+
+<!-- Disqus Comment System -->
+<div id="disqus_thread"><div id="dsq-content"></div></div>
+<ul id="dsq-comments"></ul>
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'coapp'; // required: replace example with your forum shortname
+
+    // The following are highly recommended additional parameters. Remove the slashes in front to use.
+    
+    var disqus_identifier = "/reference/autopackage-ref.html/0.4";
+    var disqus_url = 'http://www.coapp.org/reference/autopackage-ref.html?version=0.4';
+    var disqus_title = "AutoPackage Script Guide/0.4";
+    var disqus_developer = 0; 
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </div>
+        </section>
+    </div>  
+    <br>    
+    <div class="push" ></div>
+    </div>
+    <footer class="footer">
+        <div class="container-fluid">
+        <p  style="float:left;">&copy; CoApp Contributors, 2011. 
+        <br><sub>The source for this page can be found <a href="https://github.com/coapp/coapp.org/blob/master/src/dynamic/reference/autopackage-ref.html.md.ejs">in the github repository.</a></sub>
+        </p>
+        <p style="float:right;">
+            This website was generated on Aug 25 2015 and has 185 documents
+        </p>
+        </div>
+    </footer>
+</body>
+</html>

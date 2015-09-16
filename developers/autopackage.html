@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+
+<html lange="en">
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <title>CoApp - Making AutoPackage Files</title>
+    <meta name="description" content="">
+    <meta name="author" content="CoApp Project">
+
+    <meta property="og:title" content="CoApp - Making AutoPackage Files"/>
+    
+        <meta property="og:type" content="article"/>
+    
+    <meta property="og:image" content="http://coapp.org/images/logo-small.png"/>
+    <meta property="og:url" content="http://coapp.org/developers/autopackage.html"/>
+    <meta property="og:site_name" content="CoApp"/>
+    <meta property="og:admins" content="CoApp - fearthecowboy"/>
+
+    <meta name="docid" content="undefined" />
+    <meta name="srclocation" content="https://github.com/coapp/coapp.org/blob/master/src/dynamic/developers/autopackage.html.md" />
+
+    <!-- Icons -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+    <!-- Shims: IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script async src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Styles -->
+    <link href="/styles/style.css" rel="stylesheet"/>
+    <link href="/styles/prettify.css" rel="stylesheet"/>
+    <link href="/styles/mediaelementplayer.min.css" rel="stylesheet"  />
+    
+</head>
+<body >
+    
+    <!-- Scripts -->
+    <script src="/scripts/jquery-1.6.4.min.js"></script>
+    <script src="/scripts/prettify.js"></script>
+    <script src="/scripts/jquery.tweet.js"></script>
+    <script src="/scripts/mediaelement-and-player.js"></script>
+    <script src="/scripts/bootstrap/bootstrap-dropdown.js"></script>
+    <div id="fb-root"></div>
+      <script type="text/javascript">
+      (function() {
+        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+        po.src = 'https://apis.google.com/js/plusone.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+      })();
+      </script>
+      <script type="text/javascript">
+      (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-15630590-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    <script>
+        // $('#topbar').dropdown();
+    </script>
+    <!-- Markup -->
+    <div class="topbar" data-dropdown="dropdown">
+        <div class="fill">
+            <div class="container-fluid">
+                <h3><a href="/index.html"><image style="margin:0; padding:0; position:absolute; top:2px; left:-2px;" src="/images/logo-small_32x32.png"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CoApp</a></h3>
+                <ul>
+                      
+                        
+                        <li typeof="sioc:Page" about="/pages/news.html" class="">
+                            <a href="/pages/news.html" property="dc:title">News</a>
+                        </li>
+
+                        
+                      
+                        
+                        <li typeof="sioc:Page" about="/pages/releases.html" class="">
+                            <a href="/pages/releases.html" property="dc:title">Releases</a>
+                        </li>
+
+                        
+                      
+                        
+                        <li typeof="sioc:Page" about="/pages/tutorials.html" class="">
+                            <a href="/pages/tutorials.html" property="dc:title">Tutorials</a>
+                        </li>
+
+                        
+                      
+                        
+                        <li typeof="sioc:Page" about="/pages/reference.html" class="">
+                            <a href="/pages/reference.html" property="dc:title">Reference</a>
+                        </li>
+
+                        
+                      
+                        
+                        <li typeof="sioc:Page" about="/pages/about.html" class="">
+                            <a href="/pages/about.html" property="dc:title">About</a>
+                        </li>
+
+                        
+                    
+                </ul>
+                
+                
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+    <div class="container-fluid pushdown">
+        <div class="sidebar">
+            
+        </div> 
+        <section id="content" class="content">
+        <div class="spanonethird rightsidebox" > <!-- float:right; display: inline; veritical-align:top; -->
+            
+                
+                    <h2>Documentation Sprint</h2>
+
+<p>We're starting a documentation phase right now, since there's so much that people <em>can</em> do, but there's little documentation. </p>
+
+<p>Keep checking back daily to see what's new! </p>
+                
+                    <h4><u>In the twittersphere...</u></h4> 
+
+<p><div class="tweet"></div></p> 
+
+<div style="text-align: right;    "> 
+    <br> 
+    <a class="btn info" href="http://search.twitter.com/search?q=&ands=CoAppCommits&phrase=&ors=&nots=&tag=&lang=all&from=&to=&ref=&near=&within=15&units=mi&since=&until=&rpp=15" > 
+    Read more</a> <br><br><br></div> 
+
+<script type="text/javascript">  
+$(document).ready(function(){ 
+        $(".tweet").tweet({ 
+            query: "CoAppCommits", 
+
+            avatar_size: 48, 
+            count: 5, 
+
+            loading_text: "loading tweets...", 
+            refresh_interval: 60 
+        }); 
+    }); 
+</script>
+                
+            
+        </div> 
+            <div class="spantwothirds">
+            
+
+
+<span style="display:inline-block;">
+    <h1>Making AutoPackage Files</h1>
+    <h4>Version:0.7</h4>
+</span>
+<span style="display:inline-block; float:right;">
+    <br><br>
+    <span style="margin-top:8px; height;100%; display:inline-block; "><g:plusone href="http://coapp.org/developers/autopackage.html"></g:plusone></span>
+    <div class="fb-like" style="top:-5px;" data-href="http://coapp.org/developers/autopackage.html" data-layout="button_count" data-show-faces="true" data-colorscheme="dark" data-font="tahoma"></div>
+</span>  
+
+<div id="post" class="post">
+    <p>This document details the thought process for generating a <code>.autopkg</code> file to produce the desired output.  For details on all possible fields of an AutoPackage file, <a href="/reference/autopackage.html#autopkg">look here</a>.<br />Examples/boilerplates of a <a href="boilerplate-autopkg.html">.autopkg file</a> and the typical <a href="example-imports.html">@import files</a> are available.</p>
+
+<p>The documentation on this page is based upon CoApp.Devtools version 1.2.0.315.</p>
+
+<hr />
+
+<ul>
+<li><a href="#required">Required Rules</a>
+<ul><li><a href="#package-rule">Package</a></li>
+<li><a href="#files-rule">files[]</a></li>
+<li><a href="#composition-rule">Package-composition</a></li>
+<li><a href="#requires-rule">Requires</a></li>
+<li><a href="#manifest-rule">Manifest</a></li>
+<li><a href="#roles">Roles</a>
+<ul><li><a href="#application-role">application</a></li>
+<li><a href="#devlib-role">developer-library</a></li>
+<li><a href="#assembly-role">assembly</a></li></ul></li></ul></li>
+<li><a href="#frequent">Frequently Used Rules</a>
+<ul><li><a href="#metadata-rule">metadata</a></li></ul></li>
+<li><a href="#optional">Other Optional Rules</a></li>
+</ul>
+
+<hr />
+
+<h2><a id="required" href="#required">Minimum Required Rules</a></h2>
+
+<h4><a id="package-rule" href="#package-rule">Package</a></h4>
+
+<p>This contains much of the basic descriptive information about a package.</p>
+
+
+<p>
+<div class="highlight"><pre><span class="n">package</span> <span class="p">{</span>
+    <span class="n">name</span><span class="p">:</span> <span class="s">&quot;MyPackage&quot;</span><span class="p">;</span>    <span class="c1">// Name or title of package.  This is also called the &quot;common name&quot; must only use ascii                                 //letters, numbers, underscores and periods</span>
+    <span class="n">version</span><span class="p">:</span> <span class="s">&quot;1.2.3.4&quot;</span><span class="p">;</span>            <span class="cm">/* Must be a 4-part version string:  &quot;a.b.c.d&quot;</span>
+<span class="cm">                                    a = Major version</span>
+<span class="cm">                                    b = Minor version</span>
+<span class="cm">                                    c = Revision (It is highly discouraged for binary-breaking changes </span>
+<span class="cm">                                        to occur on a revision change.)</span>
+<span class="cm">                                    d = Build number (A change of build number should NEVER break binary</span>
+<span class="cm">                                        compatibility unless another part of the version number has also</span>
+<span class="cm">                                        changed.)</span>
+<span class="cm">                                   Software with only 2- or 3-part versions should be left-justified, with</span>
+<span class="cm">                                    the build and revision numbers padded out to form a 4-part version.</span>
+<span class="cm">                                   As a general rule, the build number should never be less than &quot;1&quot;.</span>
+<span class="cm">                                   If not provided it will be extracted from the first binary file in the package. If no file exists, package will not build.</span>
+<span class="cm">                                */</span>
+    <span class="n">arch</span><span class="p">:</span> <span class="p">[</span><span class="n">x86</span> <span class="p">|</span> <span class="n">x64</span> <span class="p">|</span> <span class="n">any</span><span class="p">];</span>    <span class="cm">/* Any particular package should be for exactly ONE of these architectures. If not                                             provided it will be extracted from the first binary file in the package. If no file exists,                                         package will not build */</span>
+
+
+    <span class="cm">/* optional properties */</span>
+    <span class="n">display</span><span class="p">-</span><span class="n">name</span><span class="p">:</span> <span class="s">&quot;any name&quot;</span><span class="p">;</span> <span class="cm">/* a user friendly name, any string that is less than 260 characters I believe.*/</span>
+
+    <span class="n">location</span><span class="p">:</span> <span class="p">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="p">=</span><span class="err">&#39;</span><span class="n">http</span><span class="p">:</span><span class="c1">//coapp.org/repository/${OutputFilename}&#39;&gt;http://coapp.org/repository/${OutputFilename}&lt;/a&gt;; /* url to the location where package can be downloaded                                                                         from.*/</span>
+    <span class="n">feed</span><span class="p">:</span> <span class="p">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="p">=</span><span class="err">&#39;</span><span class="n">http</span><span class="p">:</span><span class="c1">//coapp.org/repository/packages.atom.xml&#39;&gt;http://coapp.org/repository/packages.atom.xml&lt;/a&gt;; /* url to the feed where this and newer version of the package                                                                 can be found. */</span>
+    <span class="n">publisher</span><span class="p">:</span> <span class="s">&quot;publisher name&quot;</span><span class="p">;</span>                         <span class="c1">// the name of a group or person publishing the package</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>
+
+<h4><a id="files-rule" href="#files-rule">files[]</a></h4>
+
+<p>This rule can be declared multiple times, each with a different <code>reference_name</code>.  This is used to group similar files to be referenced by other rules.  While not strictly necessary by itself, the use of it is <em>highly encouraged</em> to improve the readability of the .autopkg file.</p>
+
+
+<p>
+<div class="highlight"><pre><span class="n">files</span><span class="p">[</span><span class="n">AppFiles</span><span class="p">]</span> <span class="p">{</span>
+    <span class="n">root</span><span class="p">:</span> <span class="s">@&quot;..\output&quot;</span><span class="p">;</span>        <span class="c1">// The location to start looking for files in, relative to the COPKG dir.</span>
+
+    <span class="n">include</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;*&quot;</span><span class="p">,</span>                <span class="c1">// include all files in this directory in the group</span>
+        <span class="s">&quot;**.exe&quot;</span>            <span class="c1">// include all files with a &quot;.exe&quot; extention from this and all subdirectories</span>
+    <span class="p">}</span>
+
+    <span class="n">trim</span><span class="p">-</span><span class="n">path</span><span class="p">:</span> <span class="p">[</span><span class="n">minimal</span><span class="p">,</span> <span class="n">all</span><span class="p">];</span>    <span class="cm">/* select directory heirarchy for this group of files:</span>
+<span class="cm">                                    minimal = This will keep the directory structure relative to the files&#39;</span>
+<span class="cm">                                                present locations.</span>
+<span class="cm">                                                (eg. ../output/bin/stuff.exe will be stored as ./bin/stuff.exe)</span>
+<span class="cm">                                    all = This will flatten any directory structure present.</span>
+<span class="cm">                                                (eg. ../output/bin/stuff.exe will be stored as ./stuff.exe)</span>
+<span class="cm">                                */</span>
+
+    <span class="n">destination</span><span class="p">:</span>  <span class="s">&quot;bin&quot;</span><span class="p">;</span>    <span class="cm">/* This is generally omitted, but can be used to set the root output path for</span>
+<span class="cm">                                this group of files at the output location.</span>
+<span class="cm">                            */</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>
+
+<h4><a id="composition-rule" href="#composition-rule">Package-composition</a></h4>
+
+<p>This is a critical part of any <a href="#application-role">application</a> package, though it is generally omitted in <a href="#assembly-role">assembly</a> packages.</p>
+
+
+<p>
+<div class="highlight"><pre><span class="n">package</span><span class="p">-</span><span class="n">composition</span> <span class="p">{</span>
+    <span class="cm">/*  Sections which operate on files follow the following syntax:</span>
+<span class="cm">            &lt;file_group_reference&gt;  =&gt;  ( &lt;output&gt; | &lt;operations on each file&gt; )</span>
+<span class="cm">    */</span>
+    <span class="n">file</span><span class="p">-</span><span class="n">rewrite</span><span class="p">:</span> <span class="p">{</span> 
+        <span class="cm">/* Files in this section are passed through the CoApp macro parser and the</span>
+<span class="cm">            resulting files are output with the filenames as specified.</span>
+<span class="cm">        */</span>
+        <span class="n">config</span><span class="p">-</span><span class="n">files</span> <span class="p">=&gt;</span> <span class="s">&quot;rw_${each.Name}&quot;</span>
+        <span class="cm">/* Every file that was specified in a &quot;files[config-files]&quot; rule will be read,</span>
+<span class="cm">            any known variables (eg. ${bin}, ${appdir}, etc.) will be processed, and</span>
+<span class="cm">            the resulting output file will be written in the same location with filename</span>
+<span class="cm">            prefixed with &quot;rw_&quot;.</span>
+<span class="cm">        */</span>
+    <span class="p">};</span>
+
+    <span class="n">file</span><span class="p">-</span><span class="n">copy</span><span class="p">:</span> <span class="p">{</span>  
+        <span class="cm">/* These files will be copied to the specified directory, as is.  No parsing</span>
+<span class="cm">            will be done on these files, although this method may be used to rename them.</span>
+<span class="cm">        */</span>
+        <span class="n">config</span><span class="p">-</span><span class="n">files</span> <span class="p">=&gt;</span> <span class="s">&quot;${appdir}\config\${each.Name}&quot;</span><span class="p">;</span>
+    <span class="p">};</span>
+
+    <span class="n">symlinks</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="cm">/* If the application needs to be present in the path, or if a script or .ini file</span>
+<span class="cm">            needs to be reachable in a specific location, this will add a symlink in that</span>
+<span class="cm">            location which points to the actual file listed.  This is typcially used with</span>
+<span class="cm">            file groups.</span>
+<span class="cm">        */</span>
+        <span class="n">exes</span> <span class="p">=&gt;</span> <span class="s">@&quot;${bin}\${each.name}&quot;</span> <span class="p">=</span> <span class="s">@&quot;${appdir}\${each.name}&quot;</span><span class="p">;</span>
+        <span class="n">scripts</span> <span class="p">=&gt;</span> <span class="s">@&quot;${coapp}\scripts\powershell\${each.name}&quot;</span> <span class="p">=</span> <span class="s">@&quot;${appdir}\scripts\${each.name}&quot;</span><span class="p">;</span>
+    <span class="p">}</span>    
+
+    <span class="n">environment</span><span class="p">-</span><span class="n">variables</span><span class="p">:</span> <span class="p">{</span>
+        <span class="c1">// This sets system-wide environment variables.  These are *NOT* user specific.</span>
+        <span class="s">&quot;RUBYPATH&quot;</span> <span class="p">=</span> <span class="s">&quot;${appdir}&quot;</span><span class="p">;</span>
+    <span class="p">};</span>
+
+    <span class="n">registry</span><span class="p">:</span> <span class="p">{</span> 
+        <span class="cm">/* This will set a key in the Windows Registry.  These are always set in:</span>
+<span class="cm">                HKey_Local_Machine\Software\</span>
+<span class="cm">           CoApp will also redirect the key as appropriate for x86 and x64 applications</span>
+<span class="cm">            to match Windows&#39; built-in registry redirection.</span>
+<span class="cm">           The syntax is:</span>
+<span class="cm">            @&quot;&lt;Keyname&gt;\&lt;subkey&gt;#&lt;value_name&gt;&quot; = @&quot;&lt;value&gt;&quot;;</span>
+<span class="cm">           Which will result in the following registry key:</span>
+<span class="cm">            HKLM\Software\&lt;Keyname&gt;\&lt;subkey&gt; : &lt;value_name&gt; = &lt;value&gt;</span>
+<span class="cm">        */</span>
+        <span class="s">@&quot;MyApp#InstallLocation&quot;</span> <span class="p">=</span> <span class="s">@&quot;${APPDIR}&quot;</span><span class="p">;</span>
+    <span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>
+
+<h4><a id="requires-rule" href="#requires-rule">Requires</a></h4>
+
+<p>This rule is necessary if this package depends on other CoApp packages.</p>
+
+
+<p>
+<div class="highlight"><pre><span class="n">requires</span> <span class="p">{</span>
+    <span class="n">package</span><span class="p">:</span> <span class="s">&quot;MyLib-1.2.3-any-aaaabbbbccccdddd&quot;</span><span class="p">;</span>
+    <span class="c1">// or</span>
+    <span class="n">package</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;LibA-2-x86-1111222233334444&quot;</span><span class="p">,</span>
+        <span class="s">&quot;LibB-9.1-x86-ffff0000ffff0000&quot;</span>
+    <span class="p">};</span>
+    <span class="c1">//packages can be less specific</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>
+
+<p><span class="label warning">Note!</span>  Please note that the version listed is a partial version and not a 4-part version.  Providing a full 4-part version in the package identifier will bind against that <strong>EXACT</strong> version, and will not accept an alternate (binary compatable) installation.  By providing a partial version, CoApp will look for any binary compatable version of the package specified that is at least the version specified.</p>
+
+<h4><a id="manifest-rule" href="#manifest-rule">Manifest[]</a></h4>
+
+<p>If your package links to assemblies in another CoApp package, it may be necessary to embed a manifest into any files from this package which uses those other assemblies.  If your files need to link to multiple other assemblies, one <code>manifest[]</code> section will be required for each other assembly.</p>
+
+
+<p>
+<div class="highlight"><pre><span class="n">manifest</span><span class="p">[</span><span class="n">zlib</span><span class="p">]</span> <span class="p">{</span>
+    <span class="n">assembly</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="c1">// This is the assembly name to reference.</span>
+        <span class="c1">// It must be the name of an assembly from a package in the &quot;requires&quot; rule. (see �assembly role�#assembly-role� below)</span>
+        <span class="s">&quot;zlib[vc10]&quot;</span>
+    <span class="p">};</span>
+
+    <span class="n">include</span> <span class="p">{</span>
+        <span class="c1">// This is the set of files which need to reference the above assembly.</span>
+        <span class="c1">// It can be a single file, a list of files, or the name of a file group.</span>
+        <span class="s">&quot;AppFiles&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>
+
+<h3><a id="roles" href="#roles">Roles</a></h3>
+
+<p>Roles are a specific type of rule that provides context to CoApp and AutoPackage about the package being created or installed.  At least one role must be present in an AutoPackage file, though having more than one is allowed.  Any place where a <code>&lt;set_of_files&gt;</code> is specified, the section will accept a single file, a list of files, or the name of a file group defined elsewhere.</p>
+
+<h4><a id="application-role" href="#application-role">application</a></h4>
+
+<p>This role is used to package an executable application.  Frequently an application package will depend upon many <a href="#assembly-role">assembly</a> packages, which must be listed in a <a href="#requires-rule">requires</a> rule and referenced by way of <a href="#manifest-rule">manifest</a> rules.</p>
+
+
+<p>
+<div class="highlight"><pre><span class="n">application</span><span class="p">[</span><span class="n">AppName</span><span class="p">]</span> <span class="p">{</span>
+    <span class="n">include</span><span class="p">:</span> <span class="p">{</span>
+        <span class="c1">// Files listed here will be installed to an application folder.</span>
+        <span class="p">&lt;</span><span class="n">set_of_files</span><span class="p">&gt;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>
+
+<h4><a id="assembly-role" href="#assembly-role">assembly</a></h4>
+
+<p>This role specifies shared libraries which are dynamically linked to by other assemblies and <a href="#application-role">applications</a>.</p>
+
+
+<p>
+<div class="highlight"><pre><span class="n">assembly</span><span class="p">[&lt;</span><span class="n">AssemblyName</span><span class="p">&gt;]</span> <span class="p">{</span>
+    <span class="n">include</span><span class="p">:</span> <span class="p">{</span> 
+        <span class="c1">// These files will be stored in Side-by-Side as a versioned assembly named &lt;AssemblyName&gt;</span>
+        <span class="p">&lt;</span><span class="n">set_of_files</span><span class="p">&gt;</span>
+    <span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>
+
+<h4><a id="devlib-role" href="#devlib-role">developer-library</a></h4>
+
+<p>Used to specify a developer link-library and associated headers.  Typically a package with this role will either include an <a href="#assembly-role">assembly</a> role containing the related end-user library or will list the package containing it in a <a href="#requires-rule">requires</a> rule.</p>
+
+
+<p>
+<div class="highlight"><pre><span class="n">developer</span><span class="p">-</span><span class="n">library</span><span class="p">[&lt;</span><span class="n">LibName</span><span class="p">&gt;]</span> <span class="p">{</span>
+    <span class="n">headers</span><span class="p">:</span> <span class="p">{</span> 
+        <span class="c1">// These will automatically have links made in %AllUsersProfile%\include\&lt;LibName&gt;\</span>
+        <span class="p">&lt;</span><span class="n">set_of_files</span><span class="p">&gt;</span>
+    <span class="p">}</span>
+    <span class="n">libraries</span><span class="p">:</span> <span class="p">{</span> 
+        <span class="c1">// These will automatically have links made in %AllUsersProfile%\lib\${package.arch}\</span>
+        <span class="p">&lt;</span><span class="n">set_of_files</span><span class="p">&gt;</span>
+    <span class="p">}</span>
+    <span class="n">docs</span><span class="p">:</span> <span class="p">{</span> 
+        <span class="p">&lt;</span><span class="n">set_of_files</span><span class="p">&gt;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>
+
+<h2><a id="frequent" href="#frequent">Frequently Used Rules</a></h2>
+
+<h4><a id="metadata-rule" href="#metadata-rule">metadata</a></h4>
+
+<p>Used to specify characteristics of a package. Metadata information is often a good thing to provide but isn't required.</p>
+
+
+<p>
+<div class="highlight"><pre><span class="n">metadata</span> <span class="p">{</span>
+    <span class="n">summary</span><span class="p">:</span> <span class="s">&quot;The CoApp Core Package Manager.&quot;</span><span class="p">;</span> <span class="c1">//A short blurb about your package. Must be less than 160 characters and shouldn&#39;t have line breaks</span>
+    <span class="n">description</span><span class="p">:</span> <span class="s">@&quot;This is the core component for CoApp. </span>
+
+<span class="s">CoApp, is the Common Opensource Application Publishing Platform, an open-source package management system for Windows. </span>
+
+<span class="s">The goal of the CoApp project is to create a community of developers dedicated to creating a set of tools and processes that enable other open source developers to create and maintain their open source products with Windows as a primary build target..&quot;</span><span class="p">;</span>  <span class="c1">// A description of any length to describe your package. May also be a                                                                                      path to a file.</span>
+    <span class="n">icon</span><span class="p">:</span> <span class="s">@&quot;images\logo3.png&quot;</span><span class="p">;</span> <span class="c1">//ignore, not currently used</span>
+
+    <span class="n">author</span><span class="p">-</span><span class="n">version</span> <span class="p">:</span> <span class="s">&quot;1.2 Release Canididate&quot;</span><span class="p">;</span> <span class="c1">// a human readable description of your package&#39;s version. For example, for Windows Vista, the author-version would be &quot;Vista&quot; instead of 6.0.6000.&lt;some build number&gt;</span>
+    <span class="n">bug</span><span class="p">-</span><span class="n">tracker</span><span class="p">:</span> <span class="s">&quot;&lt;a href=&#39;https://github.com/coapp/coapp/issues&#39;&gt;https://github.com/coapp/coapp/issues&lt;/a&gt;&quot;</span><span class="p">;</span> <span class="c1">// a url to the bugtracker for the package</span>
+    <span class="n">stability</span> <span class="p">:</span> <span class="s">&quot;0&quot;</span><span class="p">;</span> <span class="c1">// number illustrating the stability of a package. -100 is the most unstable while 100 is the most stable. if none is provided, 0 is assumed</span>
+    <span class="n">tags</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="n">green</span><span class="p">,</span> <span class="n">red</span>
+    <span class="p">};</span> <span class="c1">// Any string under *add number of characters* characters for describing a package</span>
+
+    <span class="n">licenses</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="n">Apache20</span>
+    <span class="p">};</span> <span class="c1">// a list of licenses that refer to either a license rule in the file or one of the default licenses?</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>
+
+<h4><a id="compatability-policy-rule" href="#compatability-policy-rule">compatability-policy</a></h4>
+
+<p>Describes the range of previous versions this package is binary compatible with</p>
+
+
+<p>
+<div class="highlight"><pre><span class="n">compatability</span><span class="p">-</span><span class="n">policy</span> <span class="p">{</span>
+    <span class="n">minimum</span><span class="p">:</span> <span class="s">&quot;1.0.0.0&quot;</span><span class="p">;</span> <span class="c1">// The minimum version this package is binary compatible with (inclusive)</span>
+    <span class="n">maximum</span><span class="p">:</span> <span class="s">&quot;${OneLessThanCurrent}&quot;</span><span class="p">;</span> <span class="c1">// The minimum version this package is binary compatible with (inclusive)</span>
+    <span class="n">versions</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;1.0&quot;</span><span class="p">,</span>
+        <span class="s">&quot;1.1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;1.2&quot;</span><span class="p">,</span>
+    <span class="p">};</span> <span class="c1">// the major.minor version numbers that this package replaces (this is used to create policy assemblies). if non are included, this is deduced from the feed locations available on the build computer</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>
+
+<h4>signing</h4>
+
+<h4>license</h4>
+
+<h4>#define</h4>
+
+<h2><a id="optional" href="#optional">Other Optional Rules</a></h2>
+
+<h4>identity</h4>
+
+<h4>provides</h4>
+
+<p><span class="label success">Coming soon!</span></p>
+</div>
+
+<script>
+$('video').mediaelementplayer({
+    enableAutosize: true,
+    features: ['playpause','progress','current','duration','volume','fullscreen']
+});
+</script>
+
+<!-- Disqus Comment System -->
+<div id="disqus_thread"><div id="dsq-content"></div></div>
+<ul id="dsq-comments"></ul>
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'coapp'; // required: replace example with your forum shortname
+
+    // The following are highly recommended additional parameters. Remove the slashes in front to use.
+    
+    var disqus_identifier = "/developers/autopackage.html/0.7";
+    var disqus_url = 'http://www.coapp.org/developers/autopackage.html?version=0.7';
+    var disqus_title = "Making AutoPackage Files/0.7";
+    var disqus_developer = 0; 
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </div>
+        </section>
+    </div>  
+    <br>    
+    <div class="push" ></div>
+    </div>
+    <footer class="footer">
+        <div class="container-fluid">
+        <p  style="float:left;">&copy; CoApp Contributors, 2011. 
+        <br><sub>The source for this page can be found <a href="https://github.com/coapp/coapp.org/blob/master/src/dynamic/developers/autopackage.html.md">in the github repository.</a></sub>
+        </p>
+        <p style="float:right;">
+            This website was generated on Aug 25 2015 and has 185 documents
+        </p>
+        </div>
+    </footer>
+</body>
+</html>

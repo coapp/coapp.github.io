@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+
+<html lange="en">
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <title>CoApp - AutoPackage Boilerplate File</title>
+    <meta name="description" content="">
+    <meta name="author" content="CoApp Project">
+
+    <meta property="og:title" content="CoApp - AutoPackage Boilerplate File"/>
+    
+        <meta property="og:type" content="article"/>
+    
+    <meta property="og:image" content="http://coapp.org/images/logo-small.png"/>
+    <meta property="og:url" content="http://coapp.org/developers/boilerplate-autopkg.html"/>
+    <meta property="og:site_name" content="CoApp"/>
+    <meta property="og:admins" content="CoApp - fearthecowboy"/>
+
+    <meta name="docid" content="undefined" />
+    <meta name="srclocation" content="https://github.com/coapp/coapp.org/blob/master/src/dynamic/developers/boilerplate-autopkg.html.md" />
+
+    <!-- Icons -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+    <!-- Shims: IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script async src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Styles -->
+    <link href="/styles/style.css" rel="stylesheet"/>
+    <link href="/styles/prettify.css" rel="stylesheet"/>
+    <link href="/styles/mediaelementplayer.min.css" rel="stylesheet"  />
+    
+</head>
+<body >
+    
+    <!-- Scripts -->
+    <script src="/scripts/jquery-1.6.4.min.js"></script>
+    <script src="/scripts/prettify.js"></script>
+    <script src="/scripts/jquery.tweet.js"></script>
+    <script src="/scripts/mediaelement-and-player.js"></script>
+    <script src="/scripts/bootstrap/bootstrap-dropdown.js"></script>
+    <div id="fb-root"></div>
+      <script type="text/javascript">
+      (function() {
+        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+        po.src = 'https://apis.google.com/js/plusone.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+      })();
+      </script>
+      <script type="text/javascript">
+      (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-15630590-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    <script>
+        // $('#topbar').dropdown();
+    </script>
+    <!-- Markup -->
+    <div class="topbar" data-dropdown="dropdown">
+        <div class="fill">
+            <div class="container-fluid">
+                <h3><a href="/index.html"><image style="margin:0; padding:0; position:absolute; top:2px; left:-2px;" src="/images/logo-small_32x32.png"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CoApp</a></h3>
+                <ul>
+                      
+                        
+                        <li typeof="sioc:Page" about="/pages/news.html" class="">
+                            <a href="/pages/news.html" property="dc:title">News</a>
+                        </li>
+
+                        
+                      
+                        
+                        <li typeof="sioc:Page" about="/pages/releases.html" class="">
+                            <a href="/pages/releases.html" property="dc:title">Releases</a>
+                        </li>
+
+                        
+                      
+                        
+                        <li typeof="sioc:Page" about="/pages/tutorials.html" class="">
+                            <a href="/pages/tutorials.html" property="dc:title">Tutorials</a>
+                        </li>
+
+                        
+                      
+                        
+                        <li typeof="sioc:Page" about="/pages/reference.html" class="">
+                            <a href="/pages/reference.html" property="dc:title">Reference</a>
+                        </li>
+
+                        
+                      
+                        
+                        <li typeof="sioc:Page" about="/pages/about.html" class="">
+                            <a href="/pages/about.html" property="dc:title">About</a>
+                        </li>
+
+                        
+                    
+                </ul>
+                
+                
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+    <div class="container-fluid pushdown">
+        <div class="sidebar">
+            
+        </div> 
+        <section id="content" class="content">
+        <div class="spanonethird rightsidebox" > <!-- float:right; display: inline; veritical-align:top; -->
+            
+                
+                    <h2>Documentation Sprint</h2>
+
+<p>We're starting a documentation phase right now, since there's so much that people <em>can</em> do, but there's little documentation. </p>
+
+<p>Keep checking back daily to see what's new! </p>
+                
+                    <h4><u>In the twittersphere...</u></h4> 
+
+<p><div class="tweet"></div></p> 
+
+<div style="text-align: right;    "> 
+    <br> 
+    <a class="btn info" href="http://search.twitter.com/search?q=&ands=CoAppCommits&phrase=&ors=&nots=&tag=&lang=all&from=&to=&ref=&near=&within=15&units=mi&since=&until=&rpp=15" > 
+    Read more</a> <br><br><br></div> 
+
+<script type="text/javascript">  
+$(document).ready(function(){ 
+        $(".tweet").tweet({ 
+            query: "CoAppCommits", 
+
+            avatar_size: 48, 
+            count: 5, 
+
+            loading_text: "loading tweets...", 
+            refresh_interval: 60 
+        }); 
+    }); 
+</script>
+                
+            
+        </div> 
+            <div class="spantwothirds">
+            
+
+
+<span style="display:inline-block;">
+    <h1>AutoPackage Boilerplate File</h1>
+    <h4>Version:1</h4>
+</span>
+<span style="display:inline-block; float:right;">
+    <br><br>
+    <span style="margin-top:8px; height;100%; display:inline-block; "><g:plusone href="http://coapp.org/developers/boilerplate-autopkg.html"></g:plusone></span>
+    <div class="fb-like" style="top:-5px;" data-href="http://coapp.org/developers/boilerplate-autopkg.html" data-layout="button_count" data-show-faces="true" data-colorscheme="dark" data-font="tahoma"></div>
+</span>  
+
+<div id="post" class="post">
+    
+<p>
+<div class="highlight"><pre><span class="c1">///////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">//</span>
+<span class="c1">//  Boilerplate:  .autopkg file</span>
+<span class="c1">//</span>
+<span class="c1">//  Please copy and edit this file as appropriate for your package.</span>
+<span class="c1">//</span>
+<span class="c1">///////////////////////////////////////////////////////////////////////////</span>
+
+<span class="c1">/////////////////////////</span>
+<span class="c1">//</span>
+<span class="c1">//  �Imports�/developers/example-imports.html�</span>
+<span class="c1">//</span>
+<span class="c1">//  These work very much like C-style #include references, where the contents of</span>
+<span class="c1">//   imported files are effectively copied into this one when processing.</span>
+<span class="c1">//  Standard imports are:</span>
+<span class="c1">//   - version.inc -- Contains only a define of the package version.</span>
+<span class="c1">//   - compat.inc  -- Contains the current compatability policy for the package.</span>
+<span class="c1">//   - &lt;ID&gt;.inc    -- Contains any information expected to be common among all</span>
+<span class="c1">//                     packages you may build.  This often contains at least</span>
+<span class="c1">//                     an &#39;identity&#39; role.</span>
+<span class="c1">//</span>
+<span class="n">@import</span> <span class="s">&quot;�version.inc�/developers/example-imports.html�&quot;</span><span class="p">;</span>
+<span class="n">@import</span> <span class="s">&quot;�compat.inc�/developers/example-imports.html�&quot;</span> <span class="p">;</span>
+<span class="n">@import</span> <span class="s">&quot;�outercurve.inc�/developers/example-imports.html�&quot;</span><span class="p">;</span>
+
+<span class="c1">/////////////////////////</span>
+<span class="c1">//</span>
+<span class="c1">//  Defines</span>
+<span class="c1">//</span>
+<span class="c1">//  This section initializes custom variables to be used elsewhere in the document.</span>
+<span class="c1">//  Variables may be set to specific values or to conditionally resolved statements.</span>
+<span class="c1">//  As a general rule, inner variables to be resolved should be lowercase if </span>
+<span class="c1">//   expected to be input from the command line.</span>
+<span class="c1">//</span>
+<span class="c1">//  ** NEVER SET A VARIABLE BY SELF REFERENCE! **</span>
+<span class="c1">//  ** DOING SO WILL CAUSE AUTOPACKAGE TO LOOP FOREVER TRYING TO RESOLVE IT **</span>
+<span class="c1">//</span>
+<span class="c1">//  This is ok:   MyVar: &quot;${var??OptionA}&quot;;</span>
+<span class="c1">//  This is BAD:  other: &quot;${other??We&#39;ll never get here...}&quot;;</span>
+<span class="c1">//</span>
+<span class="cp">#define { </span>
+    <span class="n">flavor</span><span class="p">:</span> <span class="s">&quot;${comp??vc10}&quot;</span><span class="p">;</span> 
+    <span class="n">arch</span> <span class="p">:</span> <span class="s">&quot;${plat??x86}&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">/////////////////////////</span>
+<span class="c1">//</span>
+<span class="c1">//  Package Information</span>
+<span class="c1">//</span>
+<span class="c1">//  This section is required for all packages.  The </span>
+<span class="c1">//</span>
+<span class="n">package</span> <span class="p">{</span>
+    <span class="n">name</span><span class="p">:</span> <span class="s">&quot;MyPackage[${flavor}]&quot;</span><span class="p">;</span>
+    <span class="n">version</span><span class="p">:</span> <span class="s">&quot;${package-version}&quot;</span><span class="p">;</span>
+    <span class="n">arch</span> <span class="p">:</span> <span class="s">&quot;${arch}&quot;</span><span class="p">;</span>
+
+    <span class="n">display</span><span class="p">-</span><span class="n">name</span><span class="p">:</span> <span class="s">&quot;MyPackage&quot;</span><span class="p">;</span>
+    <span class="n">location</span><span class="p">:</span> <span class="s">&quot;&lt;a href=&#39;http://coapp.org/repository/${OutputFilename}&#39;&gt;http://coapp.org/repository/${OutputFilename}&lt;/a&gt;&quot;</span><span class="p">;</span>
+
+    <span class="n">feed</span><span class="p">:</span> <span class="s">&quot;&lt;a href=&#39;http://coapp.org/repository/packages.atom.xml&#39;&gt;http://coapp.org/repository/packages.atom.xml&lt;/a&gt;&quot;</span><span class="p">;</span>
+    <span class="n">publisher</span><span class="p">:</span> <span class="s">&quot;CoApp Project&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">/////////////////////////</span>
+<span class="c1">//</span>
+<span class="c1">//  License Descriptions</span>
+<span class="c1">//</span>
+<span class="c1">//  Adjust these to match the license(s) for your package.</span>
+<span class="c1">//  These will act as placeholders for use later in this document.</span>
+<span class="c1">//</span>
+<span class="n">license</span><span class="p">[</span><span class="n">Apache</span><span class="p">]</span> <span class="p">{</span>
+    <span class="n">license</span><span class="p">-</span><span class="n">url</span><span class="p">:</span> <span class="s">&quot;www.apache.org/licenses/LICENSE-2.0.html&quot;</span><span class="p">;</span>
+    <span class="n">license</span><span class="p">-</span><span class="n">type</span><span class="p">:</span> <span class="s">&quot;Apache&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">license</span><span class="p">[</span><span class="n">LGPL2</span><span class="p">]</span> <span class="p">{</span>
+    <span class="n">license</span><span class="p">-</span><span class="n">url</span><span class="p">:</span> <span class="s">&quot;&lt;a href=&#39;http://www.gnu.org/licenses/old-licenses/lgpl-2.0.html&#39;&gt;http://www.gnu.org/licenses/old-licenses/lgpl-2.0.html&lt;/a&gt;&quot;</span><span class="p">;</span>
+    <span class="n">license</span><span class="p">-</span><span class="n">type</span><span class="p">:</span> <span class="s">&quot;LGPL&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">/////////////////////////</span>
+<span class="c1">//</span>
+<span class="c1">//  Dependencies</span>
+<span class="c1">//</span>
+<span class="c1">//  These are examples of dependencies to this package.</span>
+<span class="c1">//  Items of note:</span>
+<span class="c1">//    - At present (devtools v1.2.0.108), do *NOT* specify all 4 parts of a dependency&#39;s version.</span>
+<span class="c1">//       Doing so will prevent CoApp from accepting a newer version of the package to qualify the dependency.</span>
+<span class="c1">//    - Be careful with the use of &quot;${Package.PublicKeyToken}&quot; for specifying the publisher to use.</span>
+<span class="c1">//       Using this instead of a specific token will require that that required package also be built by every publisher who builds this package.</span>
+<span class="c1">//    - For reference, the official CoApp public key token is:  1e373a58e25250cb</span>
+<span class="c1">//</span>
+<span class="n">requires</span> <span class="p">{</span>
+    <span class="n">package</span><span class="p">:</span> <span class="s">&quot;zlib[${flavor}]-1.2.5-${Package.Architecture}-${Package.PublicKeyToken}&quot;</span><span class="p">;</span>
+    <span class="n">package</span><span class="p">:</span> <span class="s">&quot;libiconv[${flavor}]-1.13.1-${Package.Architecture}-1e373a58e25250cb&quot;</span><span class="p">;</span>
+    <span class="n">package</span><span class="p">:</span> <span class="s">&quot;openssl[${flavor}]-1.0.0-${Package.Architecture}-1e373a58e25250cb&quot;</span><span class="p">;</span>
+    <span class="n">package</span><span class="p">:</span> <span class="s">&quot;libxml2[${flavor}]-2.7.8-${Package.Architecture}-1e373a58e25250cb&quot;</span><span class="p">;</span>
+    <span class="n">package</span><span class="p">:</span> <span class="s">&quot;lua[${flavor}]-5.2.0-${Package.Architecture}-1e373a58e25250cb&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">/////////////////////////</span>
+<span class="c1">//</span>
+<span class="c1">//  Package Metadata (general information)</span>
+<span class="c1">//</span>
+<span class="c1">//  Various general information about this package.  While not *strictly* required, it is VERY highly encouraged that as much of this as possible be provided.</span>
+<span class="c1">//</span>
+<span class="n">metadata</span> <span class="p">{</span>  
+    <span class="n">summary</span><span class="p">:</span> <span class="s">&quot;MyPackage&quot;</span><span class="p">;</span> <span class="c1">// or a more user-friendly name</span>
+    <span class="n">description</span><span class="p">:</span> <span class="s">@&quot;Description of MyPackage.&quot;</span><span class="p">;</span>
+    <span class="n">author</span><span class="p">-</span><span class="n">version</span> <span class="p">:</span> <span class="s">&quot;2.5 (beta)&quot;</span><span class="p">;</span> <span class="c1">// may contain alphanumeric characters, not limited to 4-part version</span>
+    <span class="n">bug</span><span class="p">-</span><span class="n">tracker</span><span class="p">:</span> <span class="s">&quot;&lt;a href=&#39;https://github.com/coapp-packages/MyPackage/issues&#39;&gt;https://github.com/coapp-packages/MyPackage/issues&lt;/a&gt;&quot;</span><span class="p">;</span>
+    <span class="n">stability</span> <span class="p">:</span> <span class="s">&quot;-10&quot;</span><span class="p">;</span> <span class="c1">// -100 to 100, 0 is considered &quot;normal&quot;/stable, higher is more stable</span>
+    <span class="n">licenses</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="n">Apache</span>
+    <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="c1">/////////////////////////</span>
+<span class="c1">//</span>
+<span class="c1">//  Signing Information</span>
+<span class="c1">//</span>
+<span class="c1">//  This section is only required if all relavent files were not already signed beforehand.</span>
+<span class="c1">//  It is generally included regardless because having it when not needed doesn&#39;t hurt anything.</span>
+<span class="c1">//</span>
+<span class="n">signing</span> <span class="p">{</span>
+    <span class="n">attributes</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="n">company</span><span class="p">=</span><span class="s">&quot;Outercurve Foundation&quot;</span><span class="p">,</span>
+        <span class="n">description</span><span class="p">=</span><span class="s">&quot;Description of MyPackage&quot;</span><span class="p">,</span>
+        <span class="n">product</span><span class="p">-</span><span class="n">name</span><span class="p">=</span><span class="s">&quot;MyPackage&quot;</span><span class="p">,</span>
+        <span class="n">product</span><span class="p">-</span><span class="n">version</span><span class="p">=</span><span class="s">&quot;${package-version}&quot;</span><span class="p">,</span>
+        <span class="n">file</span><span class="p">-</span><span class="n">version</span><span class="p">=</span><span class="s">&quot;${package-version}&quot;</span><span class="p">,</span>
+    <span class="p">};</span>
+
+    <span class="n">replace</span><span class="p">-</span><span class="n">signature</span><span class="p">:</span> <span class="k">true</span><span class="p">;</span> 
+    <span class="n">include</span><span class="p">:</span> <span class="p">{</span> 
+        <span class="n">files</span><span class="p">-</span><span class="n">to</span><span class="p">-</span><span class="n">sign</span>
+    <span class="p">};</span>    
+<span class="p">}</span>
+
+<span class="c1">/////////////////////////</span>
+<span class="c1">//</span>
+<span class="c1">//  Manifests</span>
+<span class="c1">//</span>
+<span class="c1">//  Anything in this package which will need to make calls to a dll in another </span>
+<span class="c1">//   package will need manifests generated and attached to look up where those</span>
+<span class="c1">//   library files are.</span>
+<span class="c1">//</span>
+<span class="c1">//  If there are multiple different sets of manifests that need to be added, this</span>
+<span class="c1">//   rule may be listed multiple times.  There is also nothing which prevents one</span>
+<span class="c1">//   manifest entry for each assembly being referenced, however that would take</span>
+<span class="c1">//   a great deal of space and reduce readability.  Doing so when not necessary</span>
+<span class="c1">//   is generally considered rude.</span>
+<span class="c1">//</span>
+<span class="n">manifest</span><span class="p">[</span><span class="n">arbitraryName</span><span class="p">]</span> <span class="p">{</span>
+    <span class="c1">// The &#39;assembly&#39; section lists all items in SxS which need to be referenced.</span>
+    <span class="n">assembly</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;zlib[${flavor}]&quot;</span><span class="p">,</span>
+        <span class="s">&quot;libiconv[${flavor}]&quot;</span><span class="p">,</span>
+        <span class="s">&quot;openssl[${flavor}]&quot;</span><span class="p">,</span>
+        <span class="s">&quot;lua[${flavor}]&quot;</span><span class="p">,</span>
+        <span class="s">&quot;libxml2[${flavor}]&quot;</span><span class="p">,</span>
+        <span class="s">&quot;MyLib[${flavor}]&quot;</span><span class="p">,</span>
+    <span class="p">};</span>
+
+    <span class="c1">// The &#39;include&#39; section lists files (or sets of files) which will need to</span>
+    <span class="c1">//  reference the above assemblies.</span>
+    <span class="n">include</span> <span class="p">:</span> <span class="p">{</span> 
+        <span class="n">exes</span><span class="p">,</span>
+        <span class="n">modules</span><span class="p">,</span>
+    <span class="p">};</span>
+<span class="p">}</span>
+<span class="n">manifest</span><span class="p">[</span><span class="n">OtherName</span><span class="p">]</span> <span class="p">{</span>
+    <span class="c1">// same with our library as with the exes, only we don&#39;t need to manifest with ourself</span>
+    <span class="n">assembly</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;zlib[${flavor}]&quot;</span><span class="p">,</span>
+        <span class="s">&quot;libiconv[${flavor}]&quot;</span><span class="p">,</span>
+        <span class="s">&quot;openssl[${flavor}]&quot;</span><span class="p">,</span>
+        <span class="s">&quot;lua[${flavor}]&quot;</span><span class="p">,</span>
+        <span class="s">&quot;libxml2[${flavor}]&quot;</span><span class="p">,</span>
+    <span class="p">};</span>
+
+    <span class="n">include</span> <span class="p">:</span> <span class="p">{</span> 
+        <span class="n">dlls</span><span class="p">,</span>
+    <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="c1">/////////////////////////</span>
+<span class="c1">//</span>
+<span class="c1">//  Assembly role</span>
+<span class="c1">//</span>
+<span class="c1">//  These are items that will need to be made available in SxS to be referenced</span>
+<span class="c1">//   by other software.  These files will ONLY be placed in SxS, not the </span>
+<span class="c1">//   application directory, so a manifest will be needed to reference them.</span>
+<span class="c1">//  If this package will contain multiple discrete assemblies/libraries that may</span>
+<span class="c1">//   need to be referenced seperately, this role may be listed multiple times</span>
+<span class="c1">//   with different assembly names.</span>
+<span class="c1">//</span>
+<span class="n">assembly</span><span class="p">[</span><span class="n">MyLib</span><span class="p">[</span>$<span class="p">{</span><span class="n">flavor</span><span class="p">}]]</span> <span class="p">{</span>
+    <span class="n">include</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="n">dlls</span>
+    <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="c1">/////////////////////////</span>
+<span class="c1">//</span>
+<span class="c1">//  Developer Library role</span>
+<span class="c1">//</span>
+<span class="c1">//  This role handles installing headers, link-libraries, and developer docs for</span>
+<span class="c1">//   a library.  While it is possible to have both an &#39;assembly&#39; and a</span>
+<span class="c1">//   &#39;developer-library&#39; role declared in the same package, doing so is considered</span>
+<span class="c1">//   very bad form, as it means the developer libraries will always be included</span>
+<span class="c1">//   when an end-user just needs to use the dll.</span>
+<span class="c1">//  Standard practice for a library is to seperate it into 3 packages:</span>
+<span class="c1">//   - End-user library (.dll)</span>
+<span class="c1">//   - developer library (link-libraries)</span>
+<span class="c1">//   - developer common files (header files and documentation)</span>
+<span class="c1">//</span>
+<span class="c1">//  The example roles below depict typical entries from dev and dev-common</span>
+<span class="c1">//   packages respectively.</span>
+<span class="c1">//  Please note that proper use of naming conventions is important in both cases.</span>
+<span class="c1">//</span>
+<span class="n">developer</span><span class="p">-</span><span class="n">library</span><span class="p">[</span><span class="n">MyLib</span><span class="p">[</span>$<span class="p">{</span><span class="n">flavor</span><span class="p">}]]</span> <span class="p">{</span>
+    <span class="n">libraries</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="n">libs</span><span class="p">,</span>
+    <span class="p">};</span>
+<span class="p">}</span>
+<span class="n">developer</span><span class="p">-</span><span class="n">library</span><span class="p">[</span><span class="n">MyLib</span><span class="p">]</span> <span class="p">{</span>
+    <span class="n">headers</span><span class="p">:</span> <span class="p">{</span> 
+        <span class="n">headers</span>
+    <span class="p">};</span>
+
+    <span class="n">docs</span><span class="p">:</span> <span class="p">{</span>
+        <span class="n">docs</span>
+    <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="c1">////////////////////</span>
+<span class="c1">//</span>
+<span class="c1">//  Application role</span>
+<span class="c1">//</span>
+<span class="c1">//  All files listed here will be included in the application directory.</span>
+<span class="c1">//</span>
+<span class="n">application</span> <span class="p">{</span>
+    <span class="n">include</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="n">exes</span><span class="p">,</span>
+        <span class="n">modules</span><span class="p">,</span>
+        <span class="n">logs</span><span class="p">,</span>
+    <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="c1">////////////////////</span>
+<span class="c1">//</span>
+<span class="c1">//  Package Composition</span>
+<span class="c1">//</span>
+<span class="c1">//  This rule lists file operations to be performed after all files have been</span>
+<span class="c1">//   installed according to any package roles listed.</span>
+<span class="c1">//</span>
+<span class="c1">//  For a full list of options here and how they work, see:</span>
+<span class="c1">//    &lt;a href=&#39;http://coapp.org/developers/autopackage.html#composition-rule&#39;&gt;http://coapp.org/developers/autopackage.html#composition-rule&lt;/a&gt;</span>
+<span class="c1">//</span>
+<span class="n">package</span><span class="p">-</span><span class="n">composition</span> <span class="p">{</span>
+    <span class="n">symlinks</span> <span class="p">:</span> <span class="p">{</span> 
+        <span class="n">exes</span> <span class="p">=&gt;</span> <span class="s">@&quot;${bin}\${each.Name}&quot;</span> <span class="p">=</span> <span class="s">@&quot;${packagedir}\${each.Name}&quot;</span><span class="p">;</span>
+    <span class="p">};</span>
+
+    <span class="n">file</span><span class="p">-</span><span class="n">copy</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="n">logs</span> <span class="p">=&gt;</span> <span class="s">&quot;${etc}\MyPackage\logs\${each.Name}&quot;</span><span class="p">;</span>
+    <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="c1">//////////////////</span>
+<span class="c1">//</span>
+<span class="c1">//  Files</span>
+<span class="c1">//</span>
+<span class="c1">//  These rules are used to more easily designate sets of files to be used elsewhere.</span>
+<span class="c1">//  For details on how this rule is used see:</span>
+<span class="c1">//    &lt;a href=&#39;http://coapp.org/developers/autopackage.html#files-rule&#39;&gt;http://coapp.org/developers/autopackage.html#files-rule&lt;/a&gt;</span>
+<span class="c1">//</span>
+<span class="n">files</span><span class="p">[</span><span class="n">files</span><span class="p">-</span><span class="n">to</span><span class="p">-</span><span class="n">sign</span><span class="p">]</span> <span class="p">{</span>
+    <span class="n">include</span><span class="p">:</span> <span class="p">{</span> 
+        <span class="n">dlls</span><span class="p">,</span>
+        <span class="n">exes</span><span class="p">,</span>
+        <span class="n">modules</span><span class="p">,</span>
+    <span class="p">};</span>    
+<span class="p">}</span>
+<span class="n">files</span><span class="p">[</span><span class="n">dlls</span><span class="p">]</span> <span class="p">{</span>
+    <span class="n">root</span><span class="p">:</span> <span class="s">@&quot;..\output\${flavor}\${arch}\Release&quot;</span><span class="p">;</span>
+
+    <span class="n">include</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;*.dll&quot;</span><span class="p">,</span>
+    <span class="p">};</span>
+
+    <span class="n">trim</span><span class="p">-</span><span class="n">path</span><span class="p">:</span> <span class="n">all</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="n">files</span><span class="p">[</span><span class="n">exes</span><span class="p">]</span> <span class="p">{</span>
+    <span class="n">root</span><span class="p">:</span> <span class="s">@&quot;..\output\${flavor}\${arch}\Release&quot;</span><span class="p">;</span>
+
+    <span class="n">include</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;a.exe&quot;</span><span class="p">,</span>
+        <span class="s">&quot;b.exe&quot;</span><span class="p">,</span>
+        <span class="s">&quot;MyProg.exe&quot;</span><span class="p">,</span>
+    <span class="p">};</span>
+
+    <span class="n">trim</span><span class="p">-</span><span class="n">path</span><span class="p">:</span> <span class="n">all</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="n">files</span><span class="p">[</span><span class="n">modules</span><span class="p">]</span> <span class="p">{</span>
+    <span class="n">root</span><span class="p">:</span> <span class="s">@&quot;..\output\${flavor}\${arch}\Release\modules&quot;</span><span class="p">;</span>
+
+    <span class="n">include</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;**.mod&quot;</span>
+    <span class="p">};</span>
+
+    <span class="n">trim</span><span class="p">-</span><span class="n">path</span><span class="p">:</span> <span class="n">minimal</span><span class="p">;</span>
+    <span class="n">destination</span><span class="p">:</span> <span class="s">&quot;modules&quot;</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="n">files</span><span class="p">[</span><span class="n">logs</span><span class="p">]</span> <span class="p">{</span>
+    <span class="n">root</span><span class="p">:</span> <span class="s">@&quot;..\init&quot;</span><span class="p">;</span>
+
+    <span class="n">include</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;MyProg.log&quot;</span><span class="p">,</span>
+    <span class="p">};</span>
+    <span class="n">destination</span><span class="p">:</span> <span class="s">&quot;logs&quot;</span><span class="p">;</span>
+    <span class="n">trim</span><span class="p">-</span><span class="n">path</span><span class="p">:</span> <span class="n">all</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="n">files</span><span class="p">[</span><span class="n">libs</span><span class="p">]</span> <span class="p">{</span>
+    <span class="n">root</span><span class="p">:</span> <span class="s">@&quot;..\output\${arch}\Release\&quot;</span><span class="p">;</span>
+
+    <span class="n">include</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;MyLib.lib&quot;</span><span class="p">,</span>
+    <span class="p">};</span>
+
+    <span class="n">trim</span><span class="p">-</span><span class="n">path</span><span class="p">:</span> <span class="n">all</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="n">files</span><span class="p">[</span><span class="n">headers</span><span class="p">]</span> <span class="p">{</span>
+    <span class="n">root</span><span class="p">:</span> <span class="s">@&quot;..\include&quot;</span><span class="p">;</span>
+    <span class="n">include</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;**.h&quot;</span>
+    <span class="p">};</span>
+
+    <span class="n">trim</span><span class="p">-</span><span class="n">path</span><span class="p">:</span><span class="n">minimal</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">files</span><span class="p">[</span><span class="n">docs</span><span class="p">]</span> <span class="p">{</span>
+    <span class="n">root</span><span class="p">:</span> <span class="s">@&quot;..\docs\&quot;</span><span class="p">;</span>
+    <span class="n">include</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;**&quot;</span>
+    <span class="p">};</span>
+
+    <span class="n">trim</span><span class="p">-</span><span class="n">path</span><span class="p">:</span><span class="n">minimal</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>
+
+</div>
+
+<script>
+$('video').mediaelementplayer({
+    enableAutosize: true,
+    features: ['playpause','progress','current','duration','volume','fullscreen']
+});
+</script>
+
+<!-- Disqus Comment System -->
+<div id="disqus_thread"><div id="dsq-content"></div></div>
+<ul id="dsq-comments"></ul>
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'coapp'; // required: replace example with your forum shortname
+
+    // The following are highly recommended additional parameters. Remove the slashes in front to use.
+    
+    var disqus_identifier = "/developers/boilerplate-autopkg.html/1";
+    var disqus_url = 'http://www.coapp.org/developers/boilerplate-autopkg.html?version=1';
+    var disqus_title = "AutoPackage Boilerplate File/1";
+    var disqus_developer = 0; 
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </div>
+        </section>
+    </div>  
+    <br>    
+    <div class="push" ></div>
+    </div>
+    <footer class="footer">
+        <div class="container-fluid">
+        <p  style="float:left;">&copy; CoApp Contributors, 2011. 
+        <br><sub>The source for this page can be found <a href="https://github.com/coapp/coapp.org/blob/master/src/dynamic/developers/boilerplate-autopkg.html.md">in the github repository.</a></sub>
+        </p>
+        <p style="float:right;">
+            This website was generated on Aug 25 2015 and has 185 documents
+        </p>
+        </div>
+    </footer>
+</body>
+</html>

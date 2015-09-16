@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html lange="en">
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <title>CoApp - Announcing CoApp PowerShell tools for NuGet 2.5</title>
+    <meta name="description" content="">
+    <meta name="author" content="Garrett Serack">
+
+    <meta property="og:title" content="CoApp - Announcing CoApp PowerShell tools for NuGet 2.5"/>
+    
+        <meta property="og:type" content="article"/>
+    
+    <meta property="og:image" content="http://coapp.org/images/logo-small.png"/>
+    <meta property="og:url" content="http://coapp.org/news/2013-04-26-Announcing-CoApp-Tools-For-NuGet.html"/>
+    <meta property="og:site_name" content="CoApp"/>
+    <meta property="og:admins" content="CoApp - fearthecowboy"/>
+
+    <meta name="docid" content="news:201304126" />
+    <meta name="srclocation" content="https://github.com/coapp/coapp.org/blob/master/src/dynamic/news/2013-04-26-Announcing-CoApp-Tools-For-NuGet.html.md" />
+
+    <!-- Icons -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+    <!-- Shims: IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script async src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Styles -->
+    <link href="/styles/style.css" rel="stylesheet"/>
+    <link href="/styles/prettify.css" rel="stylesheet"/>
+    <link href="/styles/mediaelementplayer.min.css" rel="stylesheet"  />
+    
+</head>
+<body >
+    
+    <!-- Scripts -->
+    <script src="/scripts/jquery-1.6.4.min.js"></script>
+    <script src="/scripts/prettify.js"></script>
+    <script src="/scripts/jquery.tweet.js"></script>
+    <script src="/scripts/mediaelement-and-player.js"></script>
+    <script src="/scripts/bootstrap/bootstrap-dropdown.js"></script>
+    <div id="fb-root"></div>
+      <script type="text/javascript">
+      (function() {
+        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+        po.src = 'https://apis.google.com/js/plusone.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+      })();
+      </script>
+      <script type="text/javascript">
+      (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-15630590-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    <script>
+        // $('#topbar').dropdown();
+    </script>
+    <!-- Markup -->
+    <div class="topbar" data-dropdown="dropdown">
+        <div class="fill">
+            <div class="container-fluid">
+                <h3><a href="/index.html"><image style="margin:0; padding:0; position:absolute; top:2px; left:-2px;" src="/images/logo-small_32x32.png"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CoApp</a></h3>
+                <ul>
+                      
+                        
+                        <li typeof="sioc:Page" about="/pages/news.html" class="">
+                            <a href="/pages/news.html" property="dc:title">News</a>
+                        </li>
+
+                        
+                      
+                        
+                        <li typeof="sioc:Page" about="/pages/releases.html" class="">
+                            <a href="/pages/releases.html" property="dc:title">Releases</a>
+                        </li>
+
+                        
+                      
+                        
+                        <li typeof="sioc:Page" about="/pages/tutorials.html" class="">
+                            <a href="/pages/tutorials.html" property="dc:title">Tutorials</a>
+                        </li>
+
+                        
+                      
+                        
+                        <li typeof="sioc:Page" about="/pages/reference.html" class="">
+                            <a href="/pages/reference.html" property="dc:title">Reference</a>
+                        </li>
+
+                        
+                      
+                        
+                        <li typeof="sioc:Page" about="/pages/about.html" class="">
+                            <a href="/pages/about.html" property="dc:title">About</a>
+                        </li>
+
+                        
+                    
+                </ul>
+                
+                
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+    <div class="container-fluid pushdown">
+        <div class="sidebar">
+            
+        </div> 
+        <section id="content" class="content">
+        <div class="spanonethird rightsidebox" > <!-- float:right; display: inline; veritical-align:top; -->
+            
+        </div> 
+            <div class="spantwothirds">
+            
+
+
+<span style="display:inline-block;">
+    <h1>Announcing CoApp PowerShell tools for NuGet 2.5</h1>
+    <p>Apr 26 2013 by <b>Garrett Serack</b> <a href="http://twitter.com/#!/fearthecowboy">@fearthecowboy</a><br>
+    <span class="label warning">Tags</span><span style="display:inline-block;">news</span></p>
+</span>
+<span style="display:inline-block; float:right;">
+    <br><br>
+    <span style="margin-top:8px; height;100%; display:inline-block; "><g:plusone href="http://coapp.org/news/2013-04-26-Announcing-CoApp-Tools-For-NuGet.html"></g:plusone></span>
+    <div class="fb-like" style="top:-5px;" data-href="http://coapp.org/news/2013-04-26-Announcing-CoApp-Tools-For-NuGet.html" data-layout="button_count" data-show-faces="true" data-colorscheme="dark" data-font="tahoma"></div>
+</span>  
+<hr>
+<div id="post" class="post">
+    <p>Let's start with the <em>Awesome</em> -- today, in collaboration with the <a href="http://blogs.msdn.com/b/vcblog/archive/2013/04/26/nuget-for-c.aspx">Visual C++ team</a> and the <a href="http://blog.nuget.org/">NuGet team</a> we're pleased to announce the availability of <a href="http://nuget.codeplex.com/releases">NuGet 2.5</a> and the <a href="http://coapp.org/pages/releases.html">CoApp PowerShell tools</a> beta.  </p>
+
+<p>This brings the power of NuGet's package management for software developers to C/C++ developers for the first time. </p>
+
+<h4>Getting Started building C/C++ packages</h4>
+
+<p>Before I ramble on into the sunset, let point out some stuff</p>
+
+<p>We have: <br />    - <a href="/pages/tutorials.html">Tutorials</a> and <br />    - <a href="/pages/reference.html">online reference</a> pages, <br />    - and even a <a href="https://www.youtube.com/watch?v=l4MAkR13JPA">video tutorial</a> you can watch.</p>
+
+<h4>When you need a bit more help...</h4>
+
+<p>Tim and I are nearly always hanging out during the day on IRC at <a href="irc://irc.freenode.net/#coapp">irc://irc.freenode.net/#coapp</a></p>
+
+<p>When stuff breaks, you can even <a href="https://github.com/coapp/coapp.powershell/issues">file a bug</a>.</p>
+
+<p>And if you're at you're wit's end you can:<br />    - tweet me <a href="https://twitter.com/fearthecowboy">@fearthecowboy</a> <br />    - or heck, even just email me directly: <a href="mailto:&#103;&#97;&#114;&#114;&#101;&#116;&#116;&#115;@&#109;&#105;&#99;&#114;&#111;&#115;&#111;&#102;&#116;.&#99;&#111;&#109;">&#103;&#97;&#114;&#114;&#101;&#116;&#116;&#115;@&#109;&#105;&#99;&#114;&#111;&#115;&#111;&#102;&#116;.&#99;&#111;&#109;</a> -- (brave, eh?)</p>
+
+<h4>And one more thing...</h4>
+
+<p><div class="alert-message block-message success"><br />    <p><b>Open Source Hackathon</b><br/></p>
+
+<p>If you're in the Pacific Northwest, or can be on <b>May 10th and 11th</b>, we're holding a free-to-anyone <a style="color:blue; text-decoration:underline;" href="http://coapp.org/news/2013-04-19-Northwest-Hackathon.html">Open-Source Hackathon</a> where the <B>NuGet </b>folks, the <b>CoApp</b> folks and whomever else I can get to show up, will be hanging out, where we'll be working hard to produce packages for NuGet. <br/><br/>We have an open invitation for everyone to come and help us out, or show up and hack away on some other bits of open source software. Food, drinks, fun... what more could you want?<br /></p><br /></div ></p>
+
+<h3>And now, the rest of the story.</h3>
+
+<p><center> ================== </center></p>
+
+<h3>It's been a long time...</h3>
+
+<p>Up till now, NuGet has exclusively supported <strong>.NET</strong> and <strong>Web</strong> developers in packaging reusable libraries and components.  CoApp's original goal was to provide this for native developers, and while we were making great headway on this, I was forced to think about somethin' my pappy always used to tell me: <i><b>"If you find yourself in a hole, the first thing to do is stop diggin'."</b></i>... The trouble is, your not always sure you're in a hole until you get it fairly deep.</p>
+
+<p>So, last fall, I stopped coding for a bit...  I looked long and hard at NuGet and then it hit me--we need to <em>mesh</em> with these folks. They've got the integration with Visual Studio, they've got great <a href="http://nuget.org/packages">package discovery</a> and a <a href="http://nuget.org/">phenomenal number of packages</a>. We don't need a <em>second</em> way to do this, we need there to be one great way for developers to get packages and install them regardless if they are Native or Managed developers.</p>
+
+<p>At that point we started gettin' together folks all around and take a long hard look if NuGet could be used for packaging native libraries. Of course, C/C++ libraries are nothing like .NET libraries. While .NET developers have many different .NET frameworks to deal, with the clean way that .NET assemblies work, the problem scope is at least somewhat manageable. In the native world, we have header files, .LIB files, .DLLs ... and on top of that we have so very many different build variations. <strong>Platform</strong> <em>(x86,x64,Arm,IA64)</em> , <strong>Toolset</strong> <em>(VC11,VC10,VC9,VC8,VC7,VC6,GCC... )</em>, <strong>Configuration</strong> <em>(Release,Debug)</em>, <strong>Linkage</strong> <em>(Dynamic, Static, LTCG, SxS)</em>, <strong>Application Type</strong> <em>(Desktop, WinRT, Phone, KernelDriver, UserModeDriver)</em>, and even <strong>CallingConventions</strong> <em>(cdecl, stdcall, etc)</em>.  Worse yet, individual libraries can have their own variants--sometimes pivoting on things you could never predict.</p>
+
+<p>We took a long hard look at the <a href="http://j.mp/17kDnZS">ExtensionSDK model</a>, and tried really hard to intersect that with NuGet, but there were far too many complications and scenarios that we were not sure we'd be able to handle.  Took a couple steps back and try again.</p>
+
+<p>If we kept the things that NuGet had to change down to an absolute minimum, we'd have to make sure that when packages got installed Visual Studio projects could easily integrate things like Include folders, Link libraries, managing outputs and content inclusion, and ... really, anything else the package creator needed to do to let someone use the fruits of their labor.</p>
+
+<p>I knew this meant creating MSBuild project files inside the package. Now, if you've ever taken a long hard look at <a href="http://msdn.microsoft.com/en-us/library/0k6kkbsd.aspx">MSBuild</a>, you'd realize that it's an amazingly powerful build system, but driven by a XML-based format that can be ... <em>tricky</em> to play with. Hand-crafting these files is essentially a non-starter, since the complexity of what the package creator has to do grows exponentially as the number of different variations grows. Never mind the fact that simple mistakes are easy to make in XML, and you have to have a fairly intimate knowledge of the format to make sure it's going to work for a wide audience.</p>
+
+<p><center> ================== </center></p>
+
+<h3>Gettin' from there to here...</h3>
+
+<p>I was pretty sure that I could generate MSBuild project files, but the trick was making it <strong>easy</strong>. </p>
+
+<p>In January of this year, I started sketching out what information a packager would need to specify. And how could they articulate that information in a way that wasn't burdensome? And just <strong>how</strong> are we going to make it so that we can have a completely flexible means for packagers to say "<em>these</em> files are for <em>this</em> purpose, but only when <em>this</em> set of configurations is true ?</p>
+
+<p>Earlier CoApp tools have used a file format that we called "Property Sheets" -- it's an evolution of an idea that I had years ago of using a format like CSS style sheets.  It's far more readable than XML, and not just simply a data serialization format like JSON -- the structure of the document imparts meaning.  Plus, the parser can be made extremely flexible, which makes it easier for humans to type stuff in, since they don't have to follow excessively pedantic rules for quoting values, or using <code>,</code> in a list where <code>;</code> could be just as recognizable. I also knew that I needed to be able to map concepts in the Property Sheet to an arbitrary model like MSBuild, without having to modify how the MSBuild data model worked. </p>
+
+<p>The rewriting I had to do, would take me about two or three weeks I figured, but turned out to be closer to 8 or 9. After that, it's all downhill, right?</p>
+
+<p><center> ================== </center></p>
+
+<h3>But our time is finally here...</h3>
+
+<p>At that point, I had a rough generator working, and we were rapidly approaching the NuGet 2.5 release date. The NuGet folks have been absolutely awesome in making sure that we're gonna make all this work, and I don't want to drop the ball.  Tim and I have been workin' like crazy to try and deal with all the different scenarios, and even though we're <em>aware</em> of pretty much all of them, we were still fighting to actually vet and validate them.  And it seems that each one has it's own quirks, and requires yet another special condition or specific generation feature.</p>
+
+<p>Yet, we've prevailed. We've <a href="/pages/releases.html">published the tools</a>, and while there are still many things to add, fix and enhance, I think we're finally on solid ground.</p>
+</div>
+
+<!-- Disqus Comment System -->
+<div id="disqus_thread"><div id="dsq-content"></div></div>
+<ul id="dsq-comments"></ul>
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'coapp'; // required: replace example with your forum shortname
+
+    // The following are highly recommended additional parameters. Remove the slashes in front to use.
+    
+    var disqus_identifier = '/news/2013-04-26-Announcing-CoApp-Tools-For-NuGet.html';
+    var disqus_url = 'http://www.coapp.org/news/2013-04-26-Announcing-CoApp-Tools-For-NuGet.html';
+    var disqus_title = "Announcing CoApp PowerShell tools for NuGet 2.5";
+    var disqus_developer = 0; 
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </div>
+        </section>
+    </div>  
+    <br>    
+    <div class="push" ></div>
+    </div>
+    <footer class="footer">
+        <div class="container-fluid">
+        <p  style="float:left;">&copy; CoApp Contributors, 2011. 
+        <br><sub>The source for this page can be found <a href="https://github.com/coapp/coapp.org/blob/master/src/dynamic/news/2013-04-26-Announcing-CoApp-Tools-For-NuGet.html.md">in the github repository.</a></sub>
+        </p>
+        <p style="float:right;">
+            This website was generated on Aug 25 2015 and has 185 documents
+        </p>
+        </div>
+    </footer>
+</body>
+</html>
